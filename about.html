@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Suba Portfolio</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui;
+      background: #f7fafc;
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP NAV BAR */
+    .topbar {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      width: 100%;
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
+    }
+
+    .footer-logo-text {
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -0.4px;
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      font-size: 16px;
+      color: rgba(0,0,0,0.55);
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .top-nav a:hover {
+      color: rgba(0,0,0,0.85);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .social-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.06);
+      font-size: 11px;
+      color: rgba(0,0,0,0.7);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .top-nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    /* ABOUT SECTION */
+    .about-wrapper {
+      max-width: 1200px;
+      margin: 70px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-left h1 {
+      font-size: 46px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .about-left h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .about-left p {
+      color: #555;
+      font-size: 17px;
+      max-width: 620px;
+    }
+
+    /* right column cards */
+    .about-right h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .school-card {
+      padding: 18px 20px;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 10px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      font-weight: 500;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .school-card span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Interests section */
+    .interests-section {
+      max-width: 1200px;
+      margin: 90px auto;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .interests-section .eyebrow {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+
+    .interests-section h2 {
+      font-size: 32px;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .interests-section > p {
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .subheading {
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 26px;
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 26px;
+      margin-top: 30px;
+    }
+
+    .interest-box {
+      background: white;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      padding: 26px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.05);
+      transition: 0.3s;
+    }
+
+    .interest-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    }
+
+    /* pinterest gallery */
+    .pinterest-gallery {
+      column-count: 3;
+      column-gap: 16px;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .pin {
+      margin-bottom: 16px;
+      break-inside: avoid;
+    }
+
+    .pin img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    @media(max-width:800px){ .pinterest-gallery{column-count:2;} }
+    @media(max-width:500px){ .pinterest-gallery{column-count:1;} }
+
+    /* HERO FOOTER */
+    .hero {
+      position: relative;
+      height: 500px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      z-index:1;
+    }
+
+    .hero-content {
+      width:100%;
+      padding:80px 120px;
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index:2;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-nav {
+      display:flex;
+      gap:48px;
+    }
+
+    .col {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .col h3 {
+      color:white;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .col a {
+      color:rgba(255,255,255,0.7);
+      font-size:15px;
+      text-decoration:none;
+    }
+
+    @media(max-width: 900px){
+      .about-wrapper{grid-template-columns:1fr;}
+      .interest-grid{grid-template-columns:1fr;}
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-img"></div>
+      <span class="footer-logo-text">Namedly</span>
+    </div>
+
+    <nav class="top-nav">
+      <a href="about.html">About me</a>
+      <a href="photography.html">Photography</a>
+      <a href="work.html">My Work</a>
+    </nav>
+
+    <nav class="footer-social">
+      <a class="social-circle">in</a>
+      <a class="social-circle">ig</a>
+      <a class="social-circle">yt</a>
+    </nav>
+  </div>
+</header>
+<section class="about-wrapper">
+
+  <div class="about-left">
+    <h1>Hi Again!</h1>
+    <h3>Here I will go a little more into me...</h3>
+
+    <p>
+      I’m currently studying Information Technology and Marketing – two fields that sit
+      right between logic and creativity. I love working with visuals, photography,
+      editing, UI/UX thinking and design.<br><br>
+      Creativity isn’t just visuals – it’s problem-solving, emotion, aesthetics,
+      storytelling, and finding your own voice. I’m still figuring it out, but I’m
+      slowly building a style that feels like me.
+    </p>
+  </div>
+
+  <div class="about-right">
+    <h2>My education</h2>
+
+    <div class="school-card">
+      Cavendish Road SHS
+      <span>2017–2022</span>
+    </div>
+
+    <div class="school-card">
+      Queensland University of Technology
+      <span>2023–2027</span>
+    </div>
+  </div>
+
+</section>
+
+<section class="interests-section">
+  <p class="eyebrow">Eyebrow text to label this content</p>
+
+  <h2>A headline for some text</h2>
+  <p>
+    Writing for websites is both simple and complex. You just say what you mean,
+    in your own words, but you also make space for feeling and intention.
+  </p>
+
+  <h3 class="subheading">My interests</h3>
+
+  <div class="interest-grid">
+
+    <div class="interest-box">
+      <img src="https://placehold.co/40x40" alt="">
+      <h4>Skills</h4>
+      <p>Photography, video editing, visual design and storytelling.</p>
+    </div>
+
+    <div class="interest-box">
+      <img src="https://placehold.co/40x40" alt="">
+      <h4>Softwares</h4>
+      <p>Canva, CapCut, Lightroom, Figma and a growing list of tools.</p>
+    </div>
+
+    <div class="interest-box">
+      <img src="https://placehold.co/40x40" alt="">
+      <h4>Where you can find me</h4>
+      <p>Usually behind a camera, editing something, or planning the next idea.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="pinterest-gallery">
+  <div class="pin">
+    <img src="https://placehold.co/400x500" alt="">
+  </div>
+  <div class="pin">
+    <img src="https://placehold.co/400x300" alt="">
+  </div>
+  <div class="pin">
+    <img src="https://placehold.co/400x600" alt="">
+  </div>
+  <div class="pin">
+    <img src="https://placehold.co/400x450" alt="">
+  </div>
+</section>
+
+<section class="hero">
+
+  <img class="hero-bg" src="https://picsum.photos/2000/1200" alt="footer background">
+
+  <div class="hero-content">
+
+    <h1 style="color:white;">Namedly</h1>
+
+    <div class="hero-nav">
+
+      <div class="col">
+        <h3>Platform</h3>
+        <a>Individuals</a>
+        <a>Teams</a>
+        <a>Admins</a>
+        <a>Developers</a>
+      </div>
+
+      <div class="col">
+        <h3>Features</h3>
+        <a>Core features</a>
+        <a>Pro experience</a>
+        <a>Integrations</a>
+      </div>
+
+      <div class="col">
+        <h3>Learn more</h3>
+        <a>Blog</a>
+        <a>Case studies</a>
+        <a>Customer stories</a>
+        <a>Best practices</a>
+      </div>
+
+      <div class="col">
+        <h3>Support</h3>
+        <a>Contact</a>
+        <a>Support</a>
+        <a>Legal</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

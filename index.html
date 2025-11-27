@@ -5,11 +5,9 @@
   <title>Suba Portfolio</title>
 
   <style>
-    /* ---------- RESET + BASE ---------- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui;
       background: #f7fafc;
       color: #111827;
       min-height: 100vh;
@@ -17,14 +15,7 @@
       flex-direction: column;
     }
 
-    main {
-      flex: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 16px;
-    }
-
-    /* ---------- TOP NAV BAR ---------- */
+    /* TOP NAV BAR */
     .topbar {
       border-bottom: 1px solid rgba(0,0,0,0.1);
       width: 100%;
@@ -44,7 +35,6 @@
       gap: 32px;
     }
 
-    /* Logo + name */
     .footer-brand {
       display: flex;
       align-items: center;
@@ -64,8 +54,7 @@
       letter-spacing: -0.4px;
     }
 
-    /* Nav links */
-    .footer-nav {
+    .top-nav {
       display: flex;
       gap: 32px;
       font-weight: 500;
@@ -73,16 +62,15 @@
       color: rgba(0,0,0,0.55);
     }
 
-    .footer-nav a {
+    .top-nav a {
       text-decoration: none;
       color: inherit;
     }
 
-    .footer-nav a:hover {
+    .top-nav a:hover {
       color: rgba(0,0,0,0.85);
     }
 
-    /* Social links */
     .footer-social {
       display: flex;
       gap: 24px;
@@ -98,116 +86,231 @@
       border-radius: 999px;
       background: rgba(0,0,0,0.06);
       font-size: 11px;
-      text-transform: uppercase;
-      text-decoration: none;
       color: rgba(0,0,0,0.7);
+      text-decoration: none;
     }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
       }
-
-      .footer-nav {
+      .top-nav {
         flex-direction: column;
         gap: 16px;
       }
+    }
 
-      .footer-social {
-        gap: 16px;
+    /* HERO (first) */
+    .feature {
+      display: flex;
+      gap: 64px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 120px 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-img img {
+      width: 420px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    @media (max-width:768px) {
+      .feature {
+        padding: 80px 24px;
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .feature-img img {
+        width: 100%;
+        height: auto;
       }
     }
-/* HERO SECTION */
-.feature {
-  display: flex;
-  gap: 64px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 120px 64px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
-.feature-text h4 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
+    /* PHOTO */
+    .photo-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
 
-.feature-text p {
-  font-size: 18px;
-  color: rgba(0,0,0,0.55);
-  line-height: 1.45;
-  max-width: 500px;
-}
+    .photo-gallery {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
 
-.feature-img img {
-  width: 420px;
-  height: 420px;
-  border-radius: 16px;
-  object-fit: cover;
-}
+    .photo-box {
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(135deg, #ccc, #aaa);
+      border-radius: 16px;
+    }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-  .feature {
-    padding: 80px 24px;
-    flex-direction: column-reverse;
-    text-align: center;
-  }
+    @media (max-width:768px) {
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
 
-  .feature-img img {
-    width: 100%;
-    height: auto;
-  }
-}
+    /* BOTTOM HERO FOOTER */
+    .hero {
+      position: relative;
+      height: 500px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      z-index:1;
+    }
+
+    .hero-content {
+      width:100%;
+      padding:80px 120px;
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index:2;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-nav {
+      display:flex;
+      gap:48px;
+    }
+
+    .col {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .col h3 {
+      color:white;
+      font-size:16px;
+      font-weight:600;
+    }
+
+    .col a {
+      color:rgba(255,255,255,0.7);
+      font-size:15px;
+      text-decoration:none;
+    }
 
   </style>
 </head>
 
 <body>
 
-  <!-- ---------- TOP NAVIGATION BAR ---------- -->
-  <header class="topbar">
-    <div class="topbar-inner">
+<header class="topbar">
+  <div class="topbar-inner">
 
-      <!-- Left: Brand -->
-      <div class="footer-brand">
-        <div class="footer-logo-img"></div>
-        <span class="footer-logo-text">Namedly</span>
-      </div>
-
-      <!-- Middle: Navigation -->
-      <nav class="footer-nav">
-        <a href="#about">About me</a>
-        <a href="#photography">Photography</a>
-        <a href="#work">My Work</a>
-      </nav>
-
-      <!-- Right: Social links -->
-      <nav class="footer-social">
-        <a href="#" class="social-circle">in</a>
-        <a href="#" class="social-circle">ig</a>
-        <a href="#" class="social-circle">yt</a>
-      </nav>
-
+    <div class="footer-brand">
+      <div class="footer-logo-img"></div>
+      <span class="footer-logo-text">Namedly</span>
     </div>
-  </header>
 
-  <!-- ---------- PAGE CONTENT ---------- -->
+    <nav class="top-nav">
+      <a href="#about">About me</a>
+      <a href="#photography">Photography</a>
+      <a href="#work">My Work</a>
+    </nav>
+
+    <nav class="footer-social">
+      <a class="social-circle">in</a>
+      <a class="social-circle">ig</a>
+      <a class="social-circle">yt</a>
+    </nav>
+
+  </div>
+</header>
+
+
 <section class="feature">
   <div class="feature-text">
     <h4>Hi My name is Subathie!</h4>
-    <p>Call out a feature, benefit, or value of your site, then link to a page where people can learn more about it.</p>
+    <p>Call out a feature, benefit, or value.</p>
   </div>
 
   <div class="feature-img">
-    <img src="images/hero.png" alt="Hero Image">
+    <img src="images/hero.png">
   </div>
 </section>
 
+
+<section class="photo-section">
+  <div class="photo-text">
+    <h2>Snippet of my photography</h2>
+    <p>Call out a feature.</p>
+    <a class="photo-btn">Go to photography page</a>
+  </div>
+
+  <div class="photo-gallery">
+    <div class="photo-box"></div>
+    <div class="photo-box"></div>
+    <div class="photo-box"></div>
+    <div class="photo-box"></div>
+  </div>
+</section>
+
+
+<section class="hero">
+
+  <img class="hero-bg" src="https://picsum.photos/2000/1200">
+
+  <div class="hero-content">
+
+    <h1 style="color:white;">Namedly</h1>
+
+    <div class="hero-nav">
+
+      <div class="col">
+        <h3>Platform</h3>
+        <a>Individuals</a>
+        <a>Teams</a>
+        <a>Admins</a>
+        <a>Developers</a>
+      </div>
+
+      <div class="col">
+        <h3>Features</h3>
+        <a>Core features</a>
+        <a>Pro experience</a>
+        <a>Integrations</a>
+      </div>
+
+      <div class="col">
+        <h3>Learn more</h3>
+        <a>Blog</a>
+        <a>Case studies</a>
+        <a>Customer stories</a>
+        <a>Best practices</a>
+      </div>
+
+      <div class="col">
+        <h3>Support</h3>
+        <a>Contact</a>
+        <a>Support</a>
+        <a>Legal</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 </body>
 </html>

@@ -14,220 +14,94 @@ body {
   color: #111827;
 }
 
+/* ---------- NAVBAR ---------- */
+.topbar {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  width: 100%;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    /* TOP NAV BAR */
-    .topbar {
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      width: 100%;
-      background: #ffffff;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .topbar-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 24px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .footer-logo-img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
-    }
-
-    .footer-logo-text {
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.4px;
-    }
-
-    .top-nav {
-      display: flex;
-      gap: 32px;
-      font-weight: 500;
-      font-size: 16px;
-      color: rgba(0,0,0,0.55);
-    }
-
-    .top-nav a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .top-nav a:hover {
-      color: rgba(0,0,0,0.85);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.06);
-      font-size: 11px;
-      color: rgba(0,0,0,0.7);
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .top-nav {
-        flex-direction: column;
-        gap: 16px;
-      }
-    }
-/* ---------- PAGE TITLE ---------- */
-.page-title {
+.topbar-inner {
   max-width: 1100px;
-  margin: 80px auto 40px;
-  padding: 0 16px;
-}
-
-.page-title h1 {
-  font-size: 42px;
-  font-weight: 700;
-}
-
-/* ---------- PHOTOGRAPHY GRID ---------- */
-.photo-wrapper {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 16px 120px;
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.photo-card {
-  background: white;
-  border-radius: 14px;
-  padding: 18px;
+  padding: 24px 16px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,.05);
-  transition: .2s;
-}
-
-.photo-card:hover {
-  transform: translateY(-4px);
-}
-
-.photo-card img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.photo-text h4 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.photo-text p {
-  font-size: 16px;
-  color: rgba(0,0,0,.6);
-}
-
-/* ---------- FOOTER HERO ---------- */
-.hero {
-  position: relative;
-  height: 480px;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 120px;
-}
-
-.hero-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  background: rgba(0,0,0,.4);
-  padding: 80px 120px;
-  height: 100%;
-  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 32px;
 }
 
-.hero h1 {
-  color: white;
-  font-size: 36px;
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
+}
+
+.footer-logo-text {
   font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.4px;
 }
 
-.hero-nav {
+.top-nav {
   display: flex;
-  gap: 40px;
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.col h3 {
+  gap: 32px;
+  font-weight: 500;
   font-size: 16px;
-  font-weight: 600;
-  color: white;
+  color: rgba(0,0,0,0.55);
 }
 
-.col a {
-  font-size: 14px;
-  color: rgba(255,255,255,.7);
+.top-nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-nav a:hover {
+  color: rgba(0,0,0,0.85);
+}
+
+.footer-social {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.social-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.06);
+  font-size: 11px;
+  color: rgba(0,0,0,0.7);
   text-decoration: none;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media(max-width: 900px) {
-  .photo-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .topbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .hero-content {
+  .top-nav {
     flex-direction: column;
-    gap: 30px;
-    padding: 50px;
+    gap: 16px;
   }
 }
+
+/* ---------- HEADER SECTION ---------- */
 .mockup-section {
   max-width: 1200px;
   margin: 120px auto;
@@ -258,21 +132,7 @@ body {
   line-height: 1.6;
 }
 
-/* Responsive */
-@media(max-width: 900px){
-  .mockup-section {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .mockup-img img {
-    height: auto;
-  }
-
-  .mockup-text h2 {
-    font-size: 36px;
-  }
-}
+/* ---------- BENTO ─ 3 CARDS ---------- */
 .bento-section {
   padding: 100px 60px;
   max-width: 1400px;
@@ -313,12 +173,65 @@ body {
   line-height: 1.5;
 }
 
-/* Sizing variations */
-.bento-card.small img  { height: 280px; }
-.bento-card.medium img { height: 340px; }
-.bento-card.large img  { height: 390px; }
+/* ---------- FOOTER HERO (same as index) ---------- */
+.hero {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
 
+.hero-bg {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  z-index:1;
+}
 
+.hero-content {
+  width:100%;
+  padding:80px 120px;
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index:2;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-nav {
+  display:flex;
+  gap:48px;
+}
+
+.col {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.col h3 {
+  color:white;
+  font-size:16px;
+  font-weight:600;
+}
+
+.col a {
+  color:rgba(255,255,255,0.7);
+  font-size:15px;
+  text-decoration:none;
+}
+
+@media(max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
+  }
+}
 </style>
 </head>
 
@@ -344,8 +257,9 @@ body {
     </nav>
   </div>
 </header>
-<section class="mockup-section">
 
+
+<section class="mockup-section">
   <div class="mockup-img">
     <img src="images/mockup-1.png" alt="Mockup example">
   </div>
@@ -355,65 +269,73 @@ body {
     <p>Trying to find experience and grow my work is difficult so to showcase my skills 
     I’ve done a few mockups of posters, graphic designs and videos of made-up brand campaigns.</p>
   </div>
-
 </section>
+
 
 <section class="bento-section">
+  <ul class="bento-grid">
 
-    <ul class="bento-grid">
+    <li class="bento-card small">
+      <img src="images/photo1.png" alt="">
+      <h3>A tiny card</h3>
+      <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
+    </li>
 
-        <li class="bento-card small">
-            <img src="images/photo1.png" alt="">
-            <h3>A tiny card</h3>
-            <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
-        </li>
+    <li class="bento-card medium">
+      <img src="images/photo2.png" alt="">
+      <h3>A wider card</h3>
+      <p>This one stretches quite a bit. Hello, larger card! What do you have to say and share?</p>
+    </li>
 
-        <li class="bento-card medium">
-            <img src="images/photo2.png" alt="">
-            <h3>A wider card</h3>
-            <p>This one stretches quite a bit. Hello, larger card! What do you have to say and share?</p>
-        </li>
+    <li class="bento-card large">
+      <img src="images/photo3.png" alt="">
+      <h3>The longest card</h3>
+      <p>This one stretches quite a bit. That’s probably because it’s the most important one.</p>
+    </li>
 
-        <li class="bento-card large">
-            <img src="images/photo3.png" alt="">
-            <h3>The longest card</h3>
-            <p>This one stretches quite a bit. That’s probably because it’s the most important one.</p>
-        </li>
-
-    </ul>
-
+  </ul>
 </section>
 
 
-  <div class="hero-content">
-    <h1>Namedly</h1>
+<section class="hero">
+  <img class="hero-bg" src="https://picsum.photos/2000/1200">
 
-    <nav class="hero-nav">
+  <div class="hero-content">
+    <h1 style="color:white;">Namedly</h1>
+
+    <div class="hero-nav">
+
       <div class="col">
         <h3>Platform</h3>
         <a>Individuals</a>
         <a>Teams</a>
         <a>Admins</a>
+        <a>Developers</a>
       </div>
 
       <div class="col">
         <h3>Features</h3>
         <a>Core features</a>
         <a>Pro experience</a>
+        <a>Integrations</a>
       </div>
 
       <div class="col">
         <h3>Learn more</h3>
         <a>Blog</a>
         <a>Case studies</a>
+        <a>Customer stories</a>
+        <a>Best practices</a>
       </div>
 
       <div class="col">
         <h3>Support</h3>
         <a>Contact</a>
+        <a>Support</a>
         <a>Legal</a>
       </div>
-    </nav>
+
+    </div>
   </div>
 </section>
 

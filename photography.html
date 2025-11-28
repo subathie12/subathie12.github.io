@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Photography | Suba Portfolio</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui;
+  background: #f7fafc;
+  color: #111827;
+}
+
+/* ---------- NAVBAR ---------- */
+.topbar {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  width: 100%;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
+}
+
+.footer-logo-text {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.4px;
+}
+
+.top-nav {
+  display: flex;
+  gap: 32px;
+  font-size: 16px;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: rgba(0,0,0,.55);
+}
+
+.top-nav a:hover {
+  color: black;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-circle {
+  background: rgba(0,0,0,.1);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* ---------- PAGE TITLE ---------- */
+.page-title {
+  max-width: 1100px;
+  margin: 80px auto 40px;
+  padding: 0 16px;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* ---------- PHOTOGRAPHY GRID ---------- */
+.photo-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 120px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  transition: .2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.photo-text h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.photo-text p {
+  font-size: 16px;
+  color: rgba(0,0,0,.6);
+}
+
+/* ---------- FOOTER HERO ---------- */
+.hero {
+  position: relative;
+  height: 480px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 120px;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,.4);
+  padding: 80px 120px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.col h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.col a {
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-img"></div>
+      <span class="footer-logo-text">Namedly</span>
+    </div>
+
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="photography.html">Photography</a>
+      <a href="work.html">Work</a>
+    </nav>
+
+    <nav class="footer-social">
+      <a class="social-circle">in</a>
+      <a class="social-circle">ig</a>
+      <a class="social-circle">yt</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-title">
+  <h1>Photography</h1>
+</div>
+
+<section class="photo-wrapper">
+
+  <div class="photo-grid">
+
+    <div class="photo-card">
+      <img src="https://picsum.photos/700/450">
+      <div class="photo-text">
+        <h4>A wider card</h4>
+        <p>This one stretches quite a bit.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="https://picsum.photos/1000/450">
+      <div class="photo-text">
+        <h4>The longest card</h4>
+        <p>Call out something important.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="hero">
+  <img class="hero-bg" src="https://picsum.photos/2000/1200">
+
+  <div class="hero-content">
+    <h1>Namedly</h1>
+
+    <nav class="hero-nav">
+      <div class="col">
+        <h3>Platform</h3>
+        <a>Individuals</a>
+        <a>Teams</a>
+        <a>Admins</a>
+      </div>
+
+      <div class="col">
+        <h3>Features</h3>
+        <a>Core features</a>
+        <a>Pro experience</a>
+      </div>
+
+      <div class="col">
+        <h3>Learn more</h3>
+        <a>Blog</a>
+        <a>Case studies</a>
+      </div>
+
+      <div class="col">
+        <h3>Support</h3>
+        <a>Contact</a>
+        <a>Legal</a>
+      </div>
+    </nav>
+  </div>
+</section>
+
+</body>
+</html>

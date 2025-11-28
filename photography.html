@@ -5,16 +5,10 @@
 <title>Photography | Suba Portfolio</title>
 
 <style>
-/* ---------- GLOBAL ---------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui; background: #f7fafc; color: #111; }
 
-body {
-  font-family: system-ui;
-  background: #f7fafc;
-  color: #111827;
-}
-
-/* ---------- NAVBAR ---------- */
+/* NAVBAR */
 .topbar {
   border-bottom: 1px solid rgba(0,0,0,.1);
   width: 100%;
@@ -23,125 +17,106 @@ body {
   top: 0;
   z-index: 100;
 }
-
 .topbar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1100px; margin: 0 auto;
   padding: 24px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
 }
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
+.footer-brand { display: flex; gap: 8px; align-items: center; }
 .footer-logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 32px; height: 32px; border-radius: 8px;
   background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
 }
+.footer-logo-text { font-weight: 600; font-size: 20px; }
 
-.footer-logo-text {
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: -0.4px;
-}
-
-.top-nav {
-  display: flex;
-  gap: 32px;
-  font-size: 16px;
-}
-
+.top-nav { display: flex; gap: 32px; }
 .top-nav a {
   text-decoration: none;
   color: rgba(0,0,0,.55);
+  font-size: 16px;
 }
-
-.top-nav a:hover {
-  color: black;
-}
+.top-nav a:hover { color: black; }
 
 .footer-social {
-  display: flex;
-  gap: 12px;
+  display: flex; gap: 12px;
 }
-
 .social-circle {
   background: rgba(0,0,0,.1);
-  width: 28px;
-  height: 28px;
-  display: flex;
-  font-size: 12px;
-  align-items: center;
-  justify-content: center;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
 }
 
-/* ---------- PAGE TITLE ---------- */
+/* PAGE TITLE */
 .page-title {
-  max-width: 1100px;
-  margin: 80px auto 40px;
+  max-width: 1100px; margin: 80px auto 40px;
   padding: 0 16px;
 }
+.page-title h1 { font-size: 42px; font-weight: 700; }
 
-.page-title h1 {
-  font-size: 42px;
-  font-weight: 700;
-}
-
-/* ---------- PHOTOGRAPHY GRID ---------- */
-.photo-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 16px 120px;
-}
-
+/* GRID PHOTOS */
+.photo-wrapper { max-width: 1200px; margin: 0 auto; padding: 40px 16px 120px; }
 .photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
-
 .photo-card {
   background: white;
   border-radius: 14px;
   padding: 18px;
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
   gap: 20px;
-  overflow: hidden;
   box-shadow: 0 4px 14px rgba(0,0,0,.05);
   transition: .2s;
 }
-
-.photo-card:hover {
-  transform: translateY(-4px);
-}
-
+.photo-card:hover { transform: translateY(-4px); }
 .photo-card img {
+  width: 100%; height: 350px;
+  object-fit: cover; border-radius: 12px;
+}
+
+/* BENTO MOCKUPS */
+.bento-section { padding: 80px 40px; max-width: 1200px; margin: auto; }
+.bento-grid {
+  display: grid; gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  list-style: none;
+}
+.bento-card {
+  background:#fafafa;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid #eee;
+}
+.bento-card img {
+  width: 100%; height: 350px;
+  object-fit: cover; border-radius: 12px;
+}
+
+/* WIDE VIDEO SECTION */
+.video-cards {
+  display: grid;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 120px auto;
+  padding: 0 20px;
+}
+.video-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: none;
+  position: relative;
+}
+.video-card video {
   width: 100%;
-  height: 350px;
+  height: 500px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
 }
+.video-card .content { padding: 24px; }
 
-.photo-text h4 {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.photo-text p {
-  font-size: 16px;
-  color: rgba(0,0,0,.6);
-}
-
-/* ---------- FOOTER HERO ---------- */
+/* FOOTER HERO */
 .hero {
   position: relative;
   height: 480px;
@@ -149,67 +124,25 @@ body {
   overflow: hidden;
   margin-top: 120px;
 }
-
 .hero-bg {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  inset: 0;
+  width: 100%; height: 100%;
+  inset: 0; object-fit: cover;
   z-index: 1;
 }
-
 .hero-content {
-  position: relative;
-  z-index: 2;
+  position: relative; z-index: 2;
   background: rgba(0,0,0,.4);
   padding: 80px 120px;
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: flex; justify-content: space-between;
 }
+.hero h1 { color: white; font-size: 36px; }
 
-.hero h1 {
-  color: white;
-  font-size: 36px;
-  font-weight: 600;
-}
-
-.hero-nav {
-  display: flex;
-  gap: 40px;
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.col h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-}
-
-.col a {
-  font-size: 14px;
-  color: rgba(255,255,255,.7);
-  text-decoration: none;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 @media(max-width: 900px) {
-  .photo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    gap: 30px;
-    padding: 50px;
-  }
+  .photo-grid { grid-template-columns: 1fr; }
+  .hero-content { flex-direction: column; padding: 50px; }
 }
 </style>
 </head>
@@ -226,7 +159,7 @@ body {
     <nav class="top-nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="photography.html">Photography</a>
+      <a href="photography.html" style="color:black;">Photography</a>
       <a href="work.html">Work</a>
     </nav>
 
@@ -243,60 +176,61 @@ body {
 </div>
 
 <section class="photo-wrapper">
-
   <div class="photo-grid">
-
     <div class="photo-card">
       <img src="https://picsum.photos/700/450">
-      <div class="photo-text">
-        <h4>A wider card</h4>
-        <p>This one stretches quite a bit.</p>
-      </div>
+      <h4>A wider card</h4>
+      <p>This one stretches quite a bit.</p>
     </div>
 
     <div class="photo-card">
       <img src="https://picsum.photos/1000/450">
-      <div class="photo-text">
-        <h4>The longest card</h4>
-        <p>Call out something important.</p>
-      </div>
+      <h4>The longest card</h4>
+      <p>Call out something important.</p>
     </div>
-
   </div>
+</section>
+
+<section class="bento-section">
+  <ul class="bento-grid">
+    <li class="bento-card">
+      <img src="images/mock1.jpg">
+    </li>
+    <li class="bento-card">
+      <img src="images/mock2.jpg">
+    </li>
+  </ul>
+</section>
+
+<!-- HERE ARE THE WIDE VIDEO CARDS -->
+<section class="video-cards">
+
+  <div class="video-card">
+    <video autoplay muted loop playsinline>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+      <h2>A wider card</h2>
+      <p>This one stretches quite a bit.</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <video autoplay muted loop playsinline>
+      <source src="video2.mp4" type="video/mp4">
+    </video>
+    <div class="content">
+      <h2>The longest card</h2>
+      <p>That’s probably because it’s the most important one.</p>
+    </div>
+  </div>
+
 </section>
 
 <section class="hero">
   <img class="hero-bg" src="https://picsum.photos/2000/1200">
-
   <div class="hero-content">
     <h1>Namedly</h1>
-
-    <nav class="hero-nav">
-      <div class="col">
-        <h3>Platform</h3>
-        <a>Individuals</a>
-        <a>Teams</a>
-        <a>Admins</a>
-      </div>
-
-      <div class="col">
-        <h3>Features</h3>
-        <a>Core features</a>
-        <a>Pro experience</a>
-      </div>
-
-      <div class="col">
-        <h3>Learn more</h3>
-        <a>Blog</a>
-        <a>Case studies</a>
-      </div>
-
-      <div class="col">
-        <h3>Support</h3>
-        <a>Contact</a>
-        <a>Legal</a>
-      </div>
-    </nav>
   </div>
 </section>
 

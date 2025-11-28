@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Photography | Suba Portfolio</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui;
+  background: #f7fafc;
+  color: #111827;
+}
+
+/* ---------- NAVBAR ---------- */
+.topbar {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  width: 100%;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
+}
+
+.footer-logo-text {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.4px;
+}
+
+.top-nav {
+  display: flex;
+  gap: 32px;
+  font-size: 16px;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: rgba(0,0,0,.55);
+}
+
+.top-nav a:hover {
+  color: black;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-circle {
+  background: rgba(0,0,0,.1);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* ---------- PAGE TITLE ---------- */
+.page-title {
+  max-width: 1100px;
+  margin: 80px auto 40px;
+  padding: 0 16px;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* ---------- PHOTOGRAPHY GRID ---------- */
+.photo-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px 120px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  transition: .2s;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.photo-text h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.photo-text p {
+  font-size: 16px;
+  color: rgba(0,0,0,.6);
+}
+
+/* ---------- FOOTER HERO ---------- */
+.hero {
+  position: relative;
+  height: 480px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 120px;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,.4);
+  padding: 80px 120px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.col h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.col a {
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px;
+  }
+}
+.mockup-section {
+  max-width: 1200px;
+  margin: 120px auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.mockup-img img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  height: 400px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.1);
+}
+
+.mockup-text h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.mockup-text p {
+  font-size: 18px;
+  color: rgba(0,0,0,.6);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .mockup-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .mockup-img img {
+    height: auto;
+  }
+
+  .mockup-text h2 {
+    font-size: 36px;
+  }
+}
+.bento-section {
+  padding: 100px 60px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.bento-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  list-style: none;
+  padding: 0;
+}
+
+.bento-card {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid #e3e3e3;
+}
+
+.bento-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.bento-card h3 {
+  margin: 16px 0 8px;
+  font-size: 22px;
+}
+
+.bento-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Sizing variations */
+.bento-card.small img  { height: 280px; }
+.bento-card.medium img { height: 340px; }
+.bento-card.large img  { height: 390px; }
+
+
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-img"></div>
+      <span class="footer-logo-text">Namedly</span>
+    </div>
+
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="photography.html">Photography</a>
+      <a href="work.html">Work</a>
+    </nav>
+
+    <nav class="footer-social">
+      <a class="social-circle">in</a>
+      <a class="social-circle">ig</a>
+      <a class="social-circle">yt</a>
+    </nav>
+  </div>
+</header>
+<section class="mockup-section">
+
+  <div class="mockup-img">
+    <img src="images/mockup-1.png" alt="Mockup example">
+  </div>
+
+  <div class="mockup-text">
+    <h2>Mockups</h2>
+    <p>Trying to find experience and grow my work is difficult so to showcase my skills 
+    I’ve done a few mockups of posters, graphic designs and videos of made-up brand campaigns.</p>
+  </div>
+
+</section>
+
+<section class="bento-section">
+
+    <ul class="bento-grid">
+
+        <li class="bento-card small">
+            <img src="images/photo1.png" alt="">
+            <h3>A tiny card</h3>
+            <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
+        </li>
+
+        <li class="bento-card medium">
+            <img src="images/photo2.png" alt="">
+            <h3>A wider card</h3>
+            <p>This one stretches quite a bit. Hello, larger card! What do you have to say and share?</p>
+        </li>
+
+        <li class="bento-card large">
+            <img src="images/photo3.png" alt="">
+            <h3>The longest card</h3>
+            <p>This one stretches quite a bit. That’s probably because it’s the most important one.</p>
+        </li>
+
+    </ul>
+
+</section>
+
+
+  <div class="hero-content">
+    <h1>Namedly</h1>
+
+    <nav class="hero-nav">
+      <div class="col">
+        <h3>Platform</h3>
+        <a>Individuals</a>
+        <a>Teams</a>
+        <a>Admins</a>
+      </div>
+
+      <div class="col">
+        <h3>Features</h3>
+        <a>Core features</a>
+        <a>Pro experience</a>
+      </div>
+
+      <div class="col">
+        <h3>Learn more</h3>
+        <a>Blog</a>
+        <a>Case studies</a>
+      </div>
+
+      <div class="col">
+        <h3>Support</h3>
+        <a>Contact</a>
+        <a>Legal</a>
+      </div>
+    </nav>
+  </div>
+</section>
+
+</body>
+</html>

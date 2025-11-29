@@ -42,11 +42,12 @@
     }
 
     .footer-logo-img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
-    }
+  width: 42px;      /* adjust size */
+  height: 42px;
+  object-fit: contain;
+  border-radius: 0; /* keep square */
+}
+
 
     .footer-logo-text {
       font-weight: 600;
@@ -218,10 +219,10 @@
 <header class="topbar">
   <div class="topbar-inner">
 
-    <div class="footer-brand">
-      <div class="footer-logo-img"></div>
-      <span class="footer-logo-text">Namedly</span>
-    </div>
+   <div class="footer-brand">
+  <img class="footer-logo-img" src="logo.png" alt="Subathie logo">
+</div>
+
 
  <nav class="top-nav">
       <a href="about.html">About</a>

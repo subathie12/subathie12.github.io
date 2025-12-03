@@ -41,13 +41,49 @@
       gap: 8px;
     }
 
-    .footer-logo-img {
-  width: 42px;      /* adjust size */
-  height: 42px;
-  object-fit: contain;
-  border-radius: 0; /* keep square */
+   /* Import the two required fonts */
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap'); /* closest to Tan Whisling */
+@import url('https://fonts.googleapis.com/css2?family=Brown+Sugar&display=swap');
+
+/* LOGO WRAPPER */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* center the initials + name */
+  justify-content: center;
+  line-height: 1;
+  padding: 20px 0;
 }
 
+/* INITIALS */
+.initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 110px;       /* reduced so it won’t overlap */
+  font-weight: 400;
+  line-height: 0.9;       /* keeps spacing clean */
+  margin-bottom: -10px;   /* slight overlap aesthetic */
+}
+
+.initials span {
+  display: inline-block;
+}
+
+/* S and N spacing */
+.initials .s { margin-right: -8px; }
+.initials .n { margin-left: -8px; }
+
+/* FULL NAME */
+.fullname {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 8px;
+  color: black;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
 
     .footer-logo-text {
       font-weight: 600;
@@ -219,9 +255,23 @@
 <header class="topbar">
   <div class="topbar-inner">
 
-    <div class="footer-brand">
-      <img class="footer-logo-img" src="logo.jpg" alt="Subathie logo">
-    </div>
+  <div class="logo-text">
+  <div class="initials">
+    <span class="s">S</span>
+    <span class="n">N</span>
+  </div>
+
+  <div class="fullname">SUBATHIE NAVANEETHAN</div>
+</div>
+<div class="logo-text">
+  <div class="initials">
+    <span class="s">S</span>
+    <span class="n">N</span>
+  </div>
+  <div class="fullname">SUBATHIE NAVANEETHAN</div>
+</div>
+
+
 
     <nav class="top-nav">
       <a href="about.html">About</a>

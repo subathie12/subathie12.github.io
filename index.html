@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Suba Portfolio</title>
+  <title>Subathie's Portfolio</title>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,6 +13,16 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    /* Load your real fonts */
+    @font-face {
+      font-family: 'TanWhistling';
+      src: url('TAN WHISTLING Regular.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'BrownSugar';
+      src: url('Brown-Sugar-Regular.otf') format('opentype');
     }
 
     /* TOP NAV BAR */
@@ -32,65 +42,52 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
     }
 
-    .footer-brand {
+    /* LOGO */
+    .logo-text {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      line-height: 1;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
-   /* Import the two required fonts */
-@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap'); /* closest to Tan Whisling */
-@import url('https://fonts.googleapis.com/css2?family=Brown+Sugar&display=swap');
-
-/* LOGO WRAPPER */
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;    /* center the initials + name */
-  justify-content: center;
-  line-height: 1;
-  padding: 20px 0;
-}
-
-/* INITIALS */
-.initials {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: cursive;
-  font-size: 110px;       /* reduced so it won’t overlap */
-  font-weight: 400;
-  line-height: 0.9;       /* keeps spacing clean */
-  margin-bottom: -10px;   /* slight overlap aesthetic */
-}
-
-.initials span {
-  display: inline-block;
-}
-
-/* S and N spacing */
-.initials .s { margin-right: -8px; }
-.initials .n { margin-left: -8px; }
-
-/* FULL NAME */
-.fullname {
-  font-family: Georgia, serif;
-  font-size: 14px;
-  letter-spacing: 8px;
-  color: black;
-  text-transform: uppercase;
-  margin-top: 8px;
-}
-
-    .footer-logo-text {
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.4px;
+    /* INITIALS */
+    .initials {
+      position: relative;
+      height: 37px;
+      width: 60px;
     }
 
+    .initials .s {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: 'TanWhistling';
+      font-size: 50px;
+      line-height: 1;
+    }
+
+    .initials .n {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      font-family: 'TanWhistling';
+      font-size: 50px;
+      line-height: 1;
+    }
+
+    .fullname {
+      margin-top: 15px;
+      font-family: 'BrownSugar';
+      letter-spacing: 6px;
+      color: black;
+      text-transform: uppercase;
+    }
+
+    /* NAV LINKS */
     .top-nav {
       display: flex;
       gap: 32px;
@@ -127,18 +124,7 @@
       text-decoration: none;
     }
 
-    @media (max-width: 768px) {
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .top-nav {
-        flex-direction: column;
-        gap: 16px;
-      }
-    }
-
-    /* HERO (first) */
+    /* HERO SECTION */
     .feature {
       display: flex;
       gap: 64px;
@@ -168,7 +154,7 @@
       }
     }
 
-    /* PHOTO */
+    /* PHOTO GALLERY */
     .photo-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -195,12 +181,13 @@
       }
     }
 
-    /* BOTTOM HERO FOOTER */
+    /* FOOTER HERO */
     .hero {
       position: relative;
       height: 500px;
       width: 100%;
       overflow: hidden;
+      margin-top: 80px;
     }
 
     .hero-bg {
@@ -255,23 +242,13 @@
 <header class="topbar">
   <div class="topbar-inner">
 
-  <div class="logo-text">
-  <div class="initials">
-    <span class="s">S</span>
-    <span class="n">N</span>
-  </div>
-
-  <div class="fullname">SUBATHIE NAVANEETHAN</div>
-</div>
-<div class="logo-text">
-  <div class="initials">
-    <span class="s">S</span>
-    <span class="n">N</span>
-  </div>
-  <div class="fullname">SUBATHIE NAVANEETHAN</div>
-</div>
-
-
+    <div class="logo-text">
+      <div class="initials">
+        <span class="s">S</span>
+        <span class="n">N</span>
+      </div>
+      <div class="fullname">SUBATHIE NAVANIETHAN</div>
+    </div>
 
     <nav class="top-nav">
       <a href="about.html">About</a>

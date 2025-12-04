@@ -8,7 +8,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #F9F4EF;
+      background: #FBF7F2;
       color: #1A1A1A;
       font-family: system-ui, sans-serif;
     }
@@ -36,7 +36,7 @@
       justify-content: space-between;
       align-items: center;
       background: #F9F4EF;
-      border-bottom: 1px solid #E8DCCF;
+      border-bottom: 1px solid #660033;
       position: sticky;
       top: 0;
       z-index: 20;
@@ -45,17 +45,42 @@
     .logo-box {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
 
+    /* -----------------------------------------
+       FIXED LOGO BOX (REAL OVERLAPPING SN)
+    ----------------------------------------- */
     .logo-icon {
+      position: relative;
+      width: 60px;
+      height: 48px;
+      background: #660033;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+
+    .logo-icon span {
       font-family: 'TanWhistling';
-      background: #111;
+      font-size: 45px;
       color: #fff;
-      padding: 6px 10px;
-      font-size: 32px;
-      border-radius: 4px;
-      letter-spacing: -2px;
+      line-height: 0.6;
+      position: absolute;
+      top: 11px;
+      z-index: 3;
+    }
+
+    .logo-icon .s {
+      left: 10px;     
+      color: #F7E9D9; 
+    }
+
+    .logo-icon .n {
+      left:20px;  
+      color: #F7E9D9; 
     }
 
     .logo-name {
@@ -65,12 +90,13 @@
       letter-spacing: 2px;
     }
 
+    /* NAVIGATION LINKS */
     .top-nav a {
       margin-left: 32px;
       text-decoration: none;
       color: #333;
       font-size: 16px;
-      transition: 0.2s ease;
+      transition: 0.2s;
     }
 
     .top-nav a:hover {
@@ -96,7 +122,7 @@
       font-size: 12px;
       font-weight: 600;
       text-decoration: none;
-      transition: 0.2s ease;
+      transition: 0.2s;
     }
 
     .social-circle:hover {
@@ -121,7 +147,7 @@
       background: #EFE7DD;
       border-radius: 200px 200px 0 0;
       overflow: hidden;
-      border: 2px solid #D8CDC0;
+      border: 2px solid #660033;
       box-shadow: 0px 10px 20px rgba(0,0,0,0.08);
     }
 
@@ -148,7 +174,7 @@
       line-height: 1.5;
     }
 
-/* -----------------------------------------
+    /* -----------------------------------------
        PHOTOGRAPHY SNIPPETS
     ----------------------------------------- */
     .photo-snippets-section {
@@ -177,8 +203,7 @@
       display: flex;
       flex-direction: column;
       box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .photo-card:hover {
@@ -219,12 +244,18 @@
 <body>
 
   <!-- -----------------------------------------
-       HEADER / NAVIGATION
+       TOP NAVIGATION
   ----------------------------------------- -->
   <header class="topbar">
     <div class="logo-box">
-      <div class="logo-icon">SN</div>
-      <div class="logo-name">SUBATHIE<br>NAVANIETHAN</div>
+      <div class="logo-icon">
+        <span class="s">S</span>
+        <span class="n">N</span>
+      </div>
+
+      <div class="logo-name">
+        SUBATHIE<br>NAVANIETHAN
+      </div>
     </div>
 
     <nav class="top-nav">
@@ -234,14 +265,14 @@
     </nav>
 
     <div class="social-icons">
-      <a href="https://www.instagram.com/YOURUSERNAME" target="_blank" class="social-circle">IG</a>
-      <a href="https://www.tiktok.com/@YOURUSERNAME" target="_blank" class="social-circle">TT</a>
+      <a href="https://www.instagram.com/YOURUSERNAME" class="social-circle" target="_blank">IG</a>
+      <a href="https://www.tiktok.com/@YOURUSERNAME" class="social-circle" target="_blank">TT</a>
     </div>
   </header>
 
 
   <!-- -----------------------------------------
-       HERO ARCH SECTION
+       HERO ARCH
   ----------------------------------------- -->
   <section class="hero-arch">
 
@@ -260,9 +291,8 @@
 
 
   <!-- -----------------------------------------
-       PHOTOGRAPHY PREVIEW CARDS
+       PHOTOGRAPHY SNIPPETS
   ----------------------------------------- -->
-  <!-- PHOTOGRAPHY SNIPPETS SECTION -->
   <section class="photo-snippets-section">
     <h2 class="snippet-title">Photography Snippets</h2>
 
@@ -290,9 +320,8 @@
   </section>
 
 
-
   <!-- -----------------------------------------
-       FOOTER HERO
+       FOOTER HERO SECTION
   ----------------------------------------- -->
   <section class="footer-hero">
     <h2>Explore my world</h2>

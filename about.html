@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Subathie | Portfolio</title>
+  <title>About | Subathie</title>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,11 +14,11 @@
     }
 
     /* -----------------------------------------
-       FONT IMPORT (rename files in your folder)
+       CUSTOM FONTS (same as index.html)
     ----------------------------------------- */
     @font-face {
       font-family: 'TanWhistling';
-      src: url('TAN-WHISTLING-Regular.otf') format('opentype');
+      src: url('TAN WHISTLING Regular.otf') format('opentype');
     }
 
     @font-face {
@@ -27,7 +27,7 @@
     }
 
     /* -----------------------------------------
-       TOP NAVIGATION
+       TOP NAVIGATION (IDENTICAL TO INDEX)
     ----------------------------------------- */
     .topbar {
       width: 100%;
@@ -36,7 +36,7 @@
       justify-content: space-between;
       align-items: center;
       background: #F9F4EF;
-      border-bottom: 2px solid #660033;
+      border-bottom: 1px solid #660033;
       position: sticky;
       top: 0;
       z-index: 20;
@@ -45,16 +45,15 @@
     .logo-box {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
 
-    /* LOGO ICON */
     .logo-icon {
+      position: relative;
       width: 60px;
       height: 48px;
       background: #660033;
       border-radius: 6px;
-      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -62,27 +61,27 @@
 
     .logo-icon span {
       font-family: 'TanWhistling';
-      font-size: 42px;
+      font-size: 45px;
       color: #F7E9D9;
       position: absolute;
-      top: 8px;
+      top: 11px;
       line-height: 0.6;
     }
 
     .logo-icon .s { left: 10px; }
-    .logo-icon .n { left: 22px; }
+    .logo-icon .n { left: 20px; }
 
     .logo-name {
       font-family: 'BrownSugar';
       font-size: 18px;
-      letter-spacing: 2px;
       line-height: 1.1;
+      letter-spacing: 2px;
     }
 
     .top-nav a {
       margin-left: 32px;
       text-decoration: none;
-      color: #444;
+      color: #333;
       font-size: 16px;
       transition: 0.2s;
     }
@@ -95,6 +94,9 @@
     }
 
     .social-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -102,9 +104,6 @@
       color: #111;
       font-size: 12px;
       font-weight: 600;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-decoration: none;
       transition: 0.2s;
     }
@@ -119,51 +118,59 @@
     ----------------------------------------- */
     .about-wrapper {
       max-width: 1200px;
-      margin: 70px auto;
+      margin: 80px auto;
       padding: 0 40px;
       display: grid;
       grid-template-columns: 1.6fr 1fr;
       gap: 60px;
     }
 
+    /* Headings use BrownSugar */
+    .about-left h1,
+    .about-left h3,
+    .about-right h2,
+    .interests-section h2,
+    .subheading {
+      font-family: 'BrownSugar';
+    }
+
     .about-left h1 {
-      font-size: 46px;
-      font-weight: 700;
+      font-size: 52px;
       margin-bottom: 16px;
     }
 
     .about-left h3 {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #666;
+      font-size: 26px;
+      margin-bottom: 24px;
+      color: #7a7a7a;
     }
 
     .about-left p {
       font-size: 17px;
-      color: #555;
-      max-width: 620px;
-      line-height: 1.6;
+      color: #444;
+      line-height: 1.7;
+      max-width: 650px;
     }
 
     .about-right h2 {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 20px;
     }
 
     .school-card {
       padding: 18px 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       background: white;
       border: 1px solid rgba(0,0,0,.08);
       margin-bottom: 18px;
-      font-weight: 500;
+      font-size: 16px;
       display: flex;
       justify-content: space-between;
     }
 
     .school-card span {
-      color: #777;
       font-size: 14px;
+      color: #666;
     }
 
     /* -----------------------------------------
@@ -171,19 +178,13 @@
     ----------------------------------------- */
     .interests-section {
       max-width: 1200px;
-      margin: 90px auto;
+      margin: 100px auto;
       padding: 0 40px;
       text-align: center;
     }
 
-    .eyebrow {
-      font-size: 14px;
-      color: #999;
-      margin-bottom: 6px;
-    }
-
     .interests-section h2 {
-      font-size: 32px;
+      font-size: 36px;
       margin-bottom: 18px;
     }
 
@@ -195,8 +196,7 @@
 
     .subheading {
       margin-top: 40px;
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 24px;
       margin-bottom: 26px;
     }
 
@@ -228,7 +228,7 @@
       column-count: 3;
       column-gap: 16px;
       max-width: 1100px;
-      margin: 40px auto;
+      margin: 40px auto 100px;
       padding: 0 16px;
     }
 
@@ -239,19 +239,18 @@
 
     .pin img {
       width: 100%;
-      object-fit: cover;
       border-radius: 12px;
-      display: block;
+      object-fit: cover;
     }
 
-    @media(max-width:900px){ .pinterest-gallery{ column-count:2;} }
-    @media(max-width:600px){ .pinterest-gallery{ column-count:1;} }
+    @media(max-width:900px){ .pinterest-gallery{ column-count: 2; } }
+    @media(max-width:600px){ .pinterest-gallery{ column-count: 1; } }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
+  <!-- NAV BAR (IDENTICAL TO INDEX) -->
   <header class="topbar">
     <div class="logo-box">
       <div class="logo-icon">
@@ -271,35 +270,30 @@
     </nav>
 
     <div class="social-icons">
-      <a href="#" class="social-circle">IG</a>
-      <a href="#" class="social-circle">TT</a>
+      <a class="social-circle">IG</a>
+      <a class="social-circle">TT</a>
     </div>
   </header>
-
-
-  <!-- HERO SECTION -->
-  <section class="hero-arch">
-    <div class="arch-wrapper">
-      <img src="yourphoto.jpg" alt="">
-    </div>
 
   <!-- ABOUT SECTION -->
   <section class="about-wrapper">
     <div class="about-left">
       <h1>Hi Again!</h1>
-      <h3>Here I will go a little more into me...</h3>
+      <h3>A little more about me...</h3>
 
       <p>
         I’m currently studying Information Technology and Marketing – two fields 
         that sit right between logic and creativity. I love working with visuals, 
         photography, editing, UI/UX thinking and design.<br><br>
+
         Creativity isn’t just visuals – it’s problem-solving, emotion, aesthetics, 
-        storytelling, and finding your own voice.
+        storytelling, and finding your own voice. I’m still growing, experimenting, 
+        and discovering what my style truly is.
       </p>
     </div>
 
     <div class="about-right">
-      <h2>My education</h2>
+      <h2>My Education</h2>
 
       <div class="school-card">
         Cavendish Road SHS
@@ -313,41 +307,30 @@
     </div>
   </section>
 
-
-  <!-- INTERESTS -->
+  <!-- INTERESTS SECTION -->
   <section class="interests-section">
-    <p class="eyebrow">Eyebrow text to label this content</p>
+    <h2>My Interests</h2>
+    <p>Some of the things I love exploring creatively.</p>
 
-    <h2>A headline for some text</h2>
-
-    <p>
-      Writing for websites is both simple and complex. You say what you mean,
-      but you also make space for feeling and intention.
-    </p>
-
-    <h3 class="subheading">My interests</h3>
+    <h3 class="subheading">What I enjoy</h3>
 
     <div class="interest-grid">
       <div class="interest-box">
-        <img src="https://placehold.co/40x40" alt="">
         <h4>Skills</h4>
         <p>Photography, video editing, visual design, storytelling.</p>
       </div>
 
       <div class="interest-box">
-        <img src="https://placehold.co/40x40" alt="">
         <h4>Softwares</h4>
         <p>Canva, CapCut, Lightroom, Figma and more.</p>
       </div>
 
       <div class="interest-box">
-        <img src="https://placehold.co/40x40" alt="">
         <h4>Where you can find me</h4>
-        <p>Behind a camera, editing, or planning the next idea.</p>
+        <p>Behind a camera, editing, or planning my next idea.</p>
       </div>
     </div>
   </section>
-
 
   <!-- GALLERY -->
   <section class="pinterest-gallery">

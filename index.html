@@ -42,7 +42,6 @@
       z-index: 20;
     }
 
-    /* Logo box like Kristoffer Staugaard */
     .logo-box {
       display: flex;
       align-items: center;
@@ -78,6 +77,33 @@
       color: #000;
     }
 
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .social-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #E8DCCF;
+      color: #111;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .social-circle:hover {
+      background: #111;
+      color: #fff;
+    }
+
     /* -----------------------------------------
        ARCH HERO SECTION
     ----------------------------------------- */
@@ -87,15 +113,6 @@
       justify-content: center;
       align-items: center;
       gap: 60px;
-    }
-
-    .hero-name-side {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-family: 'BrownSugar';
-      font-size: 32px;
-      letter-spacing: 8px;
-      margin-right: 10px;
     }
 
     .arch-wrapper {
@@ -131,8 +148,58 @@
       line-height: 1.5;
     }
 
+/* -----------------------------------------
+       PHOTOGRAPHY SNIPPETS
+    ----------------------------------------- */
+    .photo-snippets-section {
+      padding: 40px 60px 120px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .snippet-title {
+      font-family: 'BrownSugar';
+      font-size: 38px;
+      margin-bottom: 30px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .photo-card {
+      background: #EFE7DD;
+      border-radius: 18px;
+      overflow: hidden;
+      height: 330px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 12px 20px rgba(0,0,0,0.12);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+    }
+
+    .photo-card p {
+      padding: 12px 16px;
+      font-size: 15px;
+      color: #4a4a4a;
+    }
+
     /* -----------------------------------------
-       FOOTER HERO SECTION (OPTIONAL)
+       FOOTER HERO SECTION
     ----------------------------------------- */
     .footer-hero {
       margin-top: 140px;
@@ -157,7 +224,7 @@
   <header class="topbar">
     <div class="logo-box">
       <div class="logo-icon">SN</div>
-      <div class="logo-name">SUBATHIE<br>NAVANEETHAN</div>
+      <div class="logo-name">SUBATHIE<br>NAVANIETHAN</div>
     </div>
 
     <nav class="top-nav">
@@ -165,6 +232,11 @@
       <a href="photography.html">Photography</a>
       <a href="mywork.html">Work</a>
     </nav>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/YOURUSERNAME" target="_blank" class="social-circle">IG</a>
+      <a href="https://www.tiktok.com/@YOURUSERNAME" target="_blank" class="social-circle">TT</a>
+    </div>
   </header>
 
 
@@ -172,10 +244,6 @@
        HERO ARCH SECTION
   ----------------------------------------- -->
   <section class="hero-arch">
-
-    <div class="hero-name-side">
-      SUBATHIE<br>NAVANEETHAN
-    </div>
 
     <div class="arch-wrapper">
       <img src="images/hero.png" alt="Profile Image">
@@ -192,7 +260,39 @@
 
 
   <!-- -----------------------------------------
-       OPTIONAL FOOTER INTRO
+       PHOTOGRAPHY PREVIEW CARDS
+  ----------------------------------------- -->
+  <!-- PHOTOGRAPHY SNIPPETS SECTION -->
+  <section class="photo-snippets-section">
+    <h2 class="snippet-title">Photography Snippets</h2>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="images/photo1.jpg">
+        <p>Warm tones & candid moments.</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/photo2.jpg">
+        <p>Soft portrait colours & mood.</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/photo3.jpg">
+        <p>Street-style compositions.</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/photo4.jpg">
+        <p>Minimal, aesthetic framing.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- -----------------------------------------
+       FOOTER HERO
   ----------------------------------------- -->
   <section class="footer-hero">
     <h2>Explore my world</h2>

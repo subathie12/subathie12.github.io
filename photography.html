@@ -14,20 +14,19 @@ body {
 }
 
 /* -----------------------------------------
-   LOAD YOUR CUSTOM FONTS (same as index)
+   LOAD CUSTOM FONTS (MATCHES INDEX)
 ----------------------------------------- */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
 }
-
 @font-face {
   font-family: 'BrownSugar';
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
 /* -----------------------------------------
-   TOP NAV (same as index)
+   TOP NAV (IDENTICAL TO INDEX)
 ----------------------------------------- */
 .topbar {
   width: 100%;
@@ -39,7 +38,7 @@ body {
   border-bottom: 1px solid #660033;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 60;
 }
 
 .logo-box {
@@ -54,15 +53,11 @@ body {
   height: 48px;
   background: #660033;
   border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .logo-icon span {
   font-family: 'TanWhistling';
   font-size: 45px;
-  line-height: 1;
   position: absolute;
   top: 11px;
   color: #F7E9D9;
@@ -74,8 +69,8 @@ body {
 .logo-name {
   font-family: 'BrownSugar';
   font-size: 18px;
-  line-height: 1.1;
   letter-spacing: 2px;
+  line-height: 1.1;
 }
 
 .top-nav a {
@@ -85,13 +80,14 @@ body {
   font-size: 16px;
   transition: 0.2s;
 }
-.top-nav a:hover { color: #000; }
+.top-nav a:hover {
+  color: #000;
+}
 
 .social-icons {
   display: flex;
   gap: 14px;
 }
-
 .social-circle {
   display: inline-flex;
   width: 32px;
@@ -104,14 +100,14 @@ body {
 }
 
 /* -----------------------------------------
-   SECTION BUTTONS
+   STICKY SECTION BUTTONS
 ----------------------------------------- */
 .section-buttons {
   position: sticky;
   top: 90px;
   background: #FBF7F2;
-  padding: 10px 0;
-  z-index: 40;
+  padding: 12px 0;
+  z-index: 50;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -119,38 +115,36 @@ body {
 }
 
 .section-buttons button {
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 20px;
   border: 1px solid #660033;
   background: #ffffff;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: .2s;
 }
-
 .section-buttons button:hover {
   background: #660033;
   color: white;
 }
 
 /* -----------------------------------------
-   FIXED SCROLL OFFSET
+   WRAPPER FOR BLUR EFFECT
 ----------------------------------------- */
-#photos, 
-#videos {
-  scroll-margin-top: 160px;
+.blur-active {
+  filter: blur(6px);
+  transition: 0.3s ease;
 }
 
 /* -----------------------------------------
-   PHOTO GRID (Pinterest-style)
+   PHOTOS SECTION - PINTEREST GRID
 ----------------------------------------- */
 #photos {
   max-width: 1200px;
-  margin: 40px auto 40px;
+  margin: 40px auto;
   padding: 0 20px;
   text-align: center;
 }
-
 #photos h2 {
   font-family: 'BrownSugar';
   font-size: 40px;
@@ -168,30 +162,26 @@ body {
   border-radius: 14px;
   overflow: hidden;
   background: #EFE7DD;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
   cursor: pointer;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
 }
-
 .photo-card img {
   width: 100%;
   display: block;
-  object-fit: cover;
 }
 
 /* -----------------------------------------
-   LIGHTBOX
+   LIGHTBOX + BLUR
 ----------------------------------------- */
 .lightbox {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.85);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
-
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
@@ -199,15 +189,14 @@ body {
 }
 
 /* -----------------------------------------
-   VIDEO SECTION
+   VIDEOS SECTION
 ----------------------------------------- */
 #videos {
   max-width: 1200px;
-  margin: 40px auto 120px;
+  margin: 40px auto 80px;
   padding: 0 20px;
   text-align: center;
 }
-
 #videos h2 {
   font-family: 'BrownSugar';
   font-size: 40px;
@@ -219,14 +208,12 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
-
 .video-card {
   background: white;
   padding: 18px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
-
 .video-card video {
   width: 100%;
   height: 420px;
@@ -245,9 +232,9 @@ body {
 
 <body>
 
-<!-- -----------------------------------------
-     TOP NAVIGATION
------------------------------------------ -->
+<!-- WRAP ALL CONTENT (FOR BLUR) -->
+<div id="page-content">
+
 <header class="topbar">
   <div class="logo-box">
     <div class="logo-icon">
@@ -269,22 +256,17 @@ body {
   </div>
 </header>
 
-<!-- -----------------------------------------
-     SECTION BUTTONS
------------------------------------------ -->
+<!-- SECTION BUTTONS -->
 <div class="section-buttons">
   <button onclick="location.href='#photos'">Photos</button>
   <button onclick="location.href='#videos'">Videos</button>
 </div>
 
-<!-- -----------------------------------------
-     PHOTOS SECTION
------------------------------------------ -->
+<!-- PHOTOS -->
 <section id="photos">
   <h2>Photos</h2>
 
   <div class="photo-grid">
-
     <div class="photo-card">
       <img src="images/IMG_6238-min.jpg" onclick="openLightbox(this)">
     </div>
@@ -300,23 +282,14 @@ body {
     <div class="photo-card">
       <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
     </div>
-
   </div>
 </section>
 
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
-
-<!-- -----------------------------------------
-     VIDEOS SECTION
------------------------------------------ -->
+<!-- VIDEOS -->
 <section id="videos">
   <h2>Videos</h2>
 
   <div class="video-grid">
-
     <div class="video-card">
       <video controls muted loop>
         <source src="videos/video1.mp4" type="video/mp4">
@@ -328,20 +301,27 @@ body {
         <source src="videos/video2.mp4" type="video/mp4">
       </video>
     </div>
-
   </div>
 </section>
 
-<!-- -----------------------------------------
-     SCRIPT
------------------------------------------ -->
+</div> <!-- END BLUR WRAPPER -->
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<!-- SCRIPT -->
 <script>
 function openLightbox(img) {
   document.getElementById("lightbox-img").src = img.src;
   document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("page-content").classList.add("blur-active");
 }
+
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
+  document.getElementById("page-content").classList.remove("blur-active");
 }
 </script>
 

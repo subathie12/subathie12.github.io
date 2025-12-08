@@ -242,27 +242,27 @@
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
+
+    /* -----------------------------------------
+       FOOTER HERO SECTION
+    ----------------------------------------- */
+    .footer-hero {
+      margin-top: 140px;
+      padding: 80px 40px;
+      background: #EFE7DD;
+      text-align: center;
+    }
+
+    .footer-hero h2 {
+      font-family: 'BrownSugar';
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 
 <body>
-/* ----------------------------------------- FOOTER HERO SECTION ----------------------------------------- */ 
-  .footer-hero {
-  margin-top: 140px; 
-  padding: 80px 40px; 
-  background: #EFE7DD; 
-  text-align: center; 
-  } 
-  
-  .footer-hero h2 { 
-  font-family: 'BrownSugar'; 
-  font-size: 42px; 
-  margin-bottom: 20px; 
-  } 
-</style>
-</head> 
-  <body>
-    
+
   <!-- -----------------------------------------
        TOP NAVIGATION
   ----------------------------------------- -->
@@ -339,26 +339,18 @@
     </div>
   </section>
 
-
-  <!-- -----------------------------------------
-       LIGHTBOX HTML
-  ----------------------------------------- -->
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
   </div>
 
-
-  <!-- -----------------------------------------
-       FOOTER HERO SECTION
-  ----------------------------------------- -->
+  <!-- FOOTER -->
   <section class="footer-hero">
     <h2>Explore my world</h2>
     <p>Visual stories, identity design, and moments captured with intention.</p>
   </section>
 
-  <!-- -----------------------------------------
-       LIGHTBOX SCRIPT
-  ----------------------------------------- -->
+  <!-- LIGHTBOX SCRIPT -->
   <script>
     function openLightbox(img) {
       document.getElementById("lightbox-img").src = img.src;

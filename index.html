@@ -48,9 +48,6 @@
       gap: 8px;
     }
 
-    /* -----------------------------------------
-       FIXED LOGO BOX (REAL OVERLAPPING SN)
-    ----------------------------------------- */
     .logo-icon {
       position: relative;
       width: 60px;
@@ -74,13 +71,13 @@
     }
 
     .logo-icon .s {
-      left: 10px;     
-      color: #F7E9D9; 
+      left: 10px;
+      color: #F7E9D9;
     }
 
     .logo-icon .n {
-      left:20px;  
-      color: #F7E9D9; 
+      left: 20px;
+      color: #F7E9D9;
     }
 
     .logo-name {
@@ -90,7 +87,6 @@
       letter-spacing: 2px;
     }
 
-    /* NAVIGATION LINKS */
     .top-nav a {
       margin-left: 32px;
       text-decoration: none;
@@ -131,7 +127,7 @@
     }
 
     /* -----------------------------------------
-       ARCH HERO SECTION
+       HERO ARCH
     ----------------------------------------- */
     .hero-arch {
       padding: 140px 60px 120px;
@@ -215,6 +211,7 @@
       width: 100%;
       height: 80%;
       object-fit: cover;
+      cursor: pointer;
     }
 
     .photo-card p {
@@ -224,19 +221,26 @@
     }
 
     /* -----------------------------------------
-       FOOTER HERO SECTION
+       LIGHTBOX POPUP
     ----------------------------------------- */
-    .footer-hero {
-      margin-top: 140px;
-      padding: 80px 40px;
-      background: #EFE7DD;
-      text-align: center;
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
 
-    .footer-hero h2 {
-      font-family: 'BrownSugar';
-      font-size: 42px;
-      margin-bottom: 20px;
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
   </style>
 </head>
@@ -298,26 +302,34 @@
 
     <div class="photo-grid">
       <div class="photo-card">
-        <img src="images/IMG_6238">
+        <img src="images/IMG_6238" onclick="openLightbox(this)">
         <p>Urban energy & live moments</p>
       </div>
 
       <div class="photo-card">
-        <img src="images/1-DSC02325.jpg">
+        <img src="images/1-DSC02325.jpg" onclick="openLightbox(this)">
         <p>Candid stories in real spaces</p>
       </div>
 
       <div class="photo-card">
-        <img src="images/7-IMG_4045.jpg">
+        <img src="images/7-IMG_4045.jpg" onclick="openLightbox(this)">
         <p>Street-style portraits with mood</p>
       </div>
 
       <div class="photo-card">
-        <img src="images/4-DSC01910.jpg">
+        <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
         <p>Minimal scenes with cinematic colour</p>
       </div>
     </div>
   </section>
+
+
+  <!-- -----------------------------------------
+       LIGHTBOX HTML
+  ----------------------------------------- -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+  </div>
 
 
   <!-- -----------------------------------------
@@ -327,6 +339,20 @@
     <h2>Explore my world</h2>
     <p>Visual stories, identity design, and moments captured with intention.</p>
   </section>
+
+  <!-- -----------------------------------------
+       LIGHTBOX SCRIPT
+  ----------------------------------------- -->
+  <script>
+    function openLightbox(img) {
+      document.getElementById("lightbox-img").src = img.src;
+      document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>

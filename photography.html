@@ -2,355 +2,335 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Photography | Suba Portfolio</title>
+<title>Subathie | Photography</title>
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: system-ui; background: #f7fafc; color: #111; }
 
-/* TOP NAV BAR */
+body {
+  background: #FBF7F2;
+  color: #1A1A1A;
+  font-family: system-ui, sans-serif;
+}
+
+/* -----------------------------------------
+   TOP NAV (same as index)
+----------------------------------------- */
 .topbar {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
   width: 100%;
-  background: #ffffff;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F9F4EF;
+  border-bottom: 1px solid #660033;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 50;
 }
 
-.topbar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.footer-brand {
+.logo-box {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.footer-logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
-}
-
-.footer-logo-text {
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: -0.4px;
-}
-
-.top-nav {
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
   display: flex;
-  gap: 32px;
-  font-weight: 500;
-  font-size: 16px;
-  color: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  line-height: 1;
+  position: absolute;
+  top: 11px;
+  color: #F7E9D9;
+}
+
+.logo-icon .s { left: 10px; }
+.logo-icon .n { left: 20px; }
+
+.logo-name {
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 2px;
 }
 
 .top-nav a {
+  margin-left: 32px;
   text-decoration: none;
-  color: inherit;
+  color: #333;
+  font-size: 16px;
+  transition: 0.2s;
 }
-.top-nav a:hover { color: rgba(0,0,0,0.85); }
+.top-nav a:hover { color: #000; }
 
-.footer-social {
+.social-icons {
   display: flex;
-  gap: 24px;
-  align-items: center;
+  gap: 14px;
 }
 
 .social-circle {
   display: inline-flex;
+  width: 32px;
+  height: 32px;
+  background: #E8DCCF;
+  border-radius: 50%;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.06);
-  font-size: 11px;
-  color: rgba(0,0,0,0.7);
-  text-decoration: none;
+  font-weight: 600;
 }
 
-/* FIXED MEDIA QUERY */
-@media (max-width: 768px) {
-  .topbar-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .top-nav {
-    flex-direction: column;
-    gap: 16px;
-  }
+/* -----------------------------------------
+   SECTION BUTTONS
+----------------------------------------- */
+.section-buttons {
+  position: sticky;
+  top: 90px;
+  background: #FBF7F2;
+  padding: 10px 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* PAGE TITLE */
-.page-title {
-  max-width: 1100px; 
-  margin: 80px auto 40px;
-  padding: 0 16px;
+.section-buttons button {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #660033;
+  background: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.page-title h1 { font-size: 42px; font-weight: 700; }
 
-/* GRID PHOTOS */
-.photo-wrapper { max-width: 1200px; margin: 0 auto; padding: 40px 16px 120px; }
+.section-buttons button:hover {
+  background: #660033;
+  color: white;
+}
+
+/* -----------------------------------------
+   FIXED SCROLL OFFSET — IMPORTANT FIX
+----------------------------------------- */
+#photos, 
+#videos {
+  scroll-margin-top: 160px; /* makes anchor scroll correct */
+}
+
+/* -----------------------------------------
+   PHOTO GRID (Pinterest-style)
+----------------------------------------- */
+#photos {
+  max-width: 1200px;
+  margin: 40px auto 40px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#photos h2 {
+  font-family: 'BrownSugar';
+  font-size: 40px;
+  margin-bottom: 16px;
+}
 
 .photo-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  columns: 3 300px;
+  column-gap: 20px;
 }
 
 .photo-card {
-  background: white;
+  break-inside: avoid;
+  margin-bottom: 20px;
   border-radius: 14px;
-  padding: 18px;
-  display: flex; flex-direction: column;
-  gap: 20px;
-  box-shadow: 0 4px 14px rgba(0,0,0,.05);
-  transition: .2s;
+  overflow: hidden;
+  background: #EFE7DD;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
+  cursor: pointer;
 }
-
-.photo-card:hover { transform: translateY(-4px); }
 
 .photo-card img {
-  width: 100%; height: 350px;
-  object-fit: cover; border-radius: 12px;
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-/* BENTO MOCKUPS */
-.bento-section { padding: 80px 40px; max-width: 1200px; margin: auto; }
-
-.bento-grid {
-  display: grid; gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  list-style: none;
+/* -----------------------------------------
+   LIGHTBOX
+----------------------------------------- */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.bento-card {
-  background:#fafafa;
-  border-radius: 14px;
-  padding: 16px;
-  border: 1px solid #eee;
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
 }
 
-.bento-card img {
-  width: 100%; height: 350px;
-  object-fit: cover; border-radius: 12px;
-}
-
-/* WIDE VIDEO SECTION */
-.video-cards {
-  display: grid;
-  gap: 60px;
-  max-width: 1300px;
-  margin: 120px auto;
+/* -----------------------------------------
+   VIDEO SECTION
+----------------------------------------- */
+#videos {
+  max-width: 1200px;
+  margin: 40px auto 120px;
   padding: 0 20px;
+  text-align: center;
+}
+
+#videos h2 {
+  font-family: 'BrownSugar';
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
 .video-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  border: none;
-  position: relative;
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .video-card video {
   width: 100%;
-  height: 500px;
+  height: 420px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 12px;
 }
 
-.video-card .content { padding: 24px; }
-
- /* HERO (first) */
-    .hero {
-  position: relative;
-  height: 500px;
-  width: 100%;
-  overflow: hidden;
+/* MOBILE */
+@media (max-width: 800px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
 }
-
-.hero-bg {
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  z-index:1;
-}
-
-.hero-content {
-  width:100%;
-  padding:80px 120px;
-  display:flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  z-index:2;
-  background: rgba(0,0,0,0.5);
-}
-
-.hero-nav {
-  display:flex;
-  gap:48px;
-}
-
-.col {
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.col h3 {
-  color:white;
-  font-size:16px;
-  font-weight:600;
-}
-
-.col a {
-  color:rgba(255,255,255,0.7);
-  font-size:15px;
-  text-decoration:none;
-}
-    </style>
+</style>
 </head>
-
 
 <body>
 
+<!-- -----------------------------------------
+     TOP NAVIGATION
+----------------------------------------- -->
 <header class="topbar">
-  <div class="topbar-inner">
-
-    <div class="footer-brand">
-      <div class="footer-logo-img"></div>
-      <span class="footer-logo-text">Namedly</span>
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span>
+      <span class="n">N</span>
     </div>
+    <div class="logo-name">SUBATHIE<br>NAVANIETHAN</div>
+  </div>
 
-    <nav class="top-nav">
-      <a href="about.html">About</a>
-      <a href="photography.html">Photography</a>
-      <a href="mywork.html">Work</a>
-    </nav>
+  <nav class="top-nav">
+    <a href="about.html">About</a>
+    <a href="photography.html">Photography</a>
+    <a href="mywork.html">Work</a>
+  </nav>
 
-    <nav class="footer-social">
-      <a class="social-circle">in</a>
-      <a class="social-circle">ig</a>
-      <a class="social-circle">yt</a>
-    </nav>
-
+  <div class="social-icons">
+    <a class="social-circle">IG</a>
+    <a class="social-circle">TT</a>
   </div>
 </header>
 
-<div class="page-title">
-  <h1>Photography</h1>
+<!-- -----------------------------------------
+     SECTION BUTTONS
+----------------------------------------- -->
+<div class="section-buttons">
+  <button onclick="location.href='#photos'">Photos</button>
+  <button onclick="location.href='#videos'">Videos</button>
 </div>
 
-<section class="photo-wrapper">
+<!-- -----------------------------------------
+     PHOTOS SECTION
+----------------------------------------- -->
+<section id="photos">
+  <h2>Photos</h2>
+
   <div class="photo-grid">
-    <div class="photo-card">
-      <img src="https://picsum.photos/700/450">
-      <h4>A wider card</h4>
-      <p>This one stretches quite a bit.</p>
-    </div>
 
     <div class="photo-card">
-      <img src="https://picsum.photos/1000/450">
-      <h4>The longest card</h4>
-      <p>Call out something important.</p>
+      <img src="images/IMG_6238-min.jpg" onclick="openLightbox(this)">
     </div>
-  </div>
-</section>
 
-<section class="bento-section">
-  <ul class="bento-grid">
-    <li class="bento-card">
-      <img src="images/mock1.jpg">
-    </li>
-    <li class="bento-card">
-      <img src="images/mock2.jpg">
-    </li>
-  </ul>
-</section>
-
-<section class="video-cards">
-
-  <div class="video-card">
-    <video autoplay muted loop playsinline>
-      <source src="video1.mp4" type="video/mp4">
-    </video>
-    <div class="content">
-      <h2>A wider card</h2>
-      <p>This one stretches quite a bit.</p>
+    <div class="photo-card">
+      <img src="images/1-DSC02325.jpg" onclick="openLightbox(this)">
     </div>
-  </div>
 
-  <div class="video-card">
-    <video autoplay muted loop playsinline>
-      <source src="video2.mp4" type="video/mp4">
-    </video>
-    <div class="content">
-      <h2>The longest card</h2>
-      <p>That’s probably because it’s the most important one.</p>
+    <div class="photo-card">
+      <img src="images/7-IMG_4045.jpg" onclick="openLightbox(this)">
     </div>
-  </div>
 
-</section>
-
-<section class="hero">
-
-  <img class="hero-bg" src="https://picsum.photos/2000/1200">
-
-  <div class="hero-content">
-
-    <h1 style="color:white;">Namedly</h1>
-
-    <div class="hero-nav">
-
-      <div class="col">
-        <h3>Platform</h3>
-        <a>Individuals</a>
-        <a>Teams</a>
-        <a>Admins</a>
-        <a>Developers</a>
-      </div>
-
-      <div class="col">
-        <h3>Features</h3>
-        <a>Core features</a>
-        <a>Pro experience</a>
-        <a>Integrations</a>
-      </div>
-
-      <div class="col">
-        <h3>Learn more</h3>
-        <a>Blog</a>
-        <a>Case studies</a>
-        <a>Customer stories</a>
-        <a>Best practices</a>
-      </div>
-
-      <div class="col">
-        <h3>Support</h3>
-        <a>Contact</a>
-        <a>Support</a>
-        <a>Legal</a>
-      </div>
-
+    <div class="photo-card">
+      <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
     </div>
 
   </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<!-- -----------------------------------------
+     VIDEOS SECTION
+----------------------------------------- -->
+<section id="videos">
+  <h2>Videos</h2>
+
+  <div class="video-grid">
+
+    <div class="video-card">
+      <video controls muted loop>
+        <source src="videos/video1.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="video-card">
+      <video controls muted loop>
+        <source src="videos/video2.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </div>
+</section>
+
+<!-- -----------------------------------------
+     SCRIPT
+----------------------------------------- -->
+<script>
+function openLightbox(img) {
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>

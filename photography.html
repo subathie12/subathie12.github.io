@@ -15,7 +15,7 @@ body {
 }
 
 /* -----------------------------------------
-   LOAD CUSTOM FONTS (MATCH INDEX)
+   CUSTOM FONTS
 ----------------------------------------- */
 @font-face {
   font-family: 'TanWhistling';
@@ -27,115 +27,92 @@ body {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
- /* -----------------------------------------
-       TOP NAVIGATION
-    ----------------------------------------- */
-    .topbar {
-      width: 100%;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #F9F4EF;
-      border-bottom: 1px solid #660033;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+/* -----------------------------------------
+   TOP NAVIGATION (MATCHES INDEX)
+----------------------------------------- */
+.topbar {
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F9F4EF;
+  border-bottom: 1px solid #660033;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .logo-icon {
-      position: relative;
-      width: 60px;
-      height: 48px;
-      background: #660033;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: visible;
-    }
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .logo-icon span {
-      font-family: 'TanWhistling';
-      font-size: 45px;
-      color: #fff;
-      line-height: 1;
-      position: absolute;
-      top: 11px;
-      z-index: 3;
-    }
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  color: #F7E9D9;
+  position: absolute;
+  top: 11px;
+}
 
-    .logo-icon .s {
-      left: 10px;
-      color: #F7E9D9;
-    }
+.logo-icon .s { left: 10px; }
+.logo-icon .n { left: 20px; }
 
-    .logo-icon .n {
-      left: 20px;
-      color: #F7E9D9;
-    }
+.logo-name {
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #1A1A1A;
+}
 
-    .logo-name {
-      font-family: 'BrownSugar';
-      font-size: 18px;
-      line-height: 1.1;
-      letter-spacing: 2px;
-    }
+.top-nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.top-nav a:hover { color: #000; }
 
-    .top-nav a {
-      margin-left: 32px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-
-    .top-nav a:hover {
-      color: #000;
-    }
-
-    /* SOCIAL ICONS */
-    .social-icons {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #E8DCCF;
-      color: #111;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .social-circle:hover {
-      background: #111;
-      color: #fff;
-    }
+.social-icons {
+  display: flex;
+  gap: 14px;
+}
+.social-circle {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  background: #E8DCCF;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
 
 /* -----------------------------------------
-   SECTION BUTTONS
+   SECTION BUTTONS (PHOTOS / VIDEOS)
 ----------------------------------------- */
 .section-buttons {
   position: sticky;
   top: 90px;
   background: #FBF7F2;
   padding: 10px 0;
-  z-index: 90;
+  z-index: 50;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -151,14 +128,13 @@ body {
   cursor: pointer;
   transition: 0.2s;
 }
-
 .section-buttons button:hover {
   background: #660033;
   color: white;
 }
 
 /* -----------------------------------------
-   PHOTO GRID (PINTEREST STYLE)
+   PHOTO GRID (AUTO GENERATE)
 ----------------------------------------- */
 #photos {
   max-width: 1200px;
@@ -195,7 +171,7 @@ body {
 }
 
 /* -----------------------------------------
-   LIGHTBOX WITH PAGE BLUR
+   LIGHTBOX + BLUR BACKGROUND
 ----------------------------------------- */
 .lightbox {
   position: fixed;
@@ -205,7 +181,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .lightbox img {
@@ -215,11 +191,11 @@ body {
 }
 
 /* -----------------------------------------
-   VIDEO SECTION
+   VIDEOS SECTION
 ----------------------------------------- */
 #videos {
   max-width: 1200px;
-  margin: 40px auto 120px;
+  margin: 60px auto 120px;
   padding: 0 20px;
   text-align: center;
 }
@@ -237,7 +213,7 @@ body {
 }
 
 .video-card {
-  background: #ffffff;
+  background: white;
   padding: 18px;
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
@@ -252,42 +228,39 @@ body {
 
 /* MOBILE */
 @media (max-width: 800px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
+  .photo-grid { columns: 1 300px; }
+  .video-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 
 <body>
 
-  <!-- -----------------------------------------
-       TOP NAVIGATION
-  ----------------------------------------- -->
-  <header class="topbar">
-    <div class="logo-box">
-      <div class="logo-icon">
-        <span class="s">S</span>
-        <span class="n">N</span>
-      </div>
-
-      <div class="logo-name">
-        SUBATHIE<br>NAVANIETHAN
-      </div>
+<!-- -----------------------------------------
+     NAVBAR
+----------------------------------------- -->
+<header class="topbar">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span>
+      <span class="n">N</span>
     </div>
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
+  </div>
 
-    <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="photography.html">Photography</a>
-      <a href="work.html">Work</a>
-    </nav>
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="photography.html">Photography</a>
+    <a href="work.html">Work</a>
+  </nav>
 
-    <div class="social-icons">
-      <a href="https://www.instagram.com/YOURUSERNAME" class="social-circle" target="_blank">IG</a>
-      <a href="https://www.tiktok.com/@YOURUSERNAME" class="social-circle" target="_blank">TT</a>
-    </div>
-  </header>
+  <div class="social-icons">
+    <a class="social-circle">IG</a>
+    <a class="social-circle">TT</a>
+  </div>
+</header>
+
 <!-- -----------------------------------------
      SECTION BUTTONS
 ----------------------------------------- -->
@@ -296,40 +269,19 @@ body {
   <button onclick="location.href='#videos'">Videos</button>
 </div>
 
-
 <!-- -----------------------------------------
-     PHOTOS SECTION
+     PHOTOS (AUTO-LOADED)
 ----------------------------------------- -->
 <section id="photos">
   <h2>Photos</h2>
 
-  <div class="photo-grid">
-
-    <div class="photo-card">
-      <img src="images/IMG_6238-min.jpg" onclick="openLightbox(this)">
-    </div>
-
-    <div class="photo-card">
-      <img src="images/1-DSC02325.jpg" onclick="openLightbox(this)">
-    </div>
-
-    <div class="photo-card">
-      <img src="images/7-IMG_4045.jpg" onclick="openLightbox(this)">
-    </div>
-
-    <div class="photo-card">
-      <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
-    </div>
-
-  </div>
+  <div class="photo-grid" id="photoGrid"></div>
 </section>
-
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
-
 
 <!-- -----------------------------------------
      VIDEOS
@@ -338,7 +290,6 @@ body {
   <h2>Videos</h2>
 
   <div class="video-grid">
-
     <div class="video-card">
       <video controls muted loop>
         <source src="videos/video1.mp4" type="video/mp4">
@@ -350,27 +301,48 @@ body {
         <source src="videos/video2.mp4" type="video/mp4">
       </video>
     </div>
-
   </div>
 </section>
-
 
 <!-- -----------------------------------------
      SCRIPTS
 ----------------------------------------- -->
 <script>
+// Automatically load images from your /images folder
+const allowedExt = [".jpg", ".jpeg", ".png", ".webp"];
+const grid = document.getElementById("photoGrid");
+
+fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/images")
+  .then(res => res.json())
+  .then(files => {
+    files.forEach(file => {
+      if (!file.name) return;
+
+      let lower = file.name.toLowerCase();
+      if (allowedExt.some(ext => lower.endsWith(ext))) {
+        let card = document.createElement("div");
+        card.classList.add("photo-card");
+
+        let img = document.createElement("img");
+        img.src = `images/${file.name}`;
+        img.onclick = () => openLightbox(img);
+
+        card.appendChild(img);
+        grid.appendChild(card);
+      }
+    });
+  });
+
+// Open lightbox
 function openLightbox(img) {
   document.getElementById("lightbox-img").src = img.src;
   document.getElementById("lightbox").style.display = "flex";
-
-  // blur background
   document.body.style.filter = "blur(6px)";
 }
 
+// Close lightbox
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
-
-  // remove blur
   document.body.style.filter = "none";
 }
 </script>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Photography | Subathie</title>
+<title>Subathie | Photography</title>
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,6 +11,10 @@ body {
   background: #FBF7F2;
   color: #1A1A1A;
   font-family: system-ui, sans-serif;
+}
+
+/* WRAPPER to blur (NOT the lightbox) */
+#page-wrapper {
   transition: filter 0.3s ease;
 }
 
@@ -28,8 +32,9 @@ body {
 }
 
 /* -----------------------------------------
-   TOP NAVIGATION (MATCHES INDEX)
+   TOP NAVIGATION
 ----------------------------------------- */
+
 .topbar {
   width: 100%;
   padding: 24px 40px;
@@ -55,16 +60,13 @@ body {
   height: 48px;
   background: #660033;
   border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .logo-icon span {
+  position: absolute;
   font-family: 'TanWhistling';
   font-size: 45px;
   color: #F7E9D9;
-  position: absolute;
   top: 11px;
 }
 
@@ -74,8 +76,8 @@ body {
 .logo-name {
   font-family: 'BrownSugar';
   font-size: 18px;
-  line-height: 1.1;
   letter-spacing: 2px;
+  line-height: 1.1;
   text-decoration: none;
   color: #1A1A1A;
 }
@@ -105,7 +107,7 @@ body {
 }
 
 /* -----------------------------------------
-   SECTION BUTTONS (PHOTOS / VIDEOS)
+   SECTION BUTTONS
 ----------------------------------------- */
 .section-buttons {
   position: sticky;
@@ -116,7 +118,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .section-buttons button {
@@ -134,7 +135,7 @@ body {
 }
 
 /* -----------------------------------------
-   PHOTO GRID (AUTO GENERATE)
+   PHOTO GRID (AUTO LOAD)
 ----------------------------------------- */
 #photos {
   max-width: 1200px;
@@ -162,6 +163,13 @@ body {
   background: #EFE7DD;
   box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.photo-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
 }
 
 .photo-card img {
@@ -171,7 +179,7 @@ body {
 }
 
 /* -----------------------------------------
-   LIGHTBOX + BLUR BACKGROUND
+   LIGHTBOX (NOT BLURRED)
 ----------------------------------------- */
 .lightbox {
   position: fixed;
@@ -181,7 +189,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .lightbox img {
@@ -191,7 +199,7 @@ body {
 }
 
 /* -----------------------------------------
-   VIDEOS SECTION
+   VIDEOS
 ----------------------------------------- */
 #videos {
   max-width: 1200px;
@@ -222,11 +230,10 @@ body {
 .video-card video {
   width: 100%;
   height: 420px;
-  object-fit: cover;
   border-radius: 12px;
+  object-fit: cover;
 }
 
-/* MOBILE */
 @media (max-width: 800px) {
   .photo-grid { columns: 1 300px; }
   .video-grid { grid-template-columns: 1fr; }
@@ -236,9 +243,8 @@ body {
 
 <body>
 
-<!-- -----------------------------------------
-     NAVBAR
------------------------------------------ -->
+<div id="page-wrapper">
+
 <header class="topbar">
   <div class="logo-box">
     <div class="logo-icon">
@@ -261,41 +267,24 @@ body {
   </div>
 </header>
 
-<!-- -----------------------------------------
-     SECTION BUTTONS
------------------------------------------ -->
 <div class="section-buttons">
   <button onclick="location.href='#photos'">Photos</button>
   <button onclick="location.href='#videos'">Videos</button>
 </div>
 
-<!-- -----------------------------------------
-     PHOTOS (AUTO-LOADED)
------------------------------------------ -->
 <section id="photos">
   <h2>Photos</h2>
-
   <div class="photo-grid" id="photoGrid"></div>
 </section>
 
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
-
-<!-- -----------------------------------------
-     VIDEOS
------------------------------------------ -->
 <section id="videos">
   <h2>Videos</h2>
-
   <div class="video-grid">
     <div class="video-card">
       <video controls muted loop>
         <source src="videos/video1.mp4" type="video/mp4">
       </video>
     </div>
-
     <div class="video-card">
       <video controls muted loop>
         <source src="videos/video2.mp4" type="video/mp4">
@@ -304,11 +293,15 @@ body {
   </div>
 </section>
 
-<!-- -----------------------------------------
-     SCRIPTS
------------------------------------------ -->
+</div> <!-- page-wrapper END -->
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
 <script>
-// Automatically load images from your /images folder
+// AUTO LOAD IMAGES
 const allowedExt = [".jpg", ".jpeg", ".png", ".webp"];
 const grid = document.getElementById("photoGrid");
 
@@ -333,17 +326,16 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/ima
     });
   });
 
-// Open lightbox
 function openLightbox(img) {
   document.getElementById("lightbox-img").src = img.src;
   document.getElementById("lightbox").style.display = "flex";
-  document.body.style.filter = "blur(6px)";
+
+  document.getElementById("page-wrapper").style.filter = "blur(8px)";
 }
 
-// Close lightbox
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
-  document.body.style.filter = "none";
+  document.getElementById("page-wrapper").style.filter = "none";
 }
 </script>
 

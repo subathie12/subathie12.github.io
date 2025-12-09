@@ -2,139 +2,158 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Photography | Suba Portfolio</title>
+<title>Subathie's Porfolio | Work</title>
 
 <style>
 /* ---------- GLOBAL ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: system-ui;
-  background: #f7fafc;
-  color: #111827;
+  font-family: system-ui, sans-serif;
+  background: #FBF7F2;
+  color: #1A1A1A;
 }
 
-/* ---------- NAVBAR ---------- */
-.topbar {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  width: 100%;
-  background: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+/* -----------------------------------------
+   CUSTOM FONTS
+----------------------------------------- */
+@font-face {
+  font-family: 'TanWhistling';
+  src: url('TAN WHISTLING Regular.otf') format('opentype');
 }
 
-.topbar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+@font-face {
+  font-family: 'BrownSugar';
+  src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* -----------------------------------------
+       TOP NAVIGATION
+    ----------------------------------------- */
+    .topbar {
+      width: 100%;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #F9F4EF;
+      border-bottom: 1px solid #660033;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      position: relative;
+      width: 60px;
+      height: 48px;
+      background: #660033;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+
+    .logo-icon span {
+      font-family: 'TanWhistling';
+      font-size: 45px;
+      color: #fff;
+      line-height: 1;
+      position: absolute;
+      top: 11px;
+      z-index: 3;
+    }
+
+    .logo-icon .s {
+      left: 10px;
+      color: #F7E9D9;
+    }
+
+    .logo-icon .n {
+      left: 20px;
+      color: #F7E9D9;
+    }
+
+    .logo-name {
+      font-family: 'BrownSugar';
+      font-size: 18px;
+      line-height: 1.1;
+      letter-spacing: 2px;
+    }
+
+    .top-nav a {
+      margin-left: 32px;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .top-nav a:hover {
+      color: #000;
+    }
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .social-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #E8DCCF;
+      color: #111;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .social-circle:hover {
+      background: #111;
+      color: #fff;
+    }
+
+/* -----------------------------------------
+   NEW — TOP CENTER MOCKUP HERO
+----------------------------------------- */
+.mockup-hero {
+  max-width: 900px;
+  margin: 30px auto 60px;
+  text-align: center;
+  padding: 0 20px;
 }
 
-.footer-logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: radial-gradient(circle at 30% 30%, #67e8f9, #3b82f6);
-}
-
-.footer-logo-text {
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: -0.4px;
-}
-
-.top-nav {
-  display: flex;
-  gap: 32px;
-  font-weight: 500;
-  font-size: 16px;
-  color: rgba(0,0,0,0.55);
-}
-
-.top-nav a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.top-nav a:hover {
-  color: rgba(0,0,0,0.85);
-}
-
-.footer-social {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-
-.social-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.06);
-  font-size: 11px;
-  color: rgba(0,0,0,0.7);
-  text-decoration: none;
-}
-
-@media (max-width: 768px) {
-  .topbar-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .top-nav {
-    flex-direction: column;
-    gap: 16px;
-  }
-}
-
-/* ---------- HEADER SECTION ---------- */
-.mockup-section {
-  max-width: 1200px;
-  margin: 120px auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.mockup-img img {
-  width: 100%;
-  border-radius: 16px;
-  object-fit: cover;
-  height: 400px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.1);
-}
-
-.mockup-text h2 {
+.mockup-hero h2 {
+  font-family: 'BrownSugar';
   font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.mockup-text p {
+.mockup-hero p {
   font-size: 18px;
-  color: rgba(0,0,0,.6);
+  color: #555;
   line-height: 1.6;
+  max-width: 750px;
+  margin: 0 auto;
 }
 
-/* ---------- BENTO ─ 3 CARDS ---------- */
+/* ---------- BENTO ─ CARDS SECTION ---------- */
 .bento-section {
-  padding: 100px 60px;
+  padding: 40px 60px 120px;
   max-width: 1400px;
   margin: auto;
 }
@@ -153,27 +172,33 @@ body {
   padding: 16px;
   overflow: hidden;
   border: 1px solid #e3e3e3;
+  transition: 0.2s;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.08);
 }
 
 .bento-card img {
   width: 100%;
-  height: 300px;
+  height: 280px;
   object-fit: cover;
   border-radius: 12px;
 }
 
 .bento-card h3 {
-  margin: 16px 0 8px;
+  margin: 16px 0 6px;
   font-size: 22px;
 }
 
 .bento-card p {
   font-size: 16px;
-  color: #555;
+  color: #444;
   line-height: 1.5;
 }
 
-/* ---------- FOOTER HERO (same as index) ---------- */
+/* ---------- FOOTER HERO (UNCHANGED) ---------- */
 .hero {
   position: relative;
   height: 500px;
@@ -224,120 +249,74 @@ body {
   font-size:15px;
   text-decoration:none;
 }
-
-@media(max-width: 900px) {
-  .hero-content {
-    flex-direction: column;
-    gap: 30px;
-    padding: 50px;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="footer-brand">
-      <div class="footer-logo-img"></div>
-      <span class="footer-logo-text">Namedly</span>
+ <!-- -----------------------------------------
+       TOP NAVIGATION
+  ----------------------------------------- -->
+  <header class="topbar">
+    <div class="logo-box">
+      <div class="logo-icon">
+        <span class="s">S</span>
+        <span class="n">N</span>
+      </div>
+
+      <div class="logo-name">
+        SUBATHIE<br>NAVANIETHAN
+      </div>
     </div>
 
     <nav class="top-nav">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="photography.html">Photography</a>
-      <a href="work.html">Work</a>
+      <a href="mywork.html">Work</a>
     </nav>
 
-    <nav class="footer-social">
-      <a class="social-circle">in</a>
-      <a class="social-circle">ig</a>
-      <a class="social-circle">yt</a>
-    </nav>
-  </div>
-</header>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/YOURUSERNAME" class="social-circle" target="_blank">IG</a>
+      <a href="https://www.tiktok.com/@YOURUSERNAME" class="social-circle" target="_blank">TT</a>
+    </div>
+  </header>
 
 
-<section class="mockup-section">
-  <div class="mockup-img">
-    <img src="images/mockup-1.png" alt="Mockup example">
-  </div>
-
-  <div class="mockup-text">
-    <h2>Mockups</h2>
-    <p>Trying to find experience and grow my work is difficult so to showcase my skills 
-    I’ve done a few mockups of posters, graphic designs and videos of made-up brand campaigns.</p>
-  </div>
+<!-- ⭐ NEW TOP-CENTER MOCKUP HERO -->
+<section class="mockup-hero">
+  <h2>Mockups</h2>
+  <p>
+    Trying to find experience and grow my work is difficult,  
+    so to showcase my skills I’ve created mockups of posters,  
+    graphic design pieces, and videos for made-up brand campaigns.
+  </p>
 </section>
 
 
+<!-- ⭐ CARDS BELOW -->
 <section class="bento-section">
   <ul class="bento-grid">
 
-    <li class="bento-card small">
+    <li class="bento-card">
       <img src="images/photo1.png" alt="">
       <h3>A tiny card</h3>
-      <p>Call out a feature, benefit, or value of your site that can stand on its own.</p>
+      <p>Call out a feature, benefit, or value of your site.</p>
     </li>
 
-    <li class="bento-card medium">
+    <li class="bento-card">
       <img src="images/photo2.png" alt="">
       <h3>A wider card</h3>
-      <p>This one stretches quite a bit. Hello, larger card! What do you have to say and share?</p>
+      <p>This one stretches quite a bit — your main highlight.</p>
     </li>
 
-    <li class="bento-card large">
+    <li class="bento-card">
       <img src="images/photo3.png" alt="">
       <h3>The longest card</h3>
-      <p>This one stretches quite a bit. That’s probably because it’s the most important one.</p>
+      <p>This one gets attention because it stands out the most.</p>
     </li>
 
   </ul>
 </section>
-
-
-<section class="hero">
-  <img class="hero-bg" src="https://picsum.photos/2000/1200">
-
-  <div class="hero-content">
-    <h1 style="color:white;">Namedly</h1>
-
-    <div class="hero-nav">
-
-      <div class="col">
-        <h3>Platform</h3>
-        <a>Individuals</a>
-        <a>Teams</a>
-        <a>Admins</a>
-        <a>Developers</a>
-      </div>
-
-      <div class="col">
-        <h3>Features</h3>
-        <a>Core features</a>
-        <a>Pro experience</a>
-        <a>Integrations</a>
-      </div>
-
-      <div class="col">
-        <h3>Learn more</h3>
-        <a>Blog</a>
-        <a>Case studies</a>
-        <a>Customer stories</a>
-        <a>Best practices</a>
-      </div>
-
-      <div class="col">
-        <h3>Support</h3>
-        <a>Contact</a>
-        <a>Support</a>
-        <a>Legal</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 </body>
 </html>

@@ -1,391 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-<title>Subathie's Porfolio | About</title>
+<meta charset="UTF-8" />
+<title>Subathie's Portfolio | About</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+/* ---------- GLOBAL ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: #FBF7F2;
-      color: #1A1A1A;
-      font-family: system-ui, sans-serif;
-    }
+body {
+  background: #FBF7F2;
+  color: #1A1A1A;
+  font-family: system-ui, sans-serif;
+  transition: filter .3s;
+}
 
-    /* -----------------------------------------
-       LOAD YOUR CUSTOM FONTS
-    ----------------------------------------- */
-    @font-face {
-      font-family: 'TanWhistling';
-      src: url('TAN WHISTLING Regular.otf') format('opentype');
-    }
+/* -----------------------------------------
+   CUSTOM FONTS
+----------------------------------------- */
+@font-face {
+  font-family: 'TanWhistling';
+  src: url('TAN WHISTLING Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'BrownSugar';
+  src: url('Brown-Sugar-Regular.otf') format('opentype');
+}
 
-    @font-face {
-      font-family: 'BrownSugar';
-      src: url('Brown-Sugar-Regular.otf') format('opentype');
-    }
+/* -----------------------------------------
+   NAVIGATION
+----------------------------------------- */
+.topbar {
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F9F4EF;
+  border-bottom: 1px solid #660033;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 
-    /* -----------------------------------------
-       TOP NAVIGATION
-    ----------------------------------------- */
-    .topbar {
-      width: 100%;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #F9F4EF;
-      border-bottom: 1px solid #660033;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .logo-icon {
-      position: relative;
-      width: 60px;
-      height: 48px;
-      background: #660033;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: visible;
-    }
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  color: #F7E9D9;
+  position: absolute;
+  top: 11px;
+}
+.logo-icon .s { left: 10px; }
+.logo-icon .n { left: 20px; }
 
-    .logo-icon span {
-      font-family: 'TanWhistling';
-      font-size: 45px;
-      color: #fff;
-      line-height: 1;
-      position: absolute;
-      top: 11px;
-      z-index: 3;
-    }
+.logo-name {
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
 
-    .logo-icon .s { left: 10px; color: #F7E9D9; }
-    .logo-icon .n { left: 20px; color: #F7E9D9; }
+.top-nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  color: #444;
+  font-size: 16px;
+}
+.top-nav a:hover { color: #000; }
 
-    .logo-name {
-      font-family: 'BrownSugar';
-      font-size: 18px;
-      line-height: 1.1;
-      letter-spacing: 2px;
-    }
+/* -----------------------------------------
+   ABOUT SECTION
+----------------------------------------- */
+.about-wrapper {
+  max-width: 1200px;
+  margin: 80px auto 40px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 60px;
+}
 
-    .top-nav a {
-      margin-left: 32px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      transition: 0.2s;
-    }
+.about-left h1,
+.about-left h3,
+.about-right h2 {
+  font-family: 'BrownSugar';
+}
 
-    .top-nav a:hover { color: #000; }
+.about-left h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+}
 
-    .social-icons {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
+.about-left h3 {
+  font-size: 26px;
+  color: #7a7a7a;
+  margin-bottom: 20px;
+}
 
-    .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #E8DCCF;
-      color: #111;
-      font-size: 12px;
-      font-weight: 600;
-      transition: 0.2s;
-    }
+.about-left p {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.7;
+}
 
-    .social-circle:hover { background: #111; color: #fff; }
+.about-right h2 {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
 
-    /* -----------------------------------------
-       ABOUT SECTION
-    ----------------------------------------- */
-    .about-wrapper {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 60px;
-    }
+.school-card {
+  padding: 16px 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.08);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
 
-    .about-left h1,
-    .about-left h3,
-    .about-right h2,
-    .interests-section h2,
-    .subheading {
-      font-family: 'BrownSugar';
-    }
+/* ----------- INTEREST TAGS (Option A: Soft Rounded Bubbles) ----------- */
+.interests-tags {
+  text-align: center;
+  margin: 60px auto 30px;
+}
 
-    .about-left h1 {
-      font-size: 52px;
-      margin-bottom: 16px;
-    }
+.interests-tags .subheading {
+  font-family: 'BrownSugar';
+  font-size: 30px;
+  margin-bottom: 20px;
+}
 
-    .about-left h3 {
-      font-size: 26px;
-      margin-bottom: 24px;
-      color: #7a7a7a;
-    }
+.tag-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 0 20px;
+}
 
-    .about-left p {
-      font-size: 17px;
-      color: #444;
-      line-height: 1.7;
-      max-width: 650px;
-    }
+.tag {
+  padding: 10px 22px;
+  background: #EFE7DD;
+  border-radius: 30px;
+  border: 1px solid #66003355;
+  font-size: 15px;
+  color: #1A1A1A;
+  cursor: default;
+  transition: 0.25s ease;
+}
 
-    .about-right h2 {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
+.tag:hover {
+  background: #660033;
+  color: white;
+  border-color: #660033;
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
+}
 
-    .school-card {
-      padding: 18px 20px;
-      border-radius: 12px;
-      background: white;
-      border: 1px solid rgba(0,0,0,.08);
-      margin-bottom: 18px;
-      font-size: 16px;
-      display: flex;
-      justify-content: space-between;
-    }
 
-    .school-card span {
-      font-size: 14px;
-      color: #666;
-    }
-    
+/* -----------------------------------------
+   CENTERED SKILLS + SOFTWARES
+----------------------------------------- */
+.skills-wrapper {
+  max-width: 700px;
+  margin: 40px auto 60px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
 
-    /* -----------------------------------------
-       INTERESTS
-    ----------------------------------------- */
-    .interests-section {
-      max-width: 1200px;
-      margin: 100px auto;
-      padding: 0 40px;
-      text-align: center;
-    }
+.skill-card {
+  width: 50%;
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
 
-    .interests-section h2 {
-      font-size: 36px;
-      margin-bottom: 18px;
-    }
+.skill-card h4 {
+  font-family: 'BrownSugar';
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-    .interests-section > p {
-      max-width: 700px;
-      margin: 0 auto 40px;
-      color: #555;
-    }
+.skill-card p {
+  line-height: 1.5;
+  color: #444;
+  white-space: pre-line;
+}
 
-    .subheading {
-      margin-top: 40px;
-      font-size: 24px;
-      margin-bottom: 26px;
-    }
+/* -----------------------------------------
+   PINTEREST AUTO-GALLERY (from /me folder)
+----------------------------------------- */
+.pinterest-gallery {
+  column-count: 3;
+  column-gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto 100px;
+  padding: 0 16px;
+}
 
-    .interest-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
+.pin {
+  margin-bottom: 16px;
+  break-inside: avoid;
+  transition: 0.3s;
+}
+.pin img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  object-fit: cover;
+}
+.pin:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 20px rgba(0,0,0,0.12);
+}
 
-    .interest-box {
-      padding: 26px;
-      background: white;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.08);
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,.05);
-      transition: 0.3s;
-    }
+/* Responsive pins */
+@media(max-width:900px){ .pinterest-gallery{ column-count:2; } }
+@media(max-width:600px){ .pinterest-gallery{ column-count:1; } }
 
-    .interest-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,.08);
-    }
-
-    /* -----------------------------------------
-       PINTEREST GALLERY
-    ----------------------------------------- */
-    .pinterest-gallery {
-      column-count: 3;
-      column-gap: 16px;
-      max-width: 1100px;
-      margin: 40px auto 100px;
-      padding: 0 16px;
-    }
-
-    .pin {
-      margin-bottom: 16px;
-      break-inside: avoid;
-      transition: 0.3s;
-    }
-
-    .pin img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
-    .pin:hover {
-      transform: translateY(-6px);
-      box-shadow: 0px 12px 20px rgba(0,0,0,0.12);
-    }
-
-    @media(max-width:900px){ .pinterest-gallery{ column-count: 2; } }
-    @media(max-width:600px){ .pinterest-gallery{ column-count: 1; } }
-
-    /* -----------------------------------------
-       LIGHTBOX POPUP
-    ----------------------------------------- */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-  </style>
+/* -----------------------------------------
+   LIGHTBOX
+----------------------------------------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAV BAR -->
-  <header class="topbar">
-    <div class="logo-box">
-      <div class="logo-icon">
-        <span class="s">S</span>
-        <span class="n">N</span>
-      </div>
-
-      <div class="logo-name">
-        SUBATHIE<br>NAVANIETHAN
-      </div>
+<header class="topbar">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span>
+      <span class="n">N</span>
     </div>
-
-    <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="photography.html">Photography</a>
-      <a href="work.html">Work</a>
-    </nav>
-
-    <div class="social-icons">
-      <a class="social-circle">IG</a>
-      <a class="social-circle">TT</a>
-    </div>
-  </header>
-
-  <!-- ABOUT SECTION -->
-  <section class="about-wrapper">
-    <div class="about-left">
-      <h1>Hi Again!</h1>
-      <h3>A little more about me...</h3>
-
-      <p>
-        I’m currently studying Information Technology and Marketing – two fields 
-        that sit right between logic and creativity. I love working with visuals, 
-        photography, editing, UI/UX thinking and design.<br><br>
-
-        Creativity isn’t just visuals – it’s problem-solving, emotion, aesthetics, 
-        storytelling, and finding your own voice. I’m still growing, experimenting, 
-        and discovering what my style truly is.
-      </p>
-    </div>
-
-    <div class="about-right">
-      <h2>My Education</h2>
-
-      <div class="school-card">
-        Cavendish Road SHS
-        <span>2017–2022</span>
-      </div>
-
-      <div class="school-card">
-        Queensland University of Technology
-        <span>2023–2027</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTERESTS SECTION -->
-  <section class="interests-section">
-    <h2>My Interests</h2>
-    <p>Some of the things I love exploring creatively.</p>
-
-    <h3 class="subheading">What I enjoy</h3>
-
-    <div class="interest-grid">
-      <div class="interest-box">
-        <h4>Skills</h4>
-        <p>Photography, video editing, visual design, storytelling.</p>
-      </div>
-
-      <div class="interest-box">
-        <h4>Softwares</h4>
-        <p>Canva, CapCut, Lightroom, Figma and more.</p>
-      </div>
-
-      <div class="interest-box">
-        <h4>Where you can find me</h4>
-        <p>Behind a camera, editing, or planning my next idea.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="pinterest-gallery">
-    <div class="pin"><img src="https://placehold.co/400x500" onclick="openLightbox(this)" alt=""></div>
-    <div class="pin"><img src="https://placehold.co/400x300" onclick="openLightbox(this)" alt=""></div>
-    <div class="pin"><img src="https://placehold.co/400x600" onclick="openLightbox(this)" alt=""></div>
-    <div class="pin"><img src="https://placehold.co/400x450" onclick="openLightbox(this)" alt=""></div>
-  </section>
-
-  <!-- SINGLE LIGHTBOX -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
+    <div class="logo-name">SUBATHIE<br>NAVANIETHAN</div>
   </div>
 
-  <!-- LIGHTBOX SCRIPT -->
-  <script>
-    function openLightbox(img) {
-      document.getElementById("lightbox-img").src = img.src;
-      document.getElementById("lightbox").style.display = "flex";
-    }
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="photography.html">Photography</a>
+    <a href="work.html">Work</a>
+  </nav>
 
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
+  <div class="social-icons">
+    <a class="social-circle">IG</a>
+    <a class="social-circle">TT</a>
+  </div>
+</header>
+
+<!-- ABOUT TEXT -->
+<section class="about-wrapper">
+  <div class="about-left">
+    <h1>Hi Again!</h1>
+    <h3>A little more about me...</h3>
+    <p>
+      I’m currently studying Information Technology and Marketing – two fields 
+      that sit right between logic and creativity. I love working with visuals, 
+      photography, editing, UI/UX thinking and design.
+      <br><br>
+      Creativity isn’t just visuals – it’s problem-solving, emotion, storytelling, 
+      and finding your own voice.
+    </p>
+  </div>
+
+  <div class="about-right">
+    <h2>My Education</h2>
+    <div class="school-card">Cavendish Road SHS <span>2017–2022</span></div>
+    <div class="school-card">QUT <span>2023–2027</span></div>
+  </div>
+</section>
+
+<!-- CENTERED SKILLS -->
+<div class="skills-wrapper">
+  <div class="skill-card">
+    <h4>Skills</h4>
+    <p>Photography
+Video editing
+Visual design
+Storytelling</p>
+  </div>
+
+  <div class="skill-card">
+    <h4>Softwares</h4>
+    <p>Canva  
+CapCut  
+Lightroom  
+Figma</p>
+  </div>
+</div>
+<!-- MY INTEREST TAGS -->
+<section class="interests-tags">
+  <h2 class="subheading">My Interests</h2>
+
+  <div class="tag-row">
+    <span class="tag">Photography</span>
+    <span class="tag">Editing</span>
+    <span class="tag">Branding</span>
+    <span class="tag">Colour Grading</span>
+    <span class="tag">Visual Design</span>
+  </div>
+</section>
+
+<!-- AUTO-LOADED GALLERY -->
+<section class="pinterest-gallery" id="gallery"></section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<script>
+// AUTO LOAD IMAGES FROM /me FOLDER
+fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/me")
+  .then(res => res.json())
+  .then(files => {
+    const gallery = document.getElementById("gallery");
+    const allowed = [".jpg",".jpeg",".png",".webp"];
+
+    files.forEach(f => {
+      if (allowed.some(ext => f.name.toLowerCase().endsWith(ext))) {
+        let div = document.createElement("div");
+        div.className = "pin";
+
+        let img = document.createElement("img");
+        img.src = `me/${f.name}`;
+        img.onclick = () => openLightbox(img);
+
+        div.appendChild(img);
+        gallery.appendChild(div);
+      }
+    });
+  });
+
+function openLightbox(img){
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+  document.body.style.filter = "blur(6px)";
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display = "none";
+  document.body.style.filter = "none";
+}
+</script>
 
 </body>
 </html>

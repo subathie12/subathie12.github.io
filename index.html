@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-<title>Subathie's Porfolio | Home</title>
+<meta charset="UTF-8" />
+<title>Subathie's Portfolio | Home</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+/* ---------- GLOBAL ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      background: #FBF7F2;
-      color: #1A1A1A;
-      font-family: system-ui, sans-serif;
-    }
+body {
+  background: #FBF7F2;
+  color: #1A1A1A;
+  font-family: system-ui, sans-serif;
+}
 
-    /* -----------------------------------------
-       LOAD YOUR CUSTOM FONTS
-    ----------------------------------------- */
-    @font-face {
-      font-family: 'TanWhistling';
-      src: url('TAN WHISTLING Regular.otf') format('opentype');
-    }
+/* REMOVE UNDERLINES EVERYWHERE */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    @font-face {
-      font-family: 'BrownSugar';
-      src: url('Brown-Sugar-Regular.otf') format('opentype');
-    }
+/* -----------------------------------------
+   CUSTOM FONTS
+----------------------------------------- */
+@font-face {
+  font-family: 'TanWhistling';
+  src: url('TAN WHISTLING Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'BrownSugar';
+  src: url('Brown-Sugar-Regular.otf') format('opentype');
+}
 
-    /* -----------------------------------------
-       TOP NAVIGATION
-    ----------------------------------------- */
-    .topbar {
+/* -----------------------------------------
+   TOP NAVIGATION
+----------------------------------------- */
+.topbar {
       width: 100%;
       padding: 24px 40px;
       display: flex;
@@ -85,6 +91,8 @@
       font-size: 18px;
       line-height: 1.1;
       letter-spacing: 2px;
+      text-decoration: none;  
+      color: #1A1A1A; 
     }
 
     .top-nav a {
@@ -126,242 +134,209 @@
       color: #fff;
     }
 
-    /* -----------------------------------------
-       HERO ARCH
-    ----------------------------------------- */
-    .hero-arch {
-      padding: 60px 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 60px;
-    }
 
-    .arch-wrapper {
-      width: 420px;
-      height: 520px;
-      background: #EFE7DD;
-      border-radius: 200px 200px 0 0;
-      overflow: hidden;
-      border: 2px solid #660033;
-      box-shadow: 0px 10px 20px rgba(0,0,0,0.08);
-    }
+/* -----------------------------------------
+   HERO ARCH
+----------------------------------------- */
+.hero-arch {
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
 
-    .arch-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.arch-wrapper {
+  width: 420px;
+  height: 520px;
+  background: #EFE7DD;
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  border: 2px solid #660033;
+}
 
-    .hero-right {
-      max-width: 380px;
-    }
+.arch-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .hero-title {
-      font-family: 'BrownSugar';
-      font-size: 58px;
-      line-height: 1.1;
-    }
+.hero-right {
+  max-width: 380px;
+}
 
-    .hero-sub {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #4a4a4a;
-      line-height: 1.5;
-    }
+.hero-title {
+  font-family: 'BrownSugar';
+  font-size: 58px;
+}
 
-    /* -----------------------------------------
-       PHOTOGRAPHY SNIPPETS
-    ----------------------------------------- */
-    .photo-snippets-section {
-      padding: 20px 40px 60px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
+.hero-sub {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
 
-    .snippet-title {
-      font-family: 'BrownSugar';
-      font-size: 38px;
-      margin-bottom: 30px;
-    }
+/* -----------------------------------------
+   PHOTO SNIPPETS
+----------------------------------------- */
+.photo-snippets-section {
+  padding: 20px 40px 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
+.snippet-title {
+  font-family: 'BrownSugar';
+  font-size: 38px;
+  margin-bottom: 30px;
+}
 
-    .photo-card {
-      background: #EFE7DD;
-      border-radius: 18px;
-      overflow: hidden;
-      height: 330px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
-      transition: 0.3s ease;
-    }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
 
-    .photo-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0px 12px 20px rgba(0,0,0,0.12);
-    }
+.photo-card {
+  background: #EFE7DD;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
 
-    .photo-card img {
-      width: 100%;
-      height: 80%;
-      object-fit: cover;
-      cursor: pointer;
-    }
+.photo-card:hover {
+  transform: translateY(-6px);
+}
 
-    .photo-card p {
-      padding: 12px 16px;
-      font-size: 15px;
-      color: #4a4a4a;
-    }
+.photo-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  cursor: pointer;
+}
 
-    /* -----------------------------------------
-       LIGHTBOX POPUP
-    ----------------------------------------- */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
+.photo-card p {
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #4a4a4a;
+}
 
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
+  /* ----------------------------------------- FOOTER HERO SECTION ----------------------------------------- */ 
+  .footer-hero { 
+    margin-top: 60px; 
+    padding: 80px 40px; 
+    background: #EFE7DD; 
+    text-align: center; } 
+  
+  .footer-hero h2 { 
+    font-family: 'BrownSugar'; 
+    font-size: 42px; 
+    margin-bottom: 20px; } 
+/* -----------------------------------------
+   LIGHTBOX
+----------------------------------------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-    /* -----------------------------------------
-       FOOTER HERO SECTION
-    ----------------------------------------- */
-    .footer-hero {
-      margin-top: 60px;
-      padding: 80px 40px;
-      background: #EFE7DD;
-      text-align: center;
-    }
-
-    .footer-hero h2 {
-      font-family: 'BrownSugar';
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-  </style>
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- -----------------------------------------
-       TOP NAVIGATION
-  ----------------------------------------- -->
-  <header class="topbar">
-    <div class="logo-box">
-      <div class="logo-icon">
-        <span class="s">S</span>
-        <span class="n">N</span>
-      </div>
-
-      <div class="logo-name">
-        SUBATHIE<br>NAVANIETHAN
-      </div>
+<header class="topbar">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span>
+      <span class="n">N</span>
     </div>
-
-    <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="photography.html">Photography</a>
-      <a href="work.html">Work</a>
-    </nav>
-
-    <div class="social-icons">
-      <a href="https://www.instagram.com/YOURUSERNAME" class="social-circle" target="_blank">IG</a>
-      <a href="https://www.tiktok.com/@YOURUSERNAME" class="social-circle" target="_blank">TT</a>
-    </div>
-  </header>
-
-
-  <!-- -----------------------------------------
-       HERO ARCH
-  ----------------------------------------- -->
-  <section class="hero-arch">
-
-    <div class="arch-wrapper">
-      <img src="me - Copy/IMG_6789-min.JPEG" alt="Profile Image">
-    </div>
-
-    <div class="hero-right">
-      <h1 class="hero-title">Designer & Photographer</h1>
-      <p class="hero-sub">
-        I craft warm, expressive visuals inspired by emotion, colour and meaningful storytelling.
-      </p>
-    </div>
-
-  </section>
-
-
-  <!-- -----------------------------------------
-       PHOTOGRAPHY SNIPPETS
-  ----------------------------------------- -->
-  <section class="photo-snippets-section">
-    <h2 class="snippet-title">Photography Snippets</h2>
-
-    <div class="photo-grid">
-      <div class="photo-card">
-        <img src="images/IMG_6238-min.jpg" onclick="openLightbox(this)">
-        <p>Urban energy & live moments</p>
-      </div>
-
-      <div class="photo-card">
-        <img src="images/1-DSC02325.jpg" onclick="openLightbox(this)">
-        <p>Candid stories in real spaces</p>
-      </div>
-
-      <div class="photo-card">
-        <img src="images/7-IMG_4045.jpg" onclick="openLightbox(this)">
-        <p>Street-style portraits with mood</p>
-      </div>
-
-      <div class="photo-card">
-        <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
-        <p>Minimal scenes with cinematic colour</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
-  <!-- FOOTER -->
-  <section class="footer-hero">
-    <h2>Explore my world</h2>
-    <p>Visual stories, identity design, and moments captured with intention.</p>
-  </section>
+  <nav class="top-nav">
+    <a href="about.html">About</a>
+    <a href="photography.html">Photography</a>
+    <a href="work.html">Work</a>
+  </nav>
 
-  <!-- LIGHTBOX SCRIPT -->
-  <script>
-    function openLightbox(img) {
-      document.getElementById("lightbox-img").src = img.src;
-      document.getElementById("lightbox").style.display = "flex";
-    }
+  <div class="social-icons">
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle">IG</a>
+    <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">IN</a>
+  </div>
+</header>
 
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
+<section class="hero-arch">
+  <div class="arch-wrapper">
+    <img src="me - Copy/IMG_6789-min.JPEG" alt="Profile Image">
+  </div>
+
+  <div class="hero-right">
+    <h1 class="hero-title">Designer & Photographer</h1>
+    <p class="hero-sub">
+      I craft warm, expressive visuals inspired by emotion, colour and meaningful storytelling.
+    </p>
+  </div>
+</section>
+
+<section class="photo-snippets-section">
+  <h2 class="snippet-title">Photography Snippets</h2>
+
+  <div class="photo-grid">
+    <div class="photo-card">
+      <img src="images/IMG_6238-min.jpg" onclick="openLightbox(this)">
+      <p>Urban energy & live moments</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/1-DSC02325.jpg" onclick="openLightbox(this)">
+      <p>Candid stories in real spaces</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/7-IMG_4045.jpg" onclick="openLightbox(this)">
+      <p>Street-style portraits with mood</p>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
+      <p>Minimal scenes with cinematic colour</p>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+  
+  <!-- FOOTER --> 
+  <section class="footer-hero"> <h2>Explore my world</h2> <p>Visual stories, identity design, and moments captured with intention.</p> </section>
+  
+<script>
+function openLightbox(img) {
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>

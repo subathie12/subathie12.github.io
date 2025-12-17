@@ -12,12 +12,9 @@ body {
   background: #FBF7F2;
   color: #1A1A1A;
   font-family: system-ui, sans-serif;
-  transition: filter .3s;
 }
 
-/* -----------------------------------------
-   CUSTOM FONTS
------------------------------------------ */
+/* ---------- CUSTOM FONTS ---------- */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
@@ -27,10 +24,8 @@ body {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* -----------------------------------------
-       TOP NAVIGATION
-    ----------------------------------------- */
-    .topbar {
+/* ---------- NAVIGATION ---------- */
+.topbar {
       width: 100%;
       padding: 24px 40px;
       display: flex;
@@ -129,153 +124,60 @@ body {
       color: #fff;
     }
 
-/* -----------------------------------------
-   ABOUT SECTION
------------------------------------------ */
+
+
+/* ---------- ABOUT SECTION ---------- */
 .about-wrapper {
-  max-width: 1200px;
-  margin: 80px auto 40px;
+  max-width: 900px;
+  margin: 45px auto 32px; /* FIXED spacing */
+  padding: 0 40px;
+  text-align: center;
+}
+
+.about-wrapper h1,
+.about-wrapper h3 {
+  font-family: 'BrownSugar';
+}
+
+.about-wrapper h1 {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.about-wrapper h3 {
+  font-size: 24px;
+  color: #777;
+  margin-bottom: 18px;
+}
+
+.about-wrapper p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ---------- SKILLS / SOFTWARE / EDUCATION ---------- */
+.skills-wrapper {
+  max-width: 1000px;
+  margin: 30px auto 55px; /* FIXED spacing */
   padding: 0 40px;
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 60px;
-}
-
-.about-left h1,
-.about-left h3,
-.about-right h2 {
-  font-family: 'BrownSugar';
-}
-
-.about-left h1 {
-  font-size: 52px;
-  margin-bottom: 10px;
-}
-
-.about-left h3 {
-  font-size: 26px;
-  color: #7a7a7a;
-  margin-bottom: 20px;
-}
-
-.about-left p {
-  font-size: 17px;
-  color: #444;
-  line-height: 1.7;
-}
-
-.about-right h2 {
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-
-.school-card {
-  padding: 16px 20px;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,.08);
-  margin-bottom: 14px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* ----------- INTEREST TAGS (Option A: Soft Rounded Bubbles) ----------- */
-.interests-tags {
-  text-align: center;
-  margin: 60px auto 30px;
-}
-
-.interests-tags .subheading {
-  font-family: 'BrownSugar';
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-
-.tag-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 0 20px;
-}
-
-.tag {
-  padding: 10px 22px;
-  background: #EFE7DD;
-  border-radius: 30px;
-  border: 1px solid #66003355;
-  font-size: 15px;
-  color: #1A1A1A;
-  cursor: default;
-  transition: 0.25s ease;
-}
-
-.tag:hover {
-  background: #660033;
-  color: white;
-  border-color: #660033;
-  transform: translateY(-3px);
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.15);
-}
-
-/* -----------------------------------------
-   BIG FASHION TAG
------------------------------------------ */
-.tag.fashion {
-  display: block;
-  width: fit-content;
-  margin: 10px auto 20px;
-  font-size: 15px;
-  padding: 12px 36px;
-  background: #660033;
-  color: white;
-  border-radius: 40px;
-  border: 1px solid #660033;
-  text-align: center;
-}
-
-/* -----------------------------------------
-   FASHION STORY SECTION
------------------------------------------ */
-.fashion-story {
-  max-width: 1100px;
-  margin: 20px auto 70px;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.fashion-story h2 {
-  font-family: 'BrownSugar';
-  font-size: 38px;
-  margin-bottom: 16px;
-}
-
-.fashion-story p {
-  font-size: 18px;
-  line-height: 1.5;
-  color: #444;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-/* -----------------------------------------
-   CENTERED SKILLS + SOFTWARES
------------------------------------------ */
-.skills-wrapper {
-  max-width: 700px;
-  margin: 40px auto 60px;
-  display: flex;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
 .skill-card {
-  width: 50%;
   background: white;
   padding: 24px;
   border-radius: 14px;
   border: 1px solid rgba(0,0,0,.08);
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,.05);
+  transition: 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
 }
 
 .skill-card h4 {
@@ -285,60 +187,117 @@ body {
 }
 
 .skill-card p {
+  white-space: pre-line;
   line-height: 1.5;
   color: #444;
-  white-space: pre-line;
 }
 
-/* -----------------------------------------
-   PINTEREST AUTO-GALLERY (from /me folder)
------------------------------------------ */
+/* ---------- EDUCATION INNER ---------- */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.education-item {
+  background: #FBF7F2;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.08);
+  transition: 0.25s;
+}
+.education-item:hover {
+  transform: translateX(4px);
+}
+
+.education-item strong {
+  font-size: 14px;
+}
+.education-item span {
+  font-size: 12px;
+  color: #666;
+}
+
+/* ---------- INTEREST TAGS ---------- */
+.interests-tags {
+  text-align: center;
+  margin: 45px auto 28px;
+}
+
+.interests-tags h2 {
+  font-family: 'BrownSugar';
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.tag-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tag {
+  padding: 8px 18px;
+  background: #EFE7DD;
+  border-radius: 30px;
+  border: 1px solid #66003355;
+  font-size: 14px;
+  transition: 0.25s;
+}
+.tag:hover {
+  background: #660033;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ---------- FASHION TAG (FIXED SIZE) ---------- */
+.tag.fashion {
+  display: inline-block;
+  margin: 12px auto 36px;
+  padding: 8px 18px;
+
+  /* MATCH OTHER TAGS */
+  font-size: 14px;
+  font-weight: 500;
+
+  background: #660033;
+  color: white;
+  border-radius: 30px;
+  border: 1px solid #660033;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+
+/* ---------- GALLERY ---------- */
 .pinterest-gallery {
   column-count: 3;
   column-gap: 16px;
   max-width: 1100px;
-  margin: 0 auto 100px;
+  margin: 0 auto 90px;
   padding: 0 16px;
 }
 
 .pin {
   margin-bottom: 16px;
   break-inside: avoid;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 .pin img {
   width: 100%;
   border-radius: 12px;
-  cursor: pointer;
   object-fit: cover;
 }
 .pin:hover {
   transform: translateY(-6px);
-  box-shadow: 0px 12px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 14px 26px rgba(0,0,0,.15);
 }
 
-/* Responsive pins */
 @media(max-width:900px){ .pinterest-gallery{ column-count:2; } }
 @media(max-width:600px){ .pinterest-gallery{ column-count:1; } }
-
-/* -----------------------------------------
-   LIGHTBOX
------------------------------------------ */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-}
 </style>
 </head>
 
@@ -350,7 +309,7 @@ body {
       <span class="s">S</span>
       <span class="n">N</span>
     </div>
-<a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
   <nav class="top-nav">
@@ -360,118 +319,90 @@ body {
   </nav>
 
   <div class="social-icons">
-    <a href= "https://www.instagram.com/conte.ntbys?igsh=cnl2NjdxNWl5a29z&utm_source=qr" class="social-circle">IG</a>
-    <a href="mailto:subathienudara3@gmail.com"class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">IN</a>
-
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle">IG</a>
+    <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle">IN</a>
   </div>
 </header>
 
-<!-- ABOUT TEXT -->
 <section class="about-wrapper">
-  <div class="about-left">
-    <h1>Hi Again!</h1>
-    <h3>A little more about me...</h3>
-    <p>
-      I work across photography, editing, visual design, and digital storytelling — blending creativity with the structure of technology. Studying Information Technology and Marketing helps me turn ideas into real, intentional work.
-      <br><br>
-      For a long time, I didn’t think I was “naturally creative,” but fashion changed that. It was the first place where I learned how colours, textures, and small details could tell a story. Fashion became my earliest form of expression — a space where confidence, identity, and creativity finally made sense to me
-      and visually see the creativity I thought I lacked.
+  <h1>Hi Again!</h1>
+  <h3>A little more about me…</h3>
+  <p>
+    I work across photography, editing, visual design, and digital storytelling — blending creativity with the structure of technology.
     <br><br>
-    That spark carried into everything I do now: the way I compose photos, edit visuals, and approach design. The same instinct I had for balance, contrast, and detail in outfits is what shapes my creative direction today.
-      <br><br>
-    <p>Fashion taught me to see differently.</P>
-  <p>IT taught me to build with intention.</p>
-      
-     <p> Together, they shaped the way I create.
-       <p/>
-    </p>
-  </div>
-
-  <div class="about-right">
-    <h2>My Education</h2>
-    <div class="school-card">Cavendish Road State High School <span>2017–2022</span></div>
-    <div class="school-card">Queensland University of Technology - Bachelor of Information Technology and Business (marketing) <span>2023–2027</span></div>
-  </div>
+    Fashion was the first place I felt creative. That instinct for balance, texture, and detail now shapes how I edit, compose, and design.
+    IT taught me how to build with intention — together, they shape how I create.
+  </p>
 </section>
 
-<!-- CENTERED SKILLS -->
 <div class="skills-wrapper">
   <div class="skill-card">
     <h4>Skills</h4>
     <p>Photography
-Video editing
-Visual design
+Video Editing
+Visual Design
 Storytelling
 Graphic Design</p>
   </div>
 
   <div class="skill-card">
     <h4>Softwares</h4>
-    <p>Canva  
-CapCut  
-Lightroom  
+    <p>Canva
+CapCut
+Lightroom
 Figma
 GitHub</p>
   </div>
-</div>
-<!-- MY INTEREST TAGS -->
-<section class="interests-tags">
-  <h2 class="subheading">My Interests</h2>
 
+  <div class="skill-card">
+    <h4>Education</h4>
+    <div class="education-list">
+      <div class="education-item">
+        <strong>Cavendish Road State High School</strong><br>
+        <span>2017–2022</span>
+      </div>
+      <div class="education-item">
+        <strong>Queensland University of Technology</strong><br>
+        <span>IT & Business (Marketing) · 2023–2027</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="interests-tags">
+  <h2>My Interests</h2>
   <div class="tag-row">
     <span class="tag">Photography</span>
-    <span class="tag">Avid Concert goer</span>
-    <span class="tag">Exploring secluded spots</span>
+    <span class="tag">Music</span>
     <span class="tag">Colour Grading</span>
     <span class="tag">Visual Design</span>
-    <span class="tag">Music</span>
   </div>
 </section>
 
-<!-- BIG FASHION TAG -->
-<span class="tag fashion">FASHION</span>
-
-<!-- AUTO-LOADED GALLERY -->
-<section class="pinterest-gallery" id="gallery"></section>
-
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+<div style="text-align:center;">
+  <span class="tag fashion">Fashion</span>
 </div>
 
+<section class="pinterest-gallery" id="gallery"></section>
+
 <script>
-// AUTO LOAD IMAGES FROM /me FOLDER
 fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/me")
   .then(res => res.json())
   .then(files => {
     const gallery = document.getElementById("gallery");
     const allowed = [".jpg",".jpeg",".png",".webp"];
-
     files.forEach(f => {
       if (allowed.some(ext => f.name.toLowerCase().endsWith(ext))) {
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.className = "pin";
-
-        let img = document.createElement("img");
+        const img = document.createElement("img");
         img.src = `me/${f.name}`;
-        img.onclick = null;
-
         div.appendChild(img);
         gallery.appendChild(div);
       }
     });
   });
-
-function openLightbox(img){
-  document.getElementById("lightbox-img").src = img.src;
-  document.getElementById("lightbox").style.display = "flex";
-  document.body.style.filter = "blur(6px)";
-}
-
-function closeLightbox(){
-  document.getElementById("lightbox").style.display = "none";
-  document.body.style.filter = "none";
-}
 </script>
 
 </body>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Subathie's Porfolio | Photography</title>
+<title>Subathie's Portfolio | Photography</title>
 
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -13,28 +13,23 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-/* WRAPPER to blur (NOT the lightbox) */
+/* PAGE WRAPPER FOR BLUR */
 #page-wrapper {
   transition: filter 0.3s ease;
 }
 
-/* -----------------------------------------
-   CUSTOM FONTS
------------------------------------------ */
+/* ---------- FONTS ---------- */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
 }
-
 @font-face {
   font-family: 'BrownSugar';
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* -----------------------------------------
-       TOP NAVIGATION
-    ----------------------------------------- */
-    .topbar {
+/* ---------- NAV ---------- */
+.topbar {
       width: 100%;
       padding: 24px 40px;
       display: flex;
@@ -90,6 +85,8 @@ body {
       font-size: 18px;
       line-height: 1.1;
       letter-spacing: 2px;
+      text-decoration: none;  
+      color: #1A1A1A; 
     }
 
     .top-nav a {
@@ -130,26 +127,26 @@ body {
       background: #111;
       color: #fff;
     }
-/* -----------------------------------------
-   SECTION BUTTONS
------------------------------------------ */
+
+
+
+/* ---------- SECTION BUTTONS ---------- */
 .section-buttons {
   position: sticky;
   top: 90px;
   background: #FBF7F2;
   padding: 10px 0;
-  z-index: 50;
   display: flex;
   justify-content: center;
   gap: 20px;
+  z-index: 50;
 }
 
 .section-buttons button {
   padding: 8px 18px;
   border-radius: 20px;
   border: 1px solid #660033;
-  background: #ffffff;
-  font-size: 14px;
+  background: white;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -158,20 +155,17 @@ body {
   color: white;
 }
 
-/* -----------------------------------------
-   PHOTO GRID (AUTO LOAD)
------------------------------------------ */
+/* ---------- PHOTOS ---------- */
 #photos {
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
   text-align: center;
 }
-
 #photos h2 {
   font-family: 'BrownSugar';
   font-size: 40px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .photo-grid {
@@ -182,56 +176,44 @@ body {
 .photo-card {
   break-inside: avoid;
   margin-bottom: 20px;
+  background: #EFE7DD;
   border-radius: 14px;
   overflow: hidden;
-  background: #EFE7DD;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-/* HOVER EFFECT */
 .photo-card:hover {
   transform: scale(1.03);
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-
 .photo-card img {
   width: 100%;
   display: block;
-  object-fit: cover;
 }
 
-/* -----------------------------------------
-   LIGHTBOX (NOT BLURRED)
------------------------------------------ */
+/* ---------- LIGHTBOX ---------- */
 .lightbox {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.85);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 2000;
 }
-
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 12px;
 }
 
-/* -----------------------------------------
-   VIDEOS
------------------------------------------ */
+/* ---------- VIDEOS ---------- */
 #videos {
   max-width: 1200px;
-  margin: 60px auto 120px;
+  margin: 80px auto 120px;
   padding: 0 20px;
   text-align: center;
 }
-
 #videos h2 {
   font-family: 'BrownSugar';
   font-size: 40px;
@@ -259,7 +241,7 @@ body {
 }
 
 @media (max-width: 800px) {
-  .photo-grid { columns: 1 300px; }
+  .photo-grid { columns: 1; }
   .video-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -275,19 +257,19 @@ body {
       <span class="s">S</span>
       <span class="n">N</span>
     </div>
-<div class="logo-name">SUBATHIE<br>NAVANIETHAN</div>
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
   <nav class="top-nav">
-    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="photography.html">Photography</a>
     <a href="work.html">Work</a>
   </nav>
 
   <div class="social-icons">
-    <a class="social-circle">IG</a>
-    <a class="social-circle">TT</a>
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle">IG</a>
+    <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle">IN</a>
   </div>
 </header>
 
@@ -303,49 +285,53 @@ body {
 
 <section id="videos">
   <h2>Videos</h2>
-  <div class="video-grid">
-    <div class="video-card">
-      <video controls muted loop>
-        <source src="videos/video1.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="video-card">
-      <video controls muted loop>
-        <source src="videos/video2.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
+  <div class="video-grid" id="videoGrid"></div>
 </section>
 
-</div> <!-- page-wrapper END -->
+</div>
 
-<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
 
 <script>
-// AUTO LOAD IMAGES
-const allowedExt = [".jpg", ".jpeg", ".png", ".webp"];
-const grid = document.getElementById("photoGrid");
-
+/* ---------- AUTO LOAD PHOTOS ---------- */
+const photoGrid = document.getElementById("photoGrid");
 fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/images")
   .then(res => res.json())
   .then(files => {
-    files.forEach(file => {
-      if (!file.name) return;
-
-      let lower = file.name.toLowerCase();
-      if (allowedExt.some(ext => lower.endsWith(ext))) {
-        let card = document.createElement("div");
-        card.classList.add("photo-card");
-
-        let img = document.createElement("img");
-        img.src = `images/${file.name}`;
+    files.forEach(f => {
+      if (/\.(jpg|jpeg|png|webp)$/i.test(f.name)) {
+        const card = document.createElement("div");
+        card.className = "photo-card";
+        const img = document.createElement("img");
+        img.src = `images/${f.name}`;
         img.onclick = () => openLightbox(img);
-
         card.appendChild(img);
-        grid.appendChild(card);
+        photoGrid.appendChild(card);
+      }
+    });
+  });
+
+/* ---------- AUTO LOAD VIDEOS ---------- */
+const videoGrid = document.getElementById("videoGrid");
+fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/videos")
+  .then(res => res.json())
+  .then(files => {
+    files.forEach(f => {
+      if (/\.(mp4|webm|mov)$/i.test(f.name)) {
+        const card = document.createElement("div");
+        card.className = "video-card";
+        const video = document.createElement("video");
+        video.controls = true;
+        video.muted = true;
+        video.loop = true;
+        const source = document.createElement("source");
+        source.src = `videos/${f.name}`;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        card.appendChild(video);
+        videoGrid.appendChild(card);
       }
     });
   });
@@ -353,7 +339,6 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/ima
 function openLightbox(img) {
   document.getElementById("lightbox-img").src = img.src;
   document.getElementById("lightbox").style.display = "flex";
-
   document.getElementById("page-wrapper").style.filter = "blur(8px)";
 }
 

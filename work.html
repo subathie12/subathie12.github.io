@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Subathie's Porfolio | Work</title>
+<title>Subathie's Portfolio | Work</title>
 
 <style>
-/* ---------- GLOBAL ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -14,23 +13,18 @@ body {
   color: #1A1A1A;
 }
 
-/* -----------------------------------------
-   CUSTOM FONTS
------------------------------------------ */
+/* ---------- FONTS ---------- */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
 }
-
 @font-face {
   font-family: 'BrownSugar';
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* -----------------------------------------
-       TOP NAVIGATION
-    ----------------------------------------- */
-    .topbar {
+/* ---------- NAV ---------- */
+.topbar {
       width: 100%;
       padding: 24px 40px;
       display: flex;
@@ -86,6 +80,8 @@ body {
       font-size: 18px;
       line-height: 1.1;
       letter-spacing: 2px;
+      text-decoration: none;  
+      color: #1A1A1A; 
     }
 
     .top-nav a {
@@ -126,15 +122,11 @@ body {
       background: #111;
       color: #fff;
     }
-
-/* -----------------------------------------
-   NEW — TOP CENTER MOCKUP HERO
------------------------------------------ */
+/* ---------- HERO ---------- */
 .mockup-hero {
   max-width: 900px;
-  margin: 30px auto 60px;
+  margin: 40px auto 70px;
   text-align: center;
-  padding: 0 20px;
 }
 
 .mockup-hero h2 {
@@ -147,176 +139,209 @@ body {
   font-size: 18px;
   color: #555;
   line-height: 1.6;
-  max-width: 750px;
-  margin: 0 auto;
 }
 
-/* ---------- BENTO ─ CARDS SECTION ---------- */
+/* ---------- BENTO GRID ---------- */
 .bento-section {
-  padding: 40px 60px 120px;
   max-width: 1400px;
   margin: auto;
+  padding: 0 60px 120px;
 }
 
 .bento-grid {
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  list-style: none;
-  padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 34px;
 }
 
 .bento-card {
-  background: #f7f7f7;
-  border-radius: 16px;
-  padding: 16px;
+  background: white;
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid #e3e3e3;
-  transition: 0.2s;
+  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .bento-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.14);
 }
 
 .bento-card img {
   width: 100%;
-  height: 280px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 12px;
+}
+
+.bento-card .content {
+  padding: 18px;
 }
 
 .bento-card h3 {
-  margin: 16px 0 6px;
+  font-family: 'BrownSugar';
   font-size: 22px;
+  margin-bottom: 6px;
 }
 
 .bento-card p {
-  font-size: 16px;
-  color: #444;
+  font-size: 15px;
+  color: #555;
   line-height: 1.5;
 }
 
-/* ---------- FOOTER HERO (UNCHANGED) ---------- */
-.hero {
-  position: relative;
-  height: 500px;
+/* ---------- LIGHTBOX ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox-inner {
+  background: #FBF7F2;
+  border-radius: 20px;
+  max-width: 1100px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+
+.lightbox img {
   width: 100%;
-  overflow: hidden;
+  max-height: 80vh;        /* BIG visual impact */
+  border-radius: 16px;
+  object-fit: contain;    /* no cropping */
 }
 
-.hero-bg {
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  z-index:1;
+
+.lightbox-text h3 {
+  font-family: 'BrownSugar';
+  font-size: 32px;
+  margin-bottom: 12px;
 }
 
-.hero-content {
-  width:100%;
-  padding:80px 120px;
-  display:flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  z-index:2;
-  background: rgba(0,0,0,0.5);
+.lightbox-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
 }
 
-.hero-nav {
-  display:flex;
-  gap:48px;
-}
-
-.col {
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.col h3 {
-  color:white;
-  font-size:16px;
-  font-weight:600;
-}
-
-.col a {
-  color:rgba(255,255,255,0.7);
-  font-size:15px;
-  text-decoration:none;
+@media(max-width: 800px) {
+  .lightbox-inner {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
- <!-- -----------------------------------------
-       TOP NAVIGATION
-  ----------------------------------------- -->
-  <header class="topbar">
-    <div class="logo-box">
-      <div class="logo-icon">
-        <span class="s">S</span>
-        <span class="n">N</span>
-      </div>
-
-      <div class="logo-name">
-        SUBATHIE<br>NAVANIETHAN
-      </div>
+<header class="topbar">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span><span class="n">N</span>
     </div>
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
+  </div>
 
-    <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="photography.html">Photography</a>
-      <a href="mywork.html">Work</a>
-    </nav>
+  <nav class="top-nav">
+    <a href="about.html">About</a>
+    <a href="photography.html">Photography</a>
+    <a href="work.html">Work</a>
+  </nav>
 
-    <div class="social-icons">
-      <a href="https://www.instagram.com/YOURUSERNAME" class="social-circle" target="_blank">IG</a>
-      <a href="https://www.tiktok.com/@YOURUSERNAME" class="social-circle" target="_blank">TT</a>
-    </div>
-  </header>
+  <div class="social-icons">
+    <a href="#" class="social-circle">IG</a>
+    <a href="#" class="social-circle">📧</a>
+    <a href="#" class="social-circle">IN</a>
+  </div>
+</header>
 
-
-<!-- ⭐ NEW TOP-CENTER MOCKUP HERO -->
 <section class="mockup-hero">
-  <h2>Mockups</h2>
+  <h2>Mock Campaigns</h2>
   <p>
-    Trying to find experience and grow my work is difficult,  
-    so to showcase my skills I’ve created mockups of posters,  
-    graphic design pieces, and videos for made-up brand campaigns.
+    Concept-led brand mockups exploring visual identity,
+    layout, and storytelling through design.
   </p>
 </section>
 
-
-<!-- ⭐ CARDS BELOW -->
 <section class="bento-section">
-  <ul class="bento-grid">
-
-    <li class="bento-card">
-      <img src="images/photo1.png" alt="">
-      <h3>A tiny card</h3>
-      <p>Call out a feature, benefit, or value of your site.</p>
-    </li>
-
-    <li class="bento-card">
-      <img src="images/photo2.png" alt="">
-      <h3>A wider card</h3>
-      <p>This one stretches quite a bit — your main highlight.</p>
-    </li>
-
-    <li class="bento-card">
-      <img src="images/photo3.png" alt="">
-      <h3>The longest card</h3>
-      <p>This one gets attention because it stands out the most.</p>
-    </li>
-
-  </ul>
+  <div class="bento-grid" id="workGrid"></div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <img id="lightbox-img">
+    <div class="lightbox-text">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-desc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const grid = document.getElementById("workGrid");
+
+fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/work")
+  .then(res => res.json())
+  .then(files => {
+    files.forEach(file => {
+      if (/\.(jpg|jpeg|png|webp)$/i.test(file.name)) {
+
+        const card = document.createElement("div");
+        card.className = "bento-card";
+
+        const img = document.createElement("img");
+        img.src = `work/${file.name}`;
+
+        const content = document.createElement("div");
+        content.className = "content";
+
+        const title = document.createElement("h3");
+        title.textContent = "Mock Campaign";
+
+        const desc = document.createElement("p");
+        desc.textContent =
+          "A conceptual brand mockup exploring layout, colour, and visual storytelling.";
+
+        content.appendChild(title);
+        content.appendChild(desc);
+
+        card.appendChild(img);
+        card.appendChild(content);
+
+        card.onclick = () => openLightbox(
+          img.src,
+          title.textContent,
+          desc.textContent
+        );
+
+        grid.appendChild(card);
+      }
+    });
+  });
+
+function openLightbox(src, title, desc) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox-title").textContent = title;
+  document.getElementById("lightbox-desc").textContent = desc;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(e) {
+  if (e.target.id === "lightbox") {
+    document.getElementById("lightbox").style.display = "none";
+  }
+}
+</script>
+
 </body>
 </html>

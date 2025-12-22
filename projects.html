@@ -1,104 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Process Test</title>
+<meta charset="UTF-8" />
+<title>Subathie's Portfolio | Projects</title>
 
 <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: system-ui, sans-serif;
   background: #FBF7F2;
-  padding: 80px;
+  color: #1A1A1A;
 }
 
-/* PROCESS LAYOUT */
+/* ---------- FONTS ---------- */
+@font-face {
+  font-family: 'TanWhistling';
+  src: url('TAN WHISTLING Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'BrownSugar';
+  src: url('Brown-Sugar-Regular.otf') format('opentype');
+}
+
+/* ✅ FIX: PAGE WRAPPER so content isn’t flush-left */
+.page{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ---------- NAV ---------- */
+.topbar {
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F9F4EF;
+  border-bottom: 1px solid #660033;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  color: #fff;
+  line-height: 1;
+  position: absolute;
+  top: 11px;
+  z-index: 3;
+}
+
+.logo-icon .s {
+  left: 10px;
+  color: #F7E9D9;
+}
+
+.logo-icon .n {
+  left: 20px;
+  color: #F7E9D9;
+}
+
+.logo-name {
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #1A1A1A;
+}
+
+.top-nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.top-nav a:hover {
+  color: #000;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.social-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E8DCCF;
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.social-circle:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* ---------- PROCESS SECTION (SPACING REDUCED) ---------- */
 .process {
+  margin: 90px 0; /* was 140px */
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 48px;
+  grid-template-columns: 360px 1fr;
+  gap: 48px; /* was 80px */
   align-items: flex-start;
 }
 
-/* LEFT */
 .process-trigger {
   cursor: pointer;
 }
 
 .process-trigger h3 {
-  font-size: 36px;
-  margin-bottom: 8px;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
 .process-trigger p {
-  max-width: 260px;
+  font-size: 16px;
   color: #666;
+  line-height: 1.6;
+  max-width: 280px;
 }
 
-/* ARROW */
-.arrow-icon {
-  width: 32px;
-  height: 2px;
-  background: #111;
-  margin-top: 16px;
-  position: relative;
-  transition: transform 0.35s ease;
+.process-trigger .arrow {
+  margin-top: 14px; /* was 28px */
+  font-size: 22px;
+  transition: transform 0.4s ease;
 }
 
-.arrow-icon::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: -6px;
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid #111;
-  border-bottom: 2px solid #111;
-  transform: rotate(-45deg);
+.process-trigger:hover .arrow {
+  transform: translateX(6px);
+  
 }
 
-.process-trigger:hover .arrow-icon {
-  transform: translateX(8px);
-}
-
-/* RIGHT */
+/* RIGHT AREA (STEPS + CONTENT) */
 .process-content {
+  display: grid;
+  grid-template-columns: 140px 1fr; /* was 160px */
+  gap: 36px; /* was 60px */
   opacity: 0;
-  transform: translateX(-20px);
   pointer-events: none;
-  transition: all 0.5s ease;
+  transform: translateX(-16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .process-content.open {
   opacity: 1;
-  transform: translateX(0);
   pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* STEPS */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* was 18px */
+}
+
+.step {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  color: #777;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+
+.step::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: width 0.3s ease;
+}
+
+.step:hover { color: #111; }
+.step:hover::after { width: 24px; }
+
+.step.active { color: #111; }
+.step.active::after { width: 36px; }
+
+/* CONTENT */
+.process-panels {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-panel {
+  display: none;
+  animation: fadeIn 0.45s ease;
+}
+
+.step-panel.active {
+  display: block;
+}
+
+.step-panel img {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 22px;
+  margin-bottom: 10px; /* was 18px */
+}
+
+.step-panel p {
+  max-width: 520px;
+  line-height: 1.7;
+  font-size: 16px;
+  color: #444;
+}
+  .arrow {
+  margin-top: 14px;
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.process-trigger:hover .arrow {
+  transform: translateX(6px);
+}
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+  .page { padding: 0 32px; }
+
+  .process {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .process-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ---------- HERO ---------- */
+.mockup-hero {
+  max-width: 900px;
+  margin: 40px auto 70px;
+  text-align: center;
+}
+
+.mockup-hero h2 {
+  font-family: 'BrownSugar';
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.mockup-hero p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ---------- BENTO GRID ---------- */
+.bento-section {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 60px 120px;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 34px;
+}
+
+.bento-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.14);
+}
+
+.bento-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.bento-card .content {
+  padding: 18px;
+}
+
+.bento-card h3 {
+  font-family: 'BrownSugar';
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.bento-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox-inner {
+  background: #FBF7F2;
+  border-radius: 20px;
+  max-width: 1100px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+.lightbox img {
+  width: 100%;
+  max-height: 80vh;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+.lightbox-text h3 {
+  font-family: 'BrownSugar';
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.lightbox-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+@media(max-width: 800px) {
+  .lightbox-inner {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<section class="process">
-
-  <div class="process-trigger" id="toggle">
-    <h3>Explore the creation</h3>
-    <p>How this website was designed and built.</p>
-    <div class="arrow-icon"></div>
+<header class="topbar">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span><span class="n">N</span>
+    </div>
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
-  <div class="process-content" id="content">
-    <p>This panel slides in smoothly.</p>
-  </div>
+  <nav class="top-nav">
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="projects.html">Projects</a>
+  </nav>
 
+  <div class="social-icons">
+    <a href="#" class="social-circle">IG</a>
+    <a href="#" class="social-circle">📧</a>
+    <a href="#" class="social-circle">IN</a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- PROCESS SECTION -->
+  <section class="process">
+
+    <!-- LEFT: TRIGGER -->
+    <div class="process-trigger" id="toggleProcess">
+      <h3>Explore the creation</h3>
+      <p>
+        A closer look at how this website was designed,
+        built, and brought to life.
+      </p>
+      <div class="arrow">→</div>
+    </div>
+
+    <!-- RIGHT: STEPS + CONTENT -->
+    <div class="process-content" id="processContent">
+
+      <!-- STEPS -->
+      <div class="process-steps">
+        <button class="step active" data-step="design">01 Design</button>
+        <button class="step" data-step="build">02 Build</button>
+           <button class="step" data-step="build">03 Typography</button>
+     
+        
+      </div>
+
+      <!-- CONTENT (IMAGE ABOVE TEXT) -->
+      <div class="process-panels">
+
+        <div class="step-panel active" id="design">
+          <img src="figma-canva.png" alt="Design mockups">
+          <p>
+            Wireframs, storyboards and visual mockups were created using figma and Canva to explore layout, typography, spacing and the overall aesthetic of the website. 
+          </p>
+        </div>
+
+        <div class="step-panel" id="build">
+          <img src="work/Screenshot 2025-12-21 190943.jpg" alt="Website development">
+          <p>
+            Designs were translated into responsive HTML and CSS, focusing on
+            structure, interaction, and visual consistency.
+          </p>
+        </div>
+        <div class="process-panels">
+
+        <div class="step-panel active" id="design">
+          <img src="work/Screenshot 2025-12-21 204444.jpg" alt="Design mockups">
+          <p>
+            Wireframs, storyboards and visual mockups were created using figma and Canva to explore layout, typography, spacing and the overall aesthetic of the website. 
+          </p>
+        </div>
+
+        
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<section class="mockup-hero">
+  <h2>Mock Campaigns</h2>
+  <p>
+    Concept-led brand mockups exploring visual identity,
+    layout, and storytelling through design.
+  </p>
 </section>
 
+<section class="bento-section">
+  <div class="bento-grid" id="workGrid"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <img id="lightbox-img">
+    <div class="lightbox-text">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-desc"></p>
+    </div>
+  </div>
+</div>
+
 <script>
-const toggle = document.getElementById("toggle");
-const content = document.getElementById("content");
+const toggle = document.getElementById("toggleProcess");
+const content = document.getElementById("processContent");
 
 toggle.addEventListener("click", () => {
   content.classList.toggle("open");
 });
+
+document.querySelectorAll(".step").forEach(step => {
+  step.addEventListener("click", () => {
+    document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+    document.querySelectorAll(".step-panel").forEach(p => p.classList.remove("active"));
+    step.classList.add("active");
+    document.getElementById(step.dataset.step).classList.add("active");
+  });
+});
+</script>
+
+<script>
+const grid = document.getElementById("workGrid");
+
+fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/work")
+  .then(res => res.json())
+  .then(files => {
+    files.forEach(file => {
+      if (/\.(jpg|jpeg|png|webp)$/i.test(file.name)) {
+
+        const card = document.createElement("div");
+        card.className = "bento-card";
+
+        const img = document.createElement("img");
+        img.src = `work/${file.name}`;
+
+        const content = document.createElement("div");
+        content.className = "content";
+
+        const title = document.createElement("h3");
+        title.textContent = "Mock Campaign";
+
+        const desc = document.createElement("p");
+        desc.textContent =
+          "A conceptual brand mockup exploring layout, colour, and visual storytelling.";
+
+        content.appendChild(title);
+        content.appendChild(desc);
+
+        card.appendChild(img);
+        card.appendChild(content);
+
+        card.onclick = () => openLightbox(
+          img.src,
+          title.textContent,
+          desc.textContent
+        );
+
+        grid.appendChild(card);
+      }
+    });
+  });
+
+function openLightbox(src, title, desc) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox-title").textContent = title;
+  document.getElementById("lightbox-desc").textContent = desc;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(e) {
+  if (e.target.id === "lightbox") {
+    document.getElementById("lightbox").style.display = "none";
+  }
+}
 </script>
 
 </body>

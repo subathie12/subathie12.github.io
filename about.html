@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 <title>Subathie's Portfolio | About</title>
 
+<!-- Animate.css -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
 <style>
 /* ---------- GLOBAL ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,6 +18,11 @@ body {
   background: #FBF7F2;
   color: #1A1A1A;
   font-family: system-ui, sans-serif;
+}
+
+/* ---------- SCROLL ANIMATION BASE ---------- */
+.animate-on-scroll {
+  opacity: 0;
 }
 
 /* ---------- CUSTOM FONTS ---------- */
@@ -26,78 +37,76 @@ body {
 
 /* ---------- NAVIGATION ---------- */
 .topbar {
-      width: 100%;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #F9F4EF;
-      border-bottom: 1px solid #660033;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F9F4EF;
+  border-bottom: 1px solid #660033;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .logo-icon {
-      position: relative;
-      width: 60px;
-      height: 48px;
-      background: #660033;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: visible;
-    }
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
+}
 
-    .logo-icon span {
-      font-family: 'TanWhistling';
-      font-size: 45px;
-      color: #fff;
-      line-height: 1;
-      position: absolute;
-      top: 11px;
-      z-index: 3;
-    }
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  color: #F7E9D9;
+  position: absolute;
+  top: 11px;
+}
 
-    .logo-icon .s {
-      left: 10px;
-      color: #F7E9D9;
-    }
+.logo-icon .s { left: 10px; }
+.logo-icon .n { left: 20px; }
 
-    .logo-icon .n {
-      left: 20px;
-      color: #F7E9D9;
-    }
+.logo-name {
+  text-decoration: none;
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #1A1A1A;
+  transition: color 0.2s ease;
+}
+.logo-name:hover { color: #660033; }
 
-    .logo-name {
-      font-family: 'BrownSugar';
-      font-size: 18px;
-      line-height: 1.1;
-      letter-spacing: 2px;
-      text-decoration: none;  
-      color: #1A1A1A; 
-    }
-
-    .top-nav a {
-      margin-left: 32px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-
-    .top-nav a:hover {
-      color: #000;
-    }
-
-    /* SOCIAL ICONS */
+.top-nav a {
+  text-decoration: none;
+  margin-left: 32px;
+  position: relative;
+  color: #333;
+  font-size: 16px;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+.top-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1.5px;
+  background: #660033;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+.top-nav a:hover { color: #660033; }
+.top-nav a:hover::after { width: 100%; }
+/* SOCIAL ICONS */
     .social-icons {
       display: flex;
       gap: 14px;
@@ -123,8 +132,6 @@ body {
       background: #111;
       color: #fff;
     }
-
-
 
 /* ---------- ABOUT SECTION ---------- */
 .about-wrapper {
@@ -271,36 +278,59 @@ body {
   text-transform: uppercase;
 }
 
-
-/* ---------- GALLERY ---------- */
+/* ---------- PINTEREST GALLERY (TOGGLE + MASONRY) ---------- */
 .pinterest-gallery {
   column-count: 3;
   column-gap: 16px;
   max-width: 1100px;
-  margin: 0 auto 90px;
+  margin: 24px auto 90px;
   padding: 0 16px;
+
+  /* toggle animation */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.4s ease;
 }
 
+/* when open */
+.pinterest-gallery.open {
+  max-height: 3000px;
+  opacity: 1;
+}
+
+/* individual pins */
 .pin {
   margin-bottom: 16px;
   break-inside: avoid;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .pin img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
 }
+
 .pin:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 26px rgba(0,0,0,.15);
 }
+  /* make fashion tag feel clickable */
+.tag.fashion {
+  cursor: pointer;
+}
 
-@media(max-width:900px){ .pinterest-gallery{ column-count:2; } }
-@media(max-width:600px){ .pinterest-gallery{ column-count:1; } }
+/* responsive */
+@media (max-width: 900px) {
+  .pinterest-gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .pinterest-gallery { column-count: 1; }
+}
+
 </style>
 </head>
-
 <body>
 
 <header class="topbar">
@@ -315,17 +345,17 @@ body {
   <nav class="top-nav">
     <a href="about.html">About</a>
     <a href="gallery.html">Gallery</a>
-    <a href="projects.html">Projects</a>
+    <a href="project.html">Projects</a>
   </nav>
 
   <div class="social-icons">
     <a href="https://www.instagram.com/conte.ntbys" class="social-circle">IG</a>
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle">IN</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">IN</a>
   </div>
 </header>
-
-<section class="about-wrapper">
+  
+<section class="about-wrapper animate-on-scroll" data-animate="fadeInUp">
   <h1>Hi Again!</h1>
   <h3>A little more about me…</h3>
   <p>
@@ -333,14 +363,14 @@ body {
     <br> For a long time, I didn’t think I was “naturally creative,” but fashion changed that. It was the first place where I learned how colours, textures, and small details could tell a story. Fashion became my earliest form of expression — a space where confidence, identity, and creativity finally made sense to me and visually see the creativity I thought I lacked. 
     <br><br> That spark carried into everything I do now: the way I compose photos, edit visuals, and approach design. The same instinct I had for balance, contrast, and detail in outfits is what shapes my creative direction today. 
     <br><br> 
-  <p>Fashion taught me to see differently.</p> 
-  <p>IT taught me to build with intention.</p> 
-  <p> Together, they shaped the way I create. <p/>
+  <p><strong>Fashion taught me to see differently.</strong></p> 
+  <p><strong>IT taught me to build with intention.</strong></p> 
+  <p> <strong>Together, they shaped the way I create. </strong><p/>
 </section>
 
-<div class="skills-wrapper">
-  <div class="skill-card">
-    <h4>Skills</h4>
+
+<div class="skills-wrapper animate-on-scroll" data-animate="fadeInUp">
+  <div class="skill-card"> <h4>Skills</h4>
     <p>Photography
       Videography
 Video Editing
@@ -348,18 +378,14 @@ Visual Design
 Storytelling
 Graphic Design</p>
   </div>
-
-  <div class="skill-card">
-    <h4>Softwares</h4>
+  <div class="skill-card"><h4>Softwares</h4>
     <p>Canva
 CapCut
 Lightroom
 Figma
 GitHub</p>
   </div>
-
-  <div class="skill-card">
-    <h4>Education</h4>
+  <div class="skill-card"><h4>Education</h4>
     <div class="education-list">
       <div class="education-item">
         <strong>Cavendish Road State High School</strong><br>
@@ -371,12 +397,12 @@ GitHub</p>
       </div>
     </div>
   </div>
-</div>
+  </div>
 
-<section class="interests-tags">
+<section class="interests-tags animate-on-scroll" data-animate="fadeInUp">
   <h2>My Interests</h2>
   <div class="tag-row">
-    <span class="tag">Photography</span>
+     <span class="tag">Photography</span>
     <span class="tag">Music</span>
     <span class="tag">Colour Grading</span>
     <span class="tag">Visual Design</span>
@@ -385,20 +411,49 @@ GitHub</p>
   </div>
 </section>
 
-<div style="text-align:center;">
-  <span class="tag fashion">Fashion</span>
-</div>
+<div class="animate-on-scroll" data-animate="fadeInUp" style="text-align:center;">
+ <span class="tag fashion" id="toggleFashion">Fashion</span>
+  </div>
 
-<section class="pinterest-gallery" id="gallery"></section>
+
+<section class="pinterest-gallery animate-on-scroll" data-animate="fadeInUp" id="gallery"></section>
 
 <script>
+/* ---------- SCROLL ANIMATION (SAFE) ---------- */
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const anim = entry.target.dataset.animate;
+        entry.target.classList.add("animate__animated", `animate__${anim}`);
+        entry.target.style.opacity = "1";
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+);
+
+document.querySelectorAll(".animate-on-scroll").forEach(el => observer.observe(el));
+
+/* Fallback for elements already visible */
+window.addEventListener("load", () => {
+  document.querySelectorAll(".animate-on-scroll").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      const anim = el.dataset.animate;
+      el.classList.add("animate__animated", `animate__${anim}`);
+      el.style.opacity = "1";
+    }
+  });
+});
+
+/* ---------- GALLERY FETCH ---------- */
 fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/me")
   .then(res => res.json())
   .then(files => {
     const gallery = document.getElementById("gallery");
-    const allowed = [".jpg",".jpeg",".png",".webp"];
     files.forEach(f => {
-      if (allowed.some(ext => f.name.toLowerCase().endsWith(ext))) {
+      if (/\.(jpg|jpeg|png|webp)$/i.test(f.name)) {
         const div = document.createElement("div");
         div.className = "pin";
         const img = document.createElement("img");
@@ -408,6 +463,21 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/me"
       }
     });
   });
+</script>
+<script>
+const fashionTag = document.getElementById("toggleFashion");
+const gallery = document.getElementById("gallery");
+
+fashionTag.addEventListener("click", () => {
+  gallery.classList.toggle("open");
+
+  // optional: scroll to gallery when opening
+  if (gallery.classList.contains("open")) {
+    setTimeout(() => {
+      gallery.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }
+});
 </script>
 
 </body>

@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <title>Subathie's Portfolio | Home</title>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 
 <style>
 /* ---------- GLOBAL ---------- */
@@ -87,25 +91,58 @@ a {
     }
 
     .logo-name {
-      font-family: 'BrownSugar';
-      font-size: 18px;
-      line-height: 1.1;
-      letter-spacing: 2px;
-      text-decoration: none;  
-      color: #1A1A1A; 
-    }
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  color: #1A1A1A;
+  transition: color 0.2s ease;
+}
+
+/* hover = lighter */
+.logo-name:hover {
+  color: #660033;
+}
+
+/* click / press = even lighter */
+.logo-name:active {
+  color: #9a4d6f;
+}
+
 
     .top-nav a {
-      margin-left: 32px;
-      text-decoration: none;
-      color: #333;
-      font-size: 16px;
-      transition: 0.2s;
-    }
+  margin-left: 32px;
+  position: relative;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
 
-    .top-nav a:hover {
-      color: #000;
-    }
+/* hover = lighter + underline */
+.top-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1.5px;
+  background: #660033;
+  transition: width 0.25s ease;
+}
+
+.top-nav a:hover {
+  color: #660033;
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+/* click / press */
+.top-nav a:active {
+  color: #9a4d6f;
+}
+
 
     /* SOCIAL ICONS */
     .social-icons {
@@ -140,11 +177,13 @@ a {
 ----------------------------------------- */
 .hero-arch {
   padding: 60px 40px;
+  margin-bottom: 0px; /* 👈 THIS is the key */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 60px;
 }
+
 
 .arch-wrapper {
   width: 420px;
@@ -181,15 +220,16 @@ a {
    PHOTO SNIPPETS
 ----------------------------------------- */
 .photo-snippets-section {
-  padding: 20px 40px 60px;
   max-width: 1300px;
   margin: 0 auto;
+  padding: 0 40px 80px; /* no top padding */
 }
+
 
 .snippet-title {
   font-family: 'BrownSugar';
   font-size: 38px;
-  margin-bottom: 30px;
+  margin-bottom: 30px; /* more space before cards */
 }
 
 .photo-grid {
@@ -255,6 +295,14 @@ a {
   max-height: 90%;
   border-radius: 12px;
 }
+  .hero-title {
+  --animate-duration: 1.2s;
+}
+
+.hero-sub {
+  --animate-duration: 1.4s;
+}
+
 </style>
 </head>
 
@@ -288,15 +336,20 @@ a {
   </div>
 
   <div class="hero-right">
-    <h1 class="hero-title">Designer & Photographer</h1>
-    <p class="hero-sub">
-      I craft warm, expressive visuals inspired by emotion, colour and meaningful storytelling.
-    </p>
-  </div>
+  <h1 class="hero-title animate__animated animate__fadeInDown">
+Hi I'm Subathie  </h1>
+
+  <p class="hero-sub animate__animated animate__fadeInDown animate__delay-1s">
+   This my portfolio that visualises the  warm, expressive visuals I have crafted, inspired by emotion, colour and meaningful storytelling.
+  </p>
+</div>
+
 </section>
 
-<section class="photo-snippets-section">
-  <h2 class="snippet-title">Photography Snippets</h2>
+<section class="photo-snippets-section" id="snippets">
+  <h2 class="snippet-title" id="snippetsTitle">
+    Photography Snippets
+  </h2>
 
   <div class="photo-grid">
     <div class="photo-card">
@@ -321,6 +374,7 @@ a {
   </div>
 </section>
 
+ 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
@@ -336,6 +390,26 @@ function openLightbox(img) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+</script>
+<script>
+const section = document.getElementById("snippets");
+const title = document.getElementById("snippetsTitle");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      section.classList.add("animate__animated", "animate__fadeInDown");
+      title.classList.add(
+        "animate__animated",
+        "animate__fadeInDown",
+        "animate__delay-1s"
+      );
+      observer.disconnect(); // run once
+    }
+  });
+}, { threshold: 0.3 });
+
+observer.observe(section);
 </script>
 
 </body>

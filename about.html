@@ -15,7 +15,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #FBF7F2;
+  background: #f5f1e6;
   color: #1A1A1A;
   font-family: system-ui, sans-serif;
 }
@@ -42,8 +42,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #F9F4EF;
-  border-bottom: 1px solid #660033;
+  background: #f5f1e6;
+  border-bottom: 1px solid #7b011e;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -59,14 +59,14 @@ body {
   position: relative;
   width: 60px;
   height: 48px;
-  background: #660033;
+  background: #7b011e;
   border-radius: 6px;
 }
 
 .logo-icon span {
   font-family: 'TanWhistling';
   font-size: 45px;
-  color: #F7E9D9;
+  color: #f5f1e6;
   position: absolute;
   top: 11px;
 }
@@ -82,7 +82,7 @@ body {
   color: #1A1A1A;
   transition: color 0.2s ease;
 }
-.logo-name:hover { color: #660033; }
+.logo-name:hover { color: #7b011e; }
 
 .top-nav a {
   text-decoration: none;
@@ -100,11 +100,11 @@ body {
   bottom: 0;
   width: 0;
   height: 1.5px;
-  background: #660033;
+  background: #7b011e;
   transform: translateX(-50%);
   transition: width 0.25s ease;
 }
-.top-nav a:hover { color: #660033; }
+.top-nav a:hover { color: #7b011e; }
 .top-nav a:hover::after { width: 100%; }
 /* SOCIAL ICONS */
     .social-icons {
@@ -127,11 +127,38 @@ body {
       text-decoration: none;
       transition: 0.2s;
     }
+  /* Instagram image inside circle */
+.social-circle.instagram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* optional: subtle hover polish */
+.social-circle.instagram:hover {
+  transform: scale(1.05);
+}
+
 
     .social-circle:hover {
       background: #111;
       color: #fff;
     }
+  
+  /* Social image icons */
+.social-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* subtle hover polish */
+.social-circle:hover {
+  transform: scale(1.05);
+}
+
 
 /* ---------- ABOUT SECTION ---------- */
 .about-wrapper {
@@ -247,14 +274,14 @@ body {
 
 .tag {
   padding: 8px 18px;
-  background: #EFE7DD;
+  background: #f5f1e6;
   border-radius: 30px;
-  border: 1px solid #66003355;
+  border: 1px solid #7b011e;
   font-size: 14px;
   transition: 0.25s;
 }
 .tag:hover {
-  background: #660033;
+  background: #7b011e;
   color: white;
   transform: translateY(-2px);
 }
@@ -269,10 +296,10 @@ body {
   font-size: 14px;
   font-weight: 500;
 
-  background: #660033;
+  background: #7b011e;
   color: white;
   border-radius: 30px;
-  border: 1px solid #660033;
+  border: 1px solid #7b011e;
 
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -349,9 +376,19 @@ body {
   </nav>
 
   <div class="social-icons">
-    <a href="https://www.instagram.com/conte.ntbys" class="social-circle">IG</a>
+    <a <a href="https://www.instagram.com/conte.ntbys" 
+   class="social-circle instagram" 
+   target="_blank">
+  <img src="images/instagram.jpg" alt="Instagram">
+</a>
+
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">IN</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
+   class="social-circle linkedin"
+   target="_blank">
+  <img src="images/linkedin.jpg" alt="LinkedIn">
+</a>
+
   </div>
 </header>
   

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +10,13 @@
 />
 
 <style>
+ .animate-on-scroll { opacity: 0; }
+
 /* ---------- GLOBAL ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #FBF7F2;
+  background: #f5f1e6;
   color: #1A1A1A;
   font-family: system-ui, sans-serif;
 }
@@ -45,7 +48,7 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #F9F4EF;
+      background: #f5f1e6;
       border-bottom: 1px solid #660033;
       position: sticky;
       top: 0;
@@ -82,12 +85,12 @@ a {
 
     .logo-icon .s {
       left: 10px;
-      color: #F7E9D9;
+      color: #f5f1e6;
     }
 
     .logo-icon .n {
       left: 20px;
-      color: #F7E9D9;
+      color: #f5f1e6;
     }
 
     .logo-name {
@@ -126,12 +129,12 @@ a {
   bottom: -4px;
   width: 0%;
   height: 1.5px;
-  background: #660033;
+  background: #7b011e;
   transition: width 0.25s ease;
 }
 
 .top-nav a:hover {
-  color: #660033;
+  color: #7b011e;
 }
 
 .top-nav a:hover::after {
@@ -158,18 +161,45 @@ a {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: #E8DCCF;
+      background: #7b011e;
       color: #111;
       font-size: 12px;
       font-weight: 600;
       text-decoration: none;
       transition: 0.2s;
     }
+  /* Instagram image inside circle */
+.social-circle.instagram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* optional: subtle hover polish */
+.social-circle.instagram:hover {
+  transform: scale(1.05);
+}
+
 
     .social-circle:hover {
-      background: #111;
+      background: #fb;
       color: #fff;
     }
+  
+  /* Social image icons */
+.social-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* subtle hover polish */
+.social-circle:hover {
+  transform: scale(1.05);
+  
+}
 
 
 /* -----------------------------------------
@@ -191,7 +221,7 @@ a {
   background: #EFE7DD;
   border-radius: 200px 200px 0 0;
   overflow: hidden;
-  border: 2px solid #660033;
+  border: 2px solid #7b011e;
 }
 
 .arch-wrapper img {
@@ -239,7 +269,7 @@ a {
 }
 
 .photo-card {
-  background: #EFE7DD;
+  background: #f5f1e6;
   border-radius: 18px;
   overflow: hidden;
   height: 330px;
@@ -323,10 +353,20 @@ a {
     <a href="project.html">Projects</a>
   </nav>
 
-  <div class="social-icons">
-    <a href="https://www.instagram.com/conte.ntbys" class="social-circle">IG</a>
+   <div class="social-icons">
+    <a <a href="https://www.instagram.com/conte.ntbys" 
+   class="social-circle instagram" 
+   target="_blank">
+  <img src="instagram.png" alt="Instagram">
+</a>
+
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">IN</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
+   class="social-circle linkedin"
+   target="_blank">
+  <img src="linkedIn.png" alt="LinkedIn">
+</a>
+
   </div>
 </header>
 
@@ -346,10 +386,17 @@ Hi I'm Subathie  </h1>
 
 </section>
 
-<section class="photo-snippets-section" id="snippets">
-  <h2 class="snippet-title" id="snippetsTitle">
+<section class="photo-snippets-section animate-on-scroll"
+         data-animate="slideInUp"
+         id="snippets">
+
+  <h2 class="snippet-title animate-on-scroll"
+      data-animate="slideInUp">
     Photography Snippets
   </h2>
+
+  
+  
 
   <div class="photo-grid">
     <div class="photo-card">
@@ -392,25 +439,34 @@ function closeLightbox() {
 }
 </script>
 <script>
-const section = document.getElementById("snippets");
-const title = document.getElementById("snippetsTitle");
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      section.classList.add("animate__animated", "animate__fadeInDown");
-      title.classList.add(
+      const anim = entry.target.dataset.animate;
+      entry.target.classList.add(
         "animate__animated",
-        "animate__fadeInDown",
-        "animate__delay-1s"
+        `animate__${anim}`
       );
-      observer.disconnect(); // run once
+      entry.target.style.opacity = "1";
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.3 });
+}, {
+  threshold: 0.1,
+  rootMargin: "0px 0px -120px 0px"
+});
 
-observer.observe(section);
+document
+  .querySelectorAll(".animate-on-scroll")
+  .forEach(el => observer.observe(el));
+
+
+  document
+  .querySelectorAll(".animate-on-scroll")
+  .forEach(el => observer.observe(el));
+
 </script>
+
 
 </body>
 </html>

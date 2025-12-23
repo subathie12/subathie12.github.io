@@ -35,78 +35,155 @@ body {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* ---------- NAVIGATION ---------- */
-.topbar {
-  width: 100%;
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Subathie's Portfolio | Home</title>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
+<style>
+ .animate-on-scroll { opacity: 0; }
+
+/* ---------- GLOBAL ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
   background: #f5f1e6;
-  border-bottom: 1px solid #7b011e;
-  position: sticky;
-  top: 0;
-  z-index: 20;
+  color: #1A1A1A;
+  font-family: system-ui, sans-serif;
 }
 
-.logo-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-icon {
-  position: relative;
-  width: 60px;
-  height: 48px;
-  background: #7b011e;
-  border-radius: 6px;
-}
-
-.logo-icon span {
-  font-family: 'TanWhistling';
-  font-size: 45px;
-  color: #f5f1e6;
-  position: absolute;
-  top: 11px;
-}
-
-.logo-icon .s { left: 10px; }
-.logo-icon .n { left: 20px; }
-
-.logo-name {
+/* REMOVE UNDERLINES EVERYWHERE */
+a {
   text-decoration: none;
+  color: inherit;
+}
+
+/* -----------------------------------------
+   CUSTOM FONTS
+----------------------------------------- */
+@font-face {
+  font-family: 'TanWhistling';
+  src: url('TAN WHISTLING Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'BrownSugar';
+  src: url('Brown-Sugar-Regular.otf') format('opentype');
+}
+
+/* -----------------------------------------
+   TOP NAVIGATION
+----------------------------------------- */
+.topbar {
+      width: 100%;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f5f1e6;
+      border-bottom: 1px solid #660033;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      position: relative;
+      width: 60px;
+      height: 48px;
+      background: #660033;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+
+    .logo-icon span {
+      font-family: 'TanWhistling';
+      font-size: 45px;
+      color: #fff;
+      line-height: 1;
+      position: absolute;
+      top: 11px;
+      z-index: 3;
+    }
+
+    .logo-icon .s {
+      left: 10px;
+      color: #f5f1e6;
+    }
+
+    .logo-icon .n {
+      left: 20px;
+      color: #f5f1e6;
+    }
+
+    .logo-name {
   font-family: 'BrownSugar';
   font-size: 18px;
+  line-height: 1.1;
   letter-spacing: 2px;
   color: #1A1A1A;
   transition: color 0.2s ease;
 }
-.logo-name:hover { color: #7b011e; }
 
-.top-nav a {
-  text-decoration: none;
+/* hover = lighter */
+.logo-name:hover {
+  color: #660033;
+}
+
+/* click / press = even lighter */
+.logo-name:active {
+  color: #9a4d6f;
+}
+
+
+    .top-nav a {
   margin-left: 32px;
   position: relative;
   color: #333;
   font-size: 16px;
-  padding-bottom: 4px;
   transition: color 0.2s ease;
 }
+
+/* hover = lighter + underline */
 .top-nav a::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
   height: 1.5px;
   background: #7b011e;
-  transform: translateX(-50%);
   transition: width 0.25s ease;
 }
-.top-nav a:hover { color: #7b011e; }
-.top-nav a:hover::after { width: 100%; }
-/* SOCIAL ICONS */
+
+.top-nav a:hover {
+  color: #7b011e;
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+/* click / press */
+.top-nav a:active {
+  color: #9a4d6f;
+}
+
+
+    /* SOCIAL ICONS */
     .social-icons {
       display: flex;
       gap: 14px;
@@ -120,7 +197,7 @@ body {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: #E8DCCF;
+      background: #7b011e;
       color: #111;
       font-size: 12px;
       font-weight: 600;
@@ -142,7 +219,7 @@ body {
 
 
     .social-circle:hover {
-      background: #111;
+      background: #fb;
       color: #fff;
     }
   
@@ -157,6 +234,7 @@ body {
 /* subtle hover polish */
 .social-circle:hover {
   transform: scale(1.05);
+  
 }
 
 
@@ -379,14 +457,14 @@ body {
     <a <a href="https://www.instagram.com/conte.ntbys" 
    class="social-circle instagram" 
    target="_blank">
-  <img src="images/instagram.jpg" alt="Instagram">
+  <img src="instagram.png" alt="Instagram">
 </a>
 
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
     <a href="https://www.linkedin.com/in/subathie-n-46a388279"
    class="social-circle linkedin"
    target="_blank">
-  <img src="images/linkedin.jpg" alt="LinkedIn">
+  <img src="linkedIn.png" alt="LinkedIn">
 </a>
 
   </div>

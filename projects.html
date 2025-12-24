@@ -601,6 +601,21 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/wor
 
 </script>
 <script>
+function openLightbox(src, title, desc) {
+  document.getElementById("lightbox-img").src = src;
+  document.getElementById("lightbox-title").textContent = title;
+  document.getElementById("lightbox-desc").textContent = desc;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(e) {
+  if (e.target.id === "lightbox") {
+    document.getElementById("lightbox").style.display = "none";
+  }
+}
+</script>
+
+<script>
 const slideObserver = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {

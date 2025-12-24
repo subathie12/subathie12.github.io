@@ -232,22 +232,32 @@ a {
 
 /* ---------- PROCESS SECTION ---------- */
 .process {
-  margin: 100px 0;
+  margin: 90px 0;
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 1fr;
   gap: 48px;
-  align-items: flex-start;
 
-  /* OUTLINE */
   border: 1px solid rgba(0,0,0,0.18);
   border-radius: 26px;
-  padding: 56px;
+padding: 24px 56px 56px;
   background: rgba(255,255,255,0.35);
+
+  /* 👇 move content toward top */
+  align-items: start;
+  justify-items: center;
 }
 
 .process-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   cursor: pointer;
 }
+  .process-trigger h1 {
+  margin-top: 0;
+}
+
 
 .process-trigger h3 {
   font-size: 42px;
@@ -257,101 +267,13 @@ a {
 .process-trigger p {
   font-size: 16px;
   color: #666;
-  line-height: 1.6;
-  max-width: 300px;
+  line-height: ;
 }
 
-.arrow {
-  margin-top: 18px;
-  font-size: 24px;
-  transition: transform 0.4s ease;
-}
 
-.process-trigger:hover .arrow {
-  transform: translateX(8px);
-}
-
-/* ---------- PROCESS CONTENT ---------- */
-.process-content {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 36px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.process-content.open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-}
-
-/* ---------- STEPS ---------- */
-.process-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.step {
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: #777;
-  cursor: pointer;
-  text-align: left;
-  position: relative;
-}
-
-.step::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 1px;
-  background: #111;
-  transition: width 0.3s ease;
-}
-
-.step:hover,
-.step.active {
-  color: #111;
-}
-
-.step.active::after {
-  width: 36px;
-}
 
 /* ---------- PANELS ---------- */
-.process-panels {
-  display: flex;
-  flex-direction: column;
-}
 
-.step-panel {
-  display: none;
-  animation: fadeIn 0.5s ease;
-}
-
-.step-panel.active {
-  display: block;
-}
-
-.step-panel img {
-  width: 100%;
-  max-width: 640px;
-  border-radius: 22px;
-  margin-bottom: 14px;
-}
-
-.step-panel p {
-  max-width: 520px;
-  line-height: 1.7;
-  color: #444;
-}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(16px); }
@@ -388,20 +310,7 @@ a {
     gap: 48px;
   }
   
-  .process {
-  margin: 90px 0;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 48px;
-  align-items: flex-start;
-
-  /* 👇 OUTLINE */
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 24px;
-  padding: 48px;
-  background: rgba(255,255,255,0.35);
-}
-
+ 
 
   .process-content {
     grid-template-columns: 1fr;
@@ -543,10 +452,18 @@ a {
   </nav>
 
   <div class="social-icons">
-    <a href="#" class="social-circle">IG</a>
-    <a href="#" class="social-circle">📧</a>
-    <a href="#" class="social-circle">IN</a>
-  </div>
+    <a <a href="https://www.instagram.com/conte.ntbys" 
+   class="social-circle instagram" 
+   target="_blank">
+  <img src="instagram.png" alt="Instagram">
+</a>
+
+    <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
+   class="social-circle linkedin"
+   target="_blank">
+  <img src="linkedIn.png" alt="LinkedIn">
+</a>
 </header>
 
 <div class="page">
@@ -556,51 +473,15 @@ a {
 
     <!-- LEFT: TRIGGER -->
     <div class="process-trigger" id="toggleProcess">
-      <h3>Explore the creation</h3>
+      <h1>Website Creation</h1>
       <p>
-        A closer look at how this website was designed,
-        built, and brought to life.
+        This website was brought to life through two main steps; <strong>Design</strong> and <strong>Build</strong>.<br></br>
+        Through the designing compoennt; wireframes, storeboarding and visual display using Figma and Canva were used to understand layout, visual displaying and minor details such as typography and spacing to create an appealing visual display. <br></br>
+  The build component uses GitHub, already pre set codes and animations were used to form the website's code in github, adjustments were made from orginal bleuprint and evolved into what you have seen today.
       </p>
-      <div class="arrow">→</div>
     </div>
 
-    <!-- RIGHT: STEPS + CONTENT -->
-    <div class="process-content" id="processContent">
-
-      <!-- STEPS -->
-      <div class="process-steps">
-        <button class="step active" data-step="design">01 Design</button>
-        <button class="step" data-step="build">02 Build</button>
-           <button class="step" data-step="build">03 Typography</button>
-     
-        
-      </div>
-
-      <!-- CONTENT (IMAGE ABOVE TEXT) -->
-      <div class="process-panels">
-
-        <div class="step-panel active" id="design">
-          <img src="figma-canva.png" alt="Design mockups">
-          <p>
-            Wireframs, storyboards and visual mockups were created using figma and Canva to explore layout, typography, spacing and the overall aesthetic of the website. 
-          </p>
-        </div>
-
-        <div class="step-panel" id="build">
-          <img src="code-preview.png" alt="Website development">
-          <p>
-            Designs were translated into responsive HTML and CSS, focusing on
-            structure, interaction, and visual consistency.
-          </p>
-        </div>
-        <div class="process-panels">
-
-        <div class="step-panel active" id="design">
-          <img src="figma-canva.png" alt="Design mockups">
-          <p>
-            Wireframs, storyboards and visual mockups were created using figma and Canva to explore layout, typography, spacing and the overall aesthetic of the website. 
-          </p>
-        </div>
+    
 
         
 
@@ -654,6 +535,25 @@ document.querySelectorAll(".step").forEach(step => {
 </script>
 
 <script>
+  const mockupMeta = {
+  "ATTENTION.png": {
+    title: "Attention to Detail Poster",
+    desc: "Encapsulating the minor details that come together to create an authentic fashionable outfit that is eye catching."
+  },
+  "BurnaBoy.png": {
+    title: "Burn Boy - No Sign of Weakness World Tour",
+    desc: "A poster announcing Burna Boy's world tour utilising an image i took myself and using different textures, overlays and colours to grab readers attention."
+  },
+  "NIKE.png": {
+    title: "Nike Shox TL",
+    desc: "Introducing the new trending and stylish re-imaging of the Nike Shox 2003 iconic"
+  },
+  "STREETWAERFASHION.png": {
+    title: "Trending Fashion pieces ",
+    desc: "A gritty streetwear concept focused on texture, contrast, and urban attitude"
+  }
+};
+
 const grid = document.getElementById("workGrid");
 
 fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/work")
@@ -661,6 +561,11 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/wor
   .then(files => {
     files.forEach(file => {
       if (/\.(jpg|jpeg|png|webp)$/i.test(file.name)) {
+
+        const meta = mockupMeta[file.name] || {
+          title: "Mock Campaign",
+          desc: "A conceptual brand mockup exploring layout, colour, and visual storytelling."
+        };
 
         const card = document.createElement("div");
         card.className = "bento-card";
@@ -672,11 +577,10 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/wor
         content.className = "content";
 
         const title = document.createElement("h3");
-        title.textContent = "Mock Campaign";
+        title.textContent = meta.title;
 
         const desc = document.createElement("p");
-        desc.textContent =
-          "A conceptual brand mockup exploring layout, colour, and visual storytelling.";
+        desc.textContent = meta.desc;
 
         content.appendChild(title);
         content.appendChild(desc);
@@ -686,8 +590,8 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/wor
 
         card.onclick = () => openLightbox(
           img.src,
-          title.textContent,
-          desc.textContent
+          meta.title,
+          meta.desc
         );
 
         grid.appendChild(card);
@@ -695,18 +599,6 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/wor
     });
   });
 
-function openLightbox(src, title, desc) {
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox-title").textContent = title;
-  document.getElementById("lightbox-desc").textContent = desc;
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function closeLightbox(e) {
-  if (e.target.id === "lightbox") {
-    document.getElementById("lightbox").style.display = "none";
-  }
-}
 </script>
 <script>
 const slideObserver = new IntersectionObserver(

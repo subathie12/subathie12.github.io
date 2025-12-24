@@ -4,13 +4,40 @@
 <meta charset="UTF-8" />
 <title>Subathie's Portfolio | Projects</title>
 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+ .animate-on-scroll { opacity: 0; }
+  /* ---------- SLIDE IN UP ---------- */
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.slide-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ---------- GLOBAL ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: system-ui, sans-serif;
-  background: #FBF7F2;
+  background: #f5f1e6;
   color: #1A1A1A;
+  font-family: system-ui, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ---------- FONTS ---------- */
@@ -23,120 +50,199 @@ body {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* ✅ FIX: PAGE WRAPPER so content isn’t flush-left */
-.page{
+/* ---------- NAV ---------- */
+.topbar {
+      width: 100%;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f5f1e6;
+      border-bottom: 1px solid #660033;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      position: relative;
+      width: 60px;
+      height: 48px;
+      background: #660033;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+
+    .logo-icon span {
+      font-family: 'TanWhistling';
+      font-size: 45px;
+      color: #fff;
+      line-height: 1;
+      position: absolute;
+      top: 11px;
+      z-index: 3;
+    }
+
+    .logo-icon .s {
+      left: 10px;
+      color: #f5f1e6;
+    }
+
+    .logo-icon .n {
+      left: 20px;
+      color: #f5f1e6;
+    }
+
+    .logo-name {
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  color: #1A1A1A;
+  transition: color 0.2s ease;
+}
+
+/* hover = lighter */
+.logo-name:hover {
+  color: #660033;
+}
+
+/* click / press = even lighter */
+.logo-name:active {
+  color: #9a4d6f;
+}
+
+
+    .top-nav a {
+  margin-left: 32px;
+  position: relative;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+/* hover = lighter + underline */
+.top-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1.5px;
+  background: #7b011e;
+  transition: width 0.25s ease;
+}
+
+.top-nav a:hover {
+  color: #7b011e;
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+/* click / press */
+.top-nav a:active {
+  color: #9a4d6f;
+}
+
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .social-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #7b011e;
+      color: #111;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+  /* Instagram image inside circle */
+.social-circle.instagram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* optional: subtle hover polish */
+.social-circle.instagram:hover {
+  transform: scale(1.05);
+}
+
+
+    .social-circle:hover {
+      background: #fb;
+      color: #fff;
+    }
+  
+  /* Social image icons */
+.social-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* subtle hover polish */
+.social-circle:hover {
+  transform: scale(1.05);
+  
+}
+
+
+/* ---------- PAGE ---------- */
+.page {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 60px;
 }
 
-/* ---------- NAV ---------- */
-.topbar {
-  width: 100%;
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #F9F4EF;
-  border-bottom: 1px solid #660033;
-  position: sticky;
-  top: 0;
-  z-index: 20;
+/* ---------- SLIDE-UP ANIMATION ---------- */
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.logo-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.slide-up.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.logo-icon {
-  position: relative;
-  width: 60px;
-  height: 48px;
-  background: #660033;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-.logo-icon span {
-  font-family: 'TanWhistling';
-  font-size: 45px;
-  color: #fff;
-  line-height: 1;
-  position: absolute;
-  top: 11px;
-  z-index: 3;
-}
-
-.logo-icon .s {
-  left: 10px;
-  color: #F7E9D9;
-}
-
-.logo-icon .n {
-  left: 20px;
-  color: #F7E9D9;
-}
-
-.logo-name {
-  font-family: 'BrownSugar';
-  font-size: 18px;
-  line-height: 1.1;
-  letter-spacing: 2px;
-  text-decoration: none;
-  color: #1A1A1A;
-}
-
-.top-nav a {
-  margin-left: 32px;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: 0.2s;
-}
-
-.top-nav a:hover {
-  color: #000;
-}
-
-/* SOCIAL ICONS */
-.social-icons {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.social-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #E8DCCF;
-  color: #111;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.social-circle:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* ---------- PROCESS SECTION (SPACING REDUCED) ---------- */
+/* ---------- PROCESS SECTION ---------- */
 .process {
-  margin: 90px 0; /* was 140px */
+  margin: 100px 0;
   display: grid;
   grid-template-columns: 360px 1fr;
-  gap: 48px; /* was 80px */
+  gap: 48px;
   align-items: flex-start;
+
+  /* OUTLINE */
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 26px;
+  padding: 56px;
+  background: rgba(255,255,255,0.35);
 }
 
 .process-trigger {
@@ -144,37 +250,36 @@ body {
 }
 
 .process-trigger h3 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 42px;
+  margin-bottom: 14px;
 }
 
 .process-trigger p {
   font-size: 16px;
   color: #666;
   line-height: 1.6;
-  max-width: 280px;
+  max-width: 300px;
 }
 
-.process-trigger .arrow {
-  margin-top: 14px; /* was 28px */
-  font-size: 22px;
+.arrow {
+  margin-top: 18px;
+  font-size: 24px;
   transition: transform 0.4s ease;
 }
 
 .process-trigger:hover .arrow {
-  transform: translateX(6px);
-  
+  transform: translateX(8px);
 }
 
-/* RIGHT AREA (STEPS + CONTENT) */
+/* ---------- PROCESS CONTENT ---------- */
 .process-content {
   display: grid;
-  grid-template-columns: 140px 1fr; /* was 160px */
-  gap: 36px; /* was 60px */
+  grid-template-columns: 140px 1fr;
+  gap: 36px;
   opacity: 0;
   pointer-events: none;
   transform: translateX(-16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .process-content.open {
@@ -183,17 +288,16 @@ body {
   transform: translateX(0);
 }
 
-/* STEPS */
+/* ---------- STEPS ---------- */
 .process-steps {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* was 18px */
+  gap: 14px;
 }
 
 .step {
   background: none;
   border: none;
-  padding: 0;
   font-size: 16px;
   color: #777;
   cursor: pointer;
@@ -212,13 +316,16 @@ body {
   transition: width 0.3s ease;
 }
 
-.step:hover { color: #111; }
-.step:hover::after { width: 24px; }
+.step:hover,
+.step.active {
+  color: #111;
+}
 
-.step.active { color: #111; }
-.step.active::after { width: 36px; }
+.step.active::after {
+  width: 36px;
+}
 
-/* CONTENT */
+/* ---------- PANELS ---------- */
 .process-panels {
   display: flex;
   flex-direction: column;
@@ -226,7 +333,7 @@ body {
 
 .step-panel {
   display: none;
-  animation: fadeIn 0.45s ease;
+  animation: fadeIn 0.5s ease;
 }
 
 .step-panel.active {
@@ -237,24 +344,34 @@ body {
   width: 100%;
   max-width: 640px;
   border-radius: 22px;
-  margin-bottom: 10px; /* was 18px */
+  margin-bottom: 14px;
 }
 
 .step-panel p {
   max-width: 520px;
   line-height: 1.7;
-  font-size: 16px;
   color: #444;
 }
-  .arrow {
-  margin-top: 14px;
-  font-size: 22px;
-  transition: transform 0.3s ease;
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.process-trigger:hover .arrow {
-  transform: translateX(6px);
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+  .page { padding: 0 28px; }
+
+  .process {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+
+  .process-content {
+    grid-template-columns: 1fr;
+  }
 }
+
 
 /* ---------- ANIMATION ---------- */
 @keyframes fadeIn {
@@ -270,6 +387,21 @@ body {
     grid-template-columns: 1fr;
     gap: 48px;
   }
+  
+  .process {
+  margin: 90px 0;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+
+  /* 👇 OUTLINE */
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 24px;
+  padding: 48px;
+  background: rgba(255,255,255,0.35);
+}
+
 
   .process-content {
     grid-template-columns: 1fr;
@@ -420,7 +552,7 @@ body {
 <div class="page">
 
   <!-- PROCESS SECTION -->
-  <section class="process">
+<section class="process slide-in-up">
 
     <!-- LEFT: TRIGGER -->
     <div class="process-trigger" id="toggleProcess">
@@ -480,7 +612,7 @@ body {
 
 </div>
 
-<section class="mockup-hero">
+<section class="mockup-hero slide-in-up">
   <h2>Mock Campaigns</h2>
   <p>
     Concept-led brand mockups exploring visual identity,
@@ -488,7 +620,7 @@ body {
   </p>
 </section>
 
-<section class="bento-section">
+<section class="bento-section slide-in-up">
   <div class="bento-grid" id="workGrid"></div>
 </section>
 
@@ -575,6 +707,26 @@ function closeLightbox(e) {
     document.getElementById("lightbox").style.display = "none";
   }
 }
+</script>
+<script>
+const slideObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        slideObserver.unobserve(entry.target); // animate once
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+    rootMargin: "0px 0px -60px 0px"
+  }
+);
+
+document.querySelectorAll(".slide-in-up").forEach(el =>
+  slideObserver.observe(el)
+);
 </script>
 
 </body>

@@ -10,7 +10,13 @@
 />
 
 <style>
- .animate-on-scroll { opacity: 0; }
+ .animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.animate__animated {
+  opacity: 1;
+}
 
 /* ---------- GLOBAL ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -439,31 +445,31 @@ function closeLightbox() {
 }
 </script>
 <script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const anim = entry.target.dataset.animate;
-      entry.target.classList.add(
-        "animate__animated",
-        `animate__${anim}`
-      );
-      entry.target.style.opacity = "1";
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.1,
-  rootMargin: "0px 0px -120px 0px"
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const animation = entry.target.dataset.animate || "slideInUp";
+
+        entry.target.classList.add(
+          "animate__animated",
+          `animate__${animation}`
+        );
+
+        entry.target.style.opacity = "1";
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+    rootMargin: "0px 0px -120px 0px"
+  }
+);
+
+document.querySelectorAll(".animate-on-scroll").forEach(el => {
+  observer.observe(el);
 });
-
-document
-  .querySelectorAll(".animate-on-scroll")
-  .forEach(el => observer.observe(el));
-
-
-  document
-  .querySelectorAll(".animate-on-scroll")
-  .forEach(el => observer.observe(el));
 
 </script>
 

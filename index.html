@@ -122,7 +122,7 @@ a {
 
 
     .top-nav a {
-  margin-left: 32px;
+  margin-left: 0px;
   position: relative;
   color: #333;
   font-size: 16px;
@@ -378,27 +378,30 @@ a {
 .hero-sub {
   --animate-duration: 1.4s;
 }
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+.mobile-socials {
+  display: none;
+}
 
 @media (max-width: 768px) {
 
-  /* show hamburger */
   .menu-toggle {
     display: block;
     z-index: 1001;
   }
 
-  /* FULLSCREEN OVERLAY MENU */
   .top-nav {
     position: fixed;
     inset: 0;
     background: #f5f1e6;
-
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 28px;
-
     z-index: 1000;
   }
 
@@ -412,25 +415,18 @@ a {
     margin: 0;
   }
 
-  /* socials inside menu */
   .mobile-socials {
-    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-top: 40px;
   }
 
-  .mobile-socials a {
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #660033;
-  }
-
-  /* hide header socials on mobile */
   .social-icons {
     display: none;
   }
 }
+
 
 </style>
 </head>
@@ -446,19 +442,19 @@ a {
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
-  <!-- ✅ HAMBURGER BUTTON -->
   <button class="menu-toggle" aria-label="Open menu">☰</button>
- <nav class="top-nav">
-  <a href="about.html">About</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="project.html">Projects</a>
 
-  <div class="mobile-socials">
-    <a href="https://www.instagram.com/conte.ntbys" target="_blank">Instagram</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279" target="_blank">LinkedIn</a>
-    <a href="mailto:subathienudara3@gmail.com">Email</a>
-  </div>
-</nav>
+  <nav class="top-nav">
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="project.html">Projects</a>
+
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/conte.ntbys" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279" target="_blank">LinkedIn</a>
+      <a href="mailto:subathienudara3@gmail.com">Email</a>
+    </div>
+  </nav>
 
 
     <div class="social-icons">
@@ -572,15 +568,28 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".animate-on-scroll").forEach(el => {
   observer.observe(el);
 });
+</script>
+
 
 <script>
 const toggleBtn = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".top-nav");
 
 toggleBtn.addEventListener("click", () => {
-  nav.classList.toggle("open");
-  document.body.style.overflow =
-    nav.classList.contains("open") ? "hidden" : "";
+  const isOpen = nav.classList.toggle("open");
+  toggleBtn.textContent = isOpen ? "✕" : "☰";
+  document.body.style.overflow = isOpen ? "hidden" : "";
+});
+</script>
+
+
+<script>
+document.querySelectorAll(".top-nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggleBtn.textContent = "☰";
+    document.body.style.overflow = "";
+  });
 });
 </script>
 

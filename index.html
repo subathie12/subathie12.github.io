@@ -381,74 +381,56 @@ a {
 
 @media (max-width: 768px) {
 
-  /* TOP BAR */
-  .topbar {
-    padding: 16px 20px;
-  }
-
+  /* show hamburger */
   .menu-toggle {
     display: block;
+    z-index: 1001;
   }
 
+  /* FULLSCREEN OVERLAY MENU */
   .top-nav {
+    position: fixed;
+    inset: 0;
+    background: #f5f1e6;
+
     display: none;
-    width: 100%;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 14px;
-    margin-top: 12px;
+    gap: 28px;
+
+    z-index: 1000;
   }
 
   .top-nav.open {
     display: flex;
   }
 
-  /* HERO */
-  .hero-arch {
+  .top-nav a {
+    font-family: 'BrownSugar';
+    font-size: 28px;
+    margin: 0;
+  }
+
+  /* socials inside menu */
+  .mobile-socials {
+    margin-top: 40px;
+    display: flex;
     flex-direction: column;
-    padding: 40px 20px;
-    gap: 32px;
+    gap: 16px;
   }
 
-  .arch-wrapper {
-    width: 260px;
-    height: 360px;
-  }
-
-  .hero-title {
-    font-size: 36px;
-    text-align: center;
-  }
-
-  .hero-sub {
+  .mobile-socials a {
     font-size: 16px;
-    text-align: center;
+    letter-spacing: 1px;
+    color: #660033;
   }
 
-  .hero-right {
-    max-width: 100%;
-  }
-
-  /* PHOTOS */
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .photo-card img {
-    height: 160px;
-  }
-
-  .photo-card p {
-    font-size: 13px;
-  }
-
-  /* SOCIALS (choose ONE behaviour) */
+  /* hide header socials on mobile */
   .social-icons {
-    display: none; /* cleanest */
+    display: none;
   }
 }
-
 
 </style>
 </head>
@@ -466,11 +448,18 @@ a {
 
   <!-- ✅ HAMBURGER BUTTON -->
   <button class="menu-toggle" aria-label="Open menu">☰</button>
-  <nav class="top-nav">
-    <a href="about.html">About</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="project.html">Projects</a>
-  </nav>
+ <nav class="top-nav">
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="project.html">Projects</a>
+
+  <div class="mobile-socials">
+    <a href="https://www.instagram.com/conte.ntbys" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" target="_blank">LinkedIn</a>
+    <a href="mailto:subathienudara3@gmail.com">Email</a>
+  </div>
+</nav>
+
 
     <div class="social-icons">
     <a href="https://www.instagram.com/conte.ntbys" 
@@ -584,15 +573,17 @@ document.querySelectorAll(".animate-on-scroll").forEach(el => {
   observer.observe(el);
 });
 
-</script>
 <script>
 const toggleBtn = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".top-nav");
 
 toggleBtn.addEventListener("click", () => {
   nav.classList.toggle("open");
+  document.body.style.overflow =
+    nav.classList.contains("open") ? "hidden" : "";
 });
 </script>
+
 
 </body>
 </html>

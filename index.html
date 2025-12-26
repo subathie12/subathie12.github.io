@@ -264,6 +264,34 @@ a {
   line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+  .hero-arch {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 32px;
+  }
+
+  .arch-wrapper {
+    width: 260px;
+    height: 360px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+}
+
+
 /* -----------------------------------------
    PHOTO SNIPPETS
 ----------------------------------------- */
@@ -351,8 +379,9 @@ a {
   --animate-duration: 1.4s;
 }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
 
+  /* TOP BAR */
   .topbar {
     padding: 16px 20px;
   }
@@ -374,12 +403,33 @@ a {
     display: flex;
   }
 
-  .social-icons {
-    display: none; /* optional – cleaner on mobile */
+  /* HERO */
+  .hero-arch {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 32px;
   }
-}
 
-  @media (max-width: 768px) {
+  .arch-wrapper {
+    width: 260px;
+    height: 360px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+
+  /* PHOTOS */
   .photo-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
@@ -392,7 +442,13 @@ a {
   .photo-card p {
     font-size: 13px;
   }
+
+  /* SOCIALS (choose ONE behaviour) */
+  .social-icons {
+    display: none; /* cleanest */
+  }
 }
+
 
 </style>
 </head>

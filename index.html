@@ -66,7 +66,7 @@ a {
       align-items: center;
       gap: 8px;
     }
-
+ 
     .logo-icon {
       position: relative;
       width: 60px;
@@ -207,6 +207,16 @@ a {
   
 }
 
+  /* ---------- HAMBURGER BUTTON ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #660033;
+}
+
 
 /* -----------------------------------------
    HERO ARCH
@@ -339,6 +349,49 @@ a {
   --animate-duration: 1.4s;
 }
 
+  @media (max-width: 768px) {
+
+  .topbar {
+    padding: 16px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .top-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .top-nav.open {
+    display: flex;
+  }
+
+  .social-icons {
+    display: none; /* optional – cleaner on mobile */
+  }
+}
+
+  @media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .photo-card img {
+    height: 160px;
+  }
+
+  .photo-card p {
+    font-size: 13px;
+  }
+}
+
 </style>
 </head>
 
@@ -353,14 +406,16 @@ a {
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
+  <!-- ✅ HAMBURGER BUTTON -->
+  <button class="menu-toggle" aria-label="Open menu">☰</button>
   <nav class="top-nav">
     <a href="about.html">About</a>
     <a href="gallery.html">Gallery</a>
     <a href="project.html">Projects</a>
   </nav>
 
-   <div class="social-icons">
-    <a <a href="https://www.instagram.com/conte.ntbys" 
+    <div class="social-icons">
+    <a href="https://www.instagram.com/conte.ntbys" 
    class="social-circle instagram" 
    target="_blank">
   <img src="instagram.png" alt="Instagram">
@@ -472,7 +527,14 @@ document.querySelectorAll(".animate-on-scroll").forEach(el => {
 });
 
 </script>
+<script>
+const toggleBtn = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".top-nav");
 
+toggleBtn.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+</script>
 
 </body>
 </html>

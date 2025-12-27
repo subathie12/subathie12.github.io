@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subathie's Portfolio | About</title>
 
-<!-- Animate.css -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <style>
-/* ---------- GLOBAL ---------- */
+
+/* ======================================================
+   GLOBAL
+====================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -21,52 +21,18 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-/* ---------- SCROLL ANIMATION BASE ---------- */
-.animate-on-scroll {
-  opacity: 0;
-}
-
-/* ---------- CUSTOM FONTS ---------- */
-@font-face {
-  font-family: 'TanWhistling';
-  src: url('TAN WHISTLING Regular.otf') format('opentype');
-}
-@font-face {
-  font-family: 'BrownSugar';
-  src: url('Brown-Sugar-Regular.otf') format('opentype');
-}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Subathie's Portfolio | Home</title>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
-
-<style>
- .animate-on-scroll { opacity: 0; }
-
-/* ---------- GLOBAL ---------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #f5f1e6;
-  color: #1A1A1A;
-  font-family: system-ui, sans-serif;
-}
-
-/* REMOVE UNDERLINES EVERYWHERE */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* -----------------------------------------
-   CUSTOM FONTS
------------------------------------------ */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* ======================================================
+   FONTS
+====================================================== */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
@@ -76,9 +42,9 @@ a {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* -----------------------------------------
-   TOP NAVIGATION
------------------------------------------ */
+/* ======================================================
+   NAVBAR (DESKTOP FIRST)
+====================================================== */
 .topbar {
       width: 100%;
       padding: 24px 40px;
@@ -139,14 +105,14 @@ a {
   transition: color 0.2s ease;
 }
 
-/* hover = lighter */
-.logo-name:hover {
+.logo-box:hover .logo-name {
   color: #660033;
 }
 
+
 /* click / press = even lighter */
 .logo-name:active {
-  color: #9a4d6f;
+  color: #660033;
 }
 
 
@@ -236,6 +202,23 @@ a {
 .social-circle:hover {
   transform: scale(1.05);
   
+}
+
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #660033;
+}
+
+/* MOBILE SOCIALS (INSIDE MENU) */
+.mobile-socials {
+  display: none;
+  gap: 18px;
 }
 
 
@@ -465,58 +448,63 @@ a {
   .pinterest-gallery { column-count: 1; }
 }
 
-  /* ======================================================
-   MOBILE OVERRIDES — MATCH HOME PAGE
+  /* ---------- HAMBURGER ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #660033;
+}
+
+/* MOBILE SOCIALS (INSIDE MENU) */
+.mobile-socials {
+  display: none;
+  gap: 18px;
+}
+
+/* ======================================================
+   MOBILE OVERRIDES
 ====================================================== */
 @media (max-width: 768px) {
 
-  /* Reduce horizontal padding */
-  .about-wrapper,
-  .skills-wrapper,
-  .interests-tags {
-    padding: 0 20px;
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
   }
 
-  /* Center text like Home page */
-  .about-wrapper {
-    text-align: center;
+  .top-nav {
+    position: fixed;
+    inset: 0;
+    background: #f5f1e6;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    gap: 28px;
+    z-index: 1000;
   }
 
-  /* Scale headings down */
-  .about-wrapper h1 {
-    font-size: 34px;
+  .top-nav.open {
+    display: flex;
   }
 
-  .about-wrapper h3 {
-    font-size: 20px;
+  .mobile-socials {
+    display: flex;
+    margin-top: 40px;
   }
 
-  .about-wrapper p {
-    font-size: 16px;
-    line-height: 1.6;
+  .social-icons {
+    display: none;
   }
+  
+  .top-nav.open { display: flex; }
 
-  /* Skills: 3 → 1 column */
-  .skills-wrapper {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
+  .mobile-socials { display: flex; margin-top: 40px; }
 
-  /* Interest tags spacing */
-  .tag-row {
-    gap: 10px;
-  }
-
-  /* Pinterest gallery behaves like Home sections */
-  .pinterest-gallery {
-    column-count: 1;
-    padding: 0 12px;
-  }
-
-  /* Fashion tag spacing */
-  .tag.fashion {
-    margin-bottom: 24px;
-  }
+  .social-icons { display: none; }
+}
 }
 
 </style>
@@ -532,28 +520,45 @@ a {
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
+  <button class="menu-toggle">☰</button>
+
   <nav class="top-nav">
     <a href="about.html">About</a>
     <a href="gallery.html">Gallery</a>
     <a href="project.html">Projects</a>
+
+    <!-- MOBILE SOCIALS -->
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/conte.ntbys"
+         class="social-circle instagram"
+         target="_blank">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279"
+         class="social-circle linkedin"
+         target="_blank">
+        <img src="linkedIn.png" alt="LinkedIn">
+      </a>
+    </div>
   </nav>
 
+  <!-- DESKTOP SOCIALS -->
   <div class="social-icons">
-    <a <a href="https://www.instagram.com/conte.ntbys" 
-   class="social-circle instagram" 
-   target="_blank">
-  <img src="instagram.png" alt="Instagram">
-</a>
-
+    <a href="https://www.instagram.com/conte.ntbys"
+       class="social-circle instagram"
+       target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
     <a href="https://www.linkedin.com/in/subathie-n-46a388279"
-   class="social-circle linkedin"
-   target="_blank">
-  <img src="linkedIn.png" alt="LinkedIn">
-</a>
-
+       class="social-circle linkedin"
+       target="_blank">
+      <img src="linkedIn.png" alt="LinkedIn">
+    </a>
   </div>
 </header>
+
   
 <section class="about-wrapper animate-on-scroll" data-animate="fadeInUp">
   <h1>Hi Again!</h1>
@@ -680,6 +685,16 @@ fashionTag.addEventListener("click", () => {
       gallery.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 300);
   }
+});
+</script>
+<script>
+const toggleBtn = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".top-nav");
+
+toggleBtn.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  toggleBtn.textContent = isOpen ? "✕" : "☰";
+  document.body.style.overflow = isOpen ? "hidden" : "";
 });
 </script>
 

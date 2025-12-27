@@ -1,17 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subathie's Portfolio | Home</title>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <style>
-/* ---------- GLOBAL ---------- */
+
+/* ======================================================
+   GLOBAL
+====================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -20,52 +21,18 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-/* ---------- SCROLL ANIMATION BASE ---------- */
-.animate-on-scroll {
-  opacity: 0;
-}
-
-/* ---------- CUSTOM FONTS ---------- */
-@font-face {
-  font-family: 'TanWhistling';
-  src: url('TAN WHISTLING Regular.otf') format('opentype');
-}
-@font-face {
-  font-family: 'BrownSugar';
-  src: url('Brown-Sugar-Regular.otf') format('opentype');
-}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Subathie's Portfolio | Home</title>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
-
-<style>
- .animate-on-scroll { opacity: 0; }
-
-/* ---------- GLOBAL ---------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #f5f1e6;
-  color: #1A1A1A;
-  font-family: system-ui, sans-serif;
-}
-
-/* REMOVE UNDERLINES EVERYWHERE */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* -----------------------------------------
-   CUSTOM FONTS
------------------------------------------ */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* ======================================================
+   FONTS
+====================================================== */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
@@ -75,405 +42,306 @@ a {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* -----------------------------------------
-   TOP NAVIGATION
------------------------------------------ */
+/* ======================================================
+   NAVBAR (DESKTOP FIRST)
+====================================================== */
 .topbar {
-      width: 100%;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f5f1e6;
-      border-bottom: 1px solid #660033;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f1e6;
+  border-bottom: 1px solid #660033;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .logo-icon {
-      position: relative;
-      width: 60px;
-      height: 48px;
-      background: #660033;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: visible;
-    }
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
+}
 
-    .logo-icon span {
-      font-family: 'TanWhistling';
-      font-size: 45px;
-      color: #fff;
-      line-height: 1;
-      position: absolute;
-      top: 11px;
-      z-index: 3;
-    }
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  position: absolute;
+  top: 0px;
+  color: #f5f1e6;
+}
 
-    .logo-icon .s {
-      left: 10px;
-      color: #f5f1e6;
-    }
+.logo-icon .s { left: 10px; }
+.logo-icon .n { left: 20px; }
 
-    .logo-icon .n {
-      left: 20px;
-      color: #f5f1e6;
-    }
-
-    .logo-name {
+.logo-name {
   font-family: 'BrownSugar';
   font-size: 18px;
-  line-height: 1.1;
   letter-spacing: 2px;
-  color: #1A1A1A;
-  transition: color 0.2s ease;
 }
 
-/* hover = lighter */
-.logo-name:hover {
-  color: #660033;
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
-/* click / press = even lighter */
-.logo-name:active {
-  color: #9a4d6f;
-}
-
-
-    .top-nav a {
-  margin-left: 32px;
+.top-nav a {
   position: relative;
-  color: #333;
   font-size: 16px;
-  transition: color 0.2s ease;
 }
 
-/* hover = lighter + underline */
 .top-nav a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
-  width: 0%;
+  width: 0;
   height: 1.5px;
   background: #7b011e;
-  transition: width 0.25s ease;
-}
-
-.top-nav a:hover {
-  color: #7b011e;
+  transition: 0.25s;
 }
 
 .top-nav a:hover::after {
   width: 100%;
 }
 
-/* click / press */
-.top-nav a:active {
-  color: #9a4d6f;
-}
-
-
-    /* SOCIAL ICONS */
-    .social-icons {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #7b011e;
-      color: #111;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-  /* Instagram image inside circle */
-.social-circle.instagram img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* optional: subtle hover polish */
-.social-circle.instagram:hover {
-  transform: scale(1.05);
-}
-
-
-    .social-circle:hover {
-      background: #fb;
-      color: #fff;
-    }
-  
-  /* Social image icons */
-.social-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* subtle hover polish */
-.social-circle:hover {
-  transform: scale(1.05);
-  
-}
-
-
-/* ---------- ABOUT SECTION ---------- */
-.about-wrapper {
-  max-width: 1200px;
-  margin: 45px auto 32px; /* FIXED spacing */
-  padding: 0 40px;
-  text-align: center;
-}
-
-.about-wrapper h1,
-.about-wrapper h3 {
-  font-family: 'BrownSugar';
-}
-
-.about-wrapper h1 {
-  font-size: 48px;
-  margin-bottom: 8px;
-}
-
-.about-wrapper h3 {
-  font-size: 24px;
-  color: #777;
-  margin-bottom: 18px;
-}
-
-.about-wrapper p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #444;
-}
-
-/* ---------- SKILLS / SOFTWARE / EDUCATION ---------- */
-.skills-wrapper {
-  max-width: 1000px;
-  margin: 30px auto 55px; /* FIXED spacing */
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.skill-card {
-  background: white;
-  padding: 24px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,.08);
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,.05);
-  transition: 0.3s ease;
-}
-.skill-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,.12);
-}
-
-.skill-card h4 {
-  font-family: 'BrownSugar';
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.skill-card p {
-  white-space: pre-line;
-  line-height: 1.5;
-  color: #444;
-}
-
-/* ---------- EDUCATION INNER ---------- */
-.education-list {
+/* DESKTOP SOCIAL ICONS */
+.social-icons {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.education-item {
-  background: #FBF7F2;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,.08);
-  transition: 0.25s;
-}
-.education-item:hover {
-  transform: translateX(4px);
-}
-
-.education-item strong {
-  font-size: 14px;
-}
-.education-item span {
-  font-size: 12px;
-  color: #666;
-}
-
-/* ---------- INTEREST TAGS ---------- */
-.interests-tags {
-  text-align: center;
-  margin: 45px auto 28px;
-}
-
-.interests-tags h2 {
-  font-family: 'BrownSugar';
-  font-size: 30px;
-  margin-bottom: 18px;
-}
-
-.tag-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   gap: 14px;
 }
 
-.tag {
-  padding: 8px 18px;
-  background: #f5f1e6;
-  border-radius: 30px;
-  border: 1px solid #7b011e;
-  font-size: 14px;
-  transition: 0.25s;
-}
-.tag:hover {
+.social-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   background: #7b011e;
-  color: white;
-  transform: translateY(-2px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s;
 }
 
-/* ---------- FASHION TAG (CLICKABLE + OUTLINE) ---------- */
-.tag.fashion {
-  position: relative;
-  display: inline-block;
-  margin: 12px auto 36px;
-  padding: 10px 26px;
-
-  background: #7b011e;
-  color: #fff;
-  border-radius: 999px;
-  border: none;
-
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  z-index: 1;
+.social-circle:hover {
+  transform: scale(1.05);
 }
 
-/* animated outline */
-.tag.fashion::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 999px;
-  border: 1.5px solid rgba(123, 1, 30, 0.45);
-  animation: fashionPulse 2.4s ease-in-out infinite;
-}
-
-@keyframes fashionPulse {
-  0%   { opacity: 0.3; transform: scale(1); }
-  50%  { opacity: 0.7; transform: scale(1.05); }
-  100% { opacity: 0.3; transform: scale(1); }
-}
-
-/* hover polish */
-.tag.fashion:hover {
-  transform: translateY(-2px);
-}
-
-
-/* ---------- PINTEREST GALLERY ---------- */
-.pinterest-gallery {
-  display: none;
-  column-count: 3;
-  column-gap: 16px;
-  max-width: 1100px;
-  margin: 24px auto 90px;
-  padding: 0 16px;
-}
-
-.pinterest-gallery.open {
-  display: block;
-}
-
-/* individual pins */
-.pin {
-  margin-bottom: 16px;
-  break-inside: avoid;
-}
-
-.pin img {
+.social-circle img {
   width: 100%;
-  border-radius: 12px;
+  height: 100%;
+  border-radius: 50%;
   object-fit: cover;
 }
 
-/* responsive */
-@media (max-width: 900px) {
-  .pinterest-gallery { column-count: 2; }
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #660033;
 }
 
-@media (max-width: 600px) {
-  .pinterest-gallery { column-count: 1; }
+/* MOBILE SOCIALS (INSIDE MENU) */
+.mobile-socials {
+  display: none;
+  gap: 18px;
 }
-/* ---------- MOBILE NAV FIX ---------- */
-@media (max-width: 600px) {
-  .topbar {
-    padding: 16px 20px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
 
-  .logo-box {
-    width: 100%;
-    justify-content: center;
+/* ======================================================
+   HERO SECTION
+====================================================== */
+.hero-arch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 40px;
+}
+
+.arch-wrapper {
+  width: 100%;
+  max-width: 420px;
+  height: 520px;
+  background: #EFE7DD;
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  border: 2px solid #7b011e;
+}
+
+.arch-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-right {
+  max-width: 380px;
+}
+
+.hero-title {
+  font-family: 'BrownSugar';
+  font-size: clamp(32px, 6vw, 58px);
+}
+
+.hero-sub {
+  margin-top: 20px;
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+/* ======================================================
+   PHOTO SNIPPETS
+====================================================== */
+.photo-snippets-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.snippet-title {
+  font-family: 'BrownSugar';
+  font-size: 38px;
+  margin-bottom: 30px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.photo-card {
+  height: 330px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f5f1e6;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.photo-card p {
+  padding: 12px 16px;
+  font-size: 15px;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+.footer-hero {
+  margin-top: 60px;
+  padding: 80px 40px;
+  background: #EFE7DD;
+  text-align: center;
+}
+
+.footer-hero h2 {
+  font-family: 'BrownSugar';
+  font-size: 42px;
+}
+
+/* ======================================================
+   MOBILE OVERRIDES
+====================================================== */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
   }
 
   .top-nav {
-    width: 100%;
-    display: flex;
+    position: fixed;
+    inset: 0;
+    background: #f5f1e6;
+    flex-direction: column;
     justify-content: center;
-    gap: 18px;
+    align-items: center;
+    display: none;
+    gap: 28px;
+    z-index: 1000;
   }
 
-  .top-nav a {
-    margin-left: 0;
+  .top-nav.open {
+    display: flex;
+  }
+
+  .mobile-socials {
+    display: flex;
+    margin-top: 40px;
   }
 
   .social-icons {
-    width: 100%;
-    justify-content: center;
-    margin-top: 6px;
+    display: none;
   }
+
+  .hero-arch {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 32px;
+  }
+
+  .hero-right {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .arch-wrapper {
+    max-width: 260px;
+    height: 360px;
+  }
+}
+
+/* ======================================================
+   LIGHTBOX
+====================================================== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  animation: zoomFade 0.35s ease;
+}
+
+@keyframes zoomFade {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 </style>
 </head>
+
 <body>
 
 <header class="topbar">
@@ -485,154 +353,115 @@ a {
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
+  <button class="menu-toggle">☰</button>
+
   <nav class="top-nav">
     <a href="about.html">About</a>
     <a href="gallery.html">Gallery</a>
     <a href="project.html">Projects</a>
+
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+        <img src="linkedIn.png" alt="LinkedIn">
+      </a>
+    </div>
   </nav>
 
   <div class="social-icons">
-    <a href="https://www.instagram.com/conte.ntbys" 
-   class="social-circle instagram" 
-   target="_blank">
-  <img src="instagram.png" alt="Instagram">
-</a>
-
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
-   class="social-circle linkedin"
-   target="_blank">
-  <img src="linkedIn.png" alt="LinkedIn">
-</a>
-
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+      <img src="linkedIn.png" alt="LinkedIn">
+    </a>
   </div>
 </header>
-  
-<section class="about-wrapper animate-on-scroll" data-animate="fadeInUp">
-  <h1>Hi Again!</h1>
-  <h3>A little more about me…</h3>
-  <p>
-    I work across photography, editing, visual design, and digital storytelling — blending creativity with the structure of technology. Studying Information Technology and Marketing helps me turn ideas into real, intentional work. <br>
-    <br> For a long time, I didn’t think I was “naturally creative,” but fashion changed that. It was the first place where I learned how colours, textures, and small details could tell a story. Fashion became my earliest form of expression — a space where confidence, identity, and creativity finally made sense to me and visually see the creativity I thought I lacked. 
-    <br><br> That spark carried into everything I do now: the way I compose photos, edit visuals, and approach design. The same instinct I had for balance, contrast, and detail in outfits is what shapes my creative direction today. 
-    <br><br> 
-  <p><strong>Fashion taught me to see differently.</strong></p> 
-  <p><strong>IT taught me to build with intention.</strong></p> 
-  <p><strong>Together, they shaped the way I create.</strong></p>
+
+<section class="hero-arch">
+  <div class="arch-wrapper">
+    <img src="me - Copy/IMG_6789-min.JPEG" alt="Profile Image">
+  </div>
+
+  <div class="hero-right">
+    <h1 class="hero-title animate__animated animate__fadeInDown">Hi I’m Subathie</h1>
+    <p class="hero-sub animate__animated animate__fadeInDown animate__delay-1s">
+      This is my portfolio showcasing warm, expressive visuals inspired by emotion,
+      colour, and meaningful storytelling.
+    </p>
+  </div>
 </section>
 
+<section class="photo-snippets-section animate-on-scroll" data-animate="fadeInUp">
+  <h2 class="snippet-title animate-on-scroll" data-animate="fadeInUp">
+    Photography Snippets
+  </h2>
 
-<div class="skills-wrapper animate-on-scroll" data-animate="fadeInUp">
-  <div class="skill-card"> <h4>Skills</h4>
-    <p>Photography
-      Videography
-Video Editing
-Visual Design
-Storytelling
-Graphic Design</p>
-  </div>
-  <div class="skill-card"><h4>Softwares</h4>
-    <p>Canva
-CapCut
-Lightroom
-Figma
-GitHub</p>
-  </div>
-  <div class="skill-card"><h4>Education</h4>
-    <div class="education-list">
-      <div class="education-item">
-        <strong>Cavendish Road State High School</strong><br>
-        <span>2017–2022</span>
-      </div>
-      <div class="education-item">
-        <strong>Queensland University of Technology</strong><br>
-        <span>IT & Business (Marketing) · 2023–2027</span>
-      </div>
+  <div class="photo-grid">
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/IMG_6238-min.jpg">
+      <p>Urban energy & live moments</p>
+    </div>
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/1-DSC02325.jpg">
+      <p>Candid stories in real spaces</p>
+    </div>
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/7-IMG_4045.jpg">
+      <p>Street-style portraits with mood</p>
+    </div>
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/4-DSC01910.jpg">
+      <p>Minimal scenes with cinematic colour</p>
     </div>
   </div>
-  </div>
-
-<section class="interests-tags animate-on-scroll" data-animate="fadeInUp">
-  <h2>My Interests</h2>
-  <div class="tag-row">
-     <span class="tag">Photography</span>
-    <span class="tag">Music</span>
-    <span class="tag">Colour Grading</span>
-    <span class="tag">Visual Design</span>
-    <span class="tag">Videography</span>
-
-  </div>
 </section>
 
-<div class="animate-on-scroll" data-animate="fadeInUp" style="text-align:center;">
- <span class="tag fashion" id="toggleFashion">Fashion</span>
-  
-  </div>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
 
-
-<section class="pinterest-gallery animate-on-scroll" data-animate="fadeInUp" id="gallery"></section>
-  
-  
+<section class="footer-hero">
+  <h2>Explore my world</h2>
+  <p>Visual stories, identity design, and moments captured with intention.</p>
+</section>
 
 <script>
-/* ---------- SCROLL ANIMATION (SAFE) ---------- */
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const anim = entry.target.dataset.animate;
-        entry.target.classList.add("animate__animated", `animate__${anim}`);
-        entry.target.style.opacity = "1";
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-);
+/* SCROLL ANIMATIONS */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const anim = entry.target.dataset.animate || "fadeInUp";
+      entry.target.classList.add("animate__animated", `animate__${anim}`);
+      entry.target.style.opacity = "1";
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
 
 document.querySelectorAll(".animate-on-scroll").forEach(el => observer.observe(el));
 
-/* Fallback for elements already visible */
-window.addEventListener("load", () => {
-  document.querySelectorAll(".animate-on-scroll").forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight) {
-      const anim = el.dataset.animate;
-      el.classList.add("animate__animated", `animate__${anim}`);
-      el.style.opacity = "1";
-    }
-  });
-});
+/* LIGHTBOX */
+function openLightbox(img) {
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").classList.add("open");
+}
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("open");
+}
 
-/* ---------- GALLERY FETCH ---------- */
-fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/me")
-  .then(res => res.json())
-  .then(files => {
-    const gallery = document.getElementById("gallery");
-    files.forEach(f => {
-      if (/\.(jpg|jpeg|png|webp)$/i.test(f.name)) {
-        const div = document.createElement("div");
-        div.className = "pin";
-        const img = document.createElement("img");
-        img.src = `me/${f.name}`;
-        div.appendChild(img);
-        gallery.appendChild(div);
-      }
-    });
-  });
-</script>
-<script>
-const fashionTag = document.getElementById("toggleFashion");
-const gallery = document.getElementById("gallery");
+/* MOBILE NAV */
+const toggleBtn = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".top-nav");
 
-fashionTag.addEventListener("click", () => {
-  gallery.classList.toggle("open");
-
-  // optional: scroll to gallery when opening
-  if (gallery.classList.contains("open")) {
-    setTimeout(() => {
-      gallery.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 300);
-  }
+toggleBtn.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  toggleBtn.textContent = isOpen ? "✕" : "☰";
+  document.body.style.overflow = isOpen ? "hidden" : "";
 });
 </script>
 

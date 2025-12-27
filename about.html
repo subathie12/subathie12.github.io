@@ -465,6 +465,60 @@ a {
   .pinterest-gallery { column-count: 1; }
 }
 
+  /* ======================================================
+   MOBILE OVERRIDES — MATCH HOME PAGE
+====================================================== */
+@media (max-width: 768px) {
+
+  /* Reduce horizontal padding */
+  .about-wrapper,
+  .skills-wrapper,
+  .interests-tags {
+    padding: 0 20px;
+  }
+
+  /* Center text like Home page */
+  .about-wrapper {
+    text-align: center;
+  }
+
+  /* Scale headings down */
+  .about-wrapper h1 {
+    font-size: 34px;
+  }
+
+  .about-wrapper h3 {
+    font-size: 20px;
+  }
+
+  .about-wrapper p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Skills: 3 → 1 column */
+  .skills-wrapper {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  /* Interest tags spacing */
+  .tag-row {
+    gap: 10px;
+  }
+
+  /* Pinterest gallery behaves like Home sections */
+  .pinterest-gallery {
+    column-count: 1;
+    padding: 0 12px;
+  }
+
+  /* Fashion tag spacing */
+  .tag.fashion {
+    margin-bottom: 24px;
+  }
+}
+
 </style>
 </head>
 <body>

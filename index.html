@@ -46,119 +46,164 @@ a {
    NAVBAR (DESKTOP FIRST)
 ====================================================== */
 .topbar {
-  width: 100%;
-  padding: 24px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f5f1e6;
-  border-bottom: 1px solid #660033;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
+      width: 100%;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f5f1e6;
+      border-bottom: 1px solid #660033;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
 
-.logo-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.logo-icon {
-  position: relative;
-  width: 60px;
-  height: 48px;
-  background: #660033;
-  border-radius: 6px;
-}
+    .logo-icon {
+      position: relative;
+      width: 60px;
+      height: 48px;
+      background: #660033;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
 
-.logo-icon span {
-  font-family: 'TanWhistling';
-  font-size: 45px;
-  position: absolute;
-  top: 3px;
-  color: #f5f1e6;
-}
+    .logo-icon span {
+      font-family: 'TanWhistling';
+      font-size: 45px;
+      color: #fff;
+      line-height: 0.5;
+      position: absolute;
+      top: 11px;
+      z-index: 3;
+    }
 
-.logo-icon .s { left: 10px; }
-.logo-icon .n { left: 20px; }
+    .logo-icon .s {
+      left: 10px;
+      color: #f5f1e6;
+    }
 
-.logo-name {
+    .logo-icon .n {
+      left: 20px;
+      color: #f5f1e6;
+    }
+
+    .logo-name {
   font-family: 'BrownSugar';
   font-size: 18px;
+  line-height: 1.1;
   letter-spacing: 2px;
+  color: #1A1A1A;
+  transition: color 0.2s ease;
 }
 
-.logo-icon {
-  transition: background 0.25s ease;
+/* hover = lighter */
+.logo-name:hover {
+  color: #660033;
 }
 
-.logo-icon span {
-  transition: color 0.25s ease;
+/* click / press = even lighter */
+.logo-name:active {
+  color: #9a4d6f;
 }
 
-/* LOGO ICON HOVER */
-.logo-box:hover .logo-icon {
-  background: #7b011e;
-}
 
-.logo-box:hover .logo-icon span {
-  color: #ffffff;
-}
-
-.top-nav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.top-nav a {
+    .top-nav a {
+  margin-left: 32px;
   position: relative;
+  color: #333;
   font-size: 16px;
+  transition: color 0.2s ease;
 }
 
+/* hover = lighter + underline */
 .top-nav a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
-  width: 0;
+  width: 0%;
   height: 1.5px;
   background: #7b011e;
-  transition: 0.25s;
+  transition: width 0.25s ease;
+}
+
+.top-nav a:hover {
+  color: #7b011e;
 }
 
 .top-nav a:hover::after {
   width: 100%;
 }
 
-/* DESKTOP SOCIAL ICONS */
-.social-icons {
-  display: flex;
-  gap: 14px;
+/* click / press */
+.top-nav a:active {
+  color: #9a4d6f;
 }
 
-.social-circle {
-  width: 32px;
-  height: 32px;
+
+    /* SOCIAL ICONS */
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .social-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #7b011e;
+      color: #111;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+  /* Instagram image inside circle */
+.social-circle.instagram img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
-  background: #7b011e;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform .2s;
 }
 
-.social-circle:hover {
+/* optional: subtle hover polish */
+.social-circle.instagram:hover {
   transform: scale(1.05);
 }
 
+
+    .social-circle:hover {
+      background: #fb;
+      color: #fff;
+    }
+  
+  /* Social image icons */
 .social-circle img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
   object-fit: cover;
+  border-radius: 50%;
 }
+
+/* subtle hover polish */
+.social-circle:hover {
+  transform: scale(1.05);
+  
+}
+
 
 /* HAMBURGER */
 .menu-toggle {

@@ -1,26 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subathie's Portfolio | Home</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subathie's Portfolio | Home</title>
 
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <style>
- .animate-on-scroll {
-  opacity: 0;
-}
 
-.animate-on-scroll.animate__animated {
-  opacity: 1;
-}
-
-/* ---------- GLOBAL ---------- */
+/* ======================================================
+   GLOBAL
+====================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -29,15 +21,18 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-/* REMOVE UNDERLINES EVERYWHERE */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* -----------------------------------------
-   CUSTOM FONTS
------------------------------------------ */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* ======================================================
+   FONTS
+====================================================== */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
@@ -47,176 +42,108 @@ a {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* -----------------------------------------
-   TOP NAVIGATION
------------------------------------------ */
+/* ======================================================
+   NAVBAR (DESKTOP FIRST)
+====================================================== */
 .topbar {
-      width: 100%;
-      padding: 24px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f5f1e6;
-      border-bottom: 1px solid #660033;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
- 
-    .logo-icon {
-      position: relative;
-      width: 60px;
-      height: 48px;
-      background: #660033;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: visible;
-    }
-
-    .logo-icon span {
-      font-family: 'TanWhistling';
-      font-size: 45px;
-      color: #fff;
-      line-height: 1;
-      position: absolute;
-      top: 11px;
-      z-index: 3;
-    }
-
-    .logo-icon .s {
-      left: 10px;
-      color: #f5f1e6;
-    }
-
-    .logo-icon .n {
-      left: 20px;
-      color: #f5f1e6;
-    }
-
-    .logo-name {
-  font-family: 'BrownSugar';
-  font-size: 18px;
-  line-height: 1.1;
-  letter-spacing: 2px;
-  color: #1A1A1A;
-  transition: color 0.2s ease;
+  width: 100%;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f1e6;
+  border-bottom: 1px solid #660033;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
-/* hover = lighter */
-.logo-name:hover {
-  color: #660033;
-}
-
-/* click / press = even lighter */
-.logo-name:active {
-  color: #9a4d6f;
-}
-
-
-    .top-nav a {
-  gap: 32px;
-  position: relative;
-  color: #333;
-  font-size: 16px;
-  transition: color 0.2s ease;
-}
-
-  .top-nav {
+.logo-box {
   display: flex;
   align-items: center;
-  gap: 32px; /* ✅ THIS creates spacing */
+  gap: 8px;
 }
 
+.logo-icon {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  background: #660033;
+  border-radius: 6px;
+}
 
-/* hover = lighter + underline */
+.logo-icon span {
+  font-family: 'TanWhistling';
+  font-size: 45px;
+  position: absolute;
+  top: 0px;
+  color: #f5f1e6;
+}
+
+.logo-icon .s { left: 10px; }
+.logo-icon .n { left: 20px; }
+
+.logo-name {
+  font-family: 'BrownSugar';
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.top-nav a {
+  position: relative;
+  font-size: 16px;
+}
+
 .top-nav a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
-  width: 0%;
+  width: 0;
   height: 1.5px;
   background: #7b011e;
-  transition: width 0.25s ease;
-}
-
-.top-nav a:hover {
-  color: #7b011e;
+  transition: 0.25s;
 }
 
 .top-nav a:hover::after {
   width: 100%;
 }
 
-/* click / press */
-.top-nav a:active {
-  color: #9a4d6f;
+/* DESKTOP SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 14px;
 }
 
-
-    /* SOCIAL ICONS */
-    .social-icons {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #7b011e;
-      color: #111;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-  /* Instagram image inside circle */
-.social-circle.instagram img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.social-circle {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  background: #7b011e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s;
 }
 
-/* optional: subtle hover polish */
-.social-circle.instagram:hover {
+.social-circle:hover {
   transform: scale(1.05);
 }
 
-
-    .social-circle:hover {
-      background: #fb;
-      color: #fff;
-    }
-  
-  /* Social image icons */
 .social-circle img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-/* subtle hover polish */
-.social-circle:hover {
-  transform: scale(1.05);
-  
-}
-
-  /* ---------- HAMBURGER BUTTON ---------- */
+/* HAMBURGER */
 .menu-toggle {
   display: none;
   background: none;
@@ -226,22 +153,26 @@ a {
   color: #660033;
 }
 
+/* MOBILE SOCIALS (INSIDE MENU) */
+.mobile-socials {
+  display: none;
+  gap: 18px;
+}
 
-/* -----------------------------------------
-   HERO ARCH
------------------------------------------ */
+/* ======================================================
+   HERO SECTION
+====================================================== */
 .hero-arch {
-  padding: 60px 40px;
-  margin-bottom: 0px; /* 👈 THIS is the key */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 60px;
+  padding: 80px 40px;
 }
 
-
 .arch-wrapper {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   height: 520px;
   background: #EFE7DD;
   border-radius: 200px 200px 0 0;
@@ -261,58 +192,29 @@ a {
 
 .hero-title {
   font-family: 'BrownSugar';
-  font-size: 58px;
+  font-size: clamp(32px, 6vw, 58px);
 }
 
 .hero-sub {
   margin-top: 20px;
-  font-size: 18px;
+  font-size: clamp(15px, 2.5vw, 18px);
   color: #4a4a4a;
   line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .hero-arch {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 32px;
-  }
-
-  .arch-wrapper {
-    width: 260px;
-    height: 360px;
-  }
-
-  .hero-title {
-    font-size: 36px;
-    text-align: center;
-  }
-
-  .hero-sub {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .hero-right {
-    max-width: 100%;
-  }
-}
-
-
-/* -----------------------------------------
+/* ======================================================
    PHOTO SNIPPETS
------------------------------------------ */
+====================================================== */
 .photo-snippets-section {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 40px 80px; /* no top padding */
+  padding: 0 40px 80px;
 }
-
 
 .snippet-title {
   font-family: 'BrownSugar';
   font-size: 38px;
-  margin-bottom: 30px; /* more space before cards */
+  margin-bottom: 30px;
 }
 
 .photo-grid {
@@ -322,77 +224,43 @@ a {
 }
 
 .photo-card {
-  background: #f5f1e6;
+  height: 330px;
   border-radius: 18px;
   overflow: hidden;
-  height: 330px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.photo-card:hover {
-  transform: translateY(-6px);
+  background: #f5f1e6;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  cursor: pointer;
 }
 
 .photo-card img {
   width: 100%;
   height: 80%;
   object-fit: cover;
-  cursor: pointer;
 }
 
 .photo-card p {
   padding: 12px 16px;
   font-size: 15px;
-  color: #4a4a4a;
 }
 
-  /* ----------------------------------------- FOOTER HERO SECTION ----------------------------------------- */ 
-  .footer-hero { 
-    margin-top: 60px; 
-    padding: 80px 40px; 
-    background: #EFE7DD; 
-    text-align: center; } 
-  
-  .footer-hero h2 { 
-    font-family: 'BrownSugar'; 
-    font-size: 42px; 
-    margin-bottom: 20px; } 
-/* -----------------------------------------
-   LIGHTBOX
------------------------------------------ */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+/* ======================================================
+   FOOTER
+====================================================== */
+.footer-hero {
+  margin-top: 60px;
+  padding: 80px 40px;
+  background: #EFE7DD;
+  text-align: center;
 }
 
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-}
-  .hero-title {
-  --animate-duration: 1.2s;
+.footer-hero h2 {
+  font-family: 'BrownSugar';
+  font-size: 42px;
 }
 
-.hero-sub {
-  --animate-duration: 1.4s;
-}
-.top-nav {
-  display: flex;
-  align-items: center;
-}
-.mobile-socials {
-  display: none;
-}
-
+/* ======================================================
+   MOBILE OVERRIDES
+====================================================== */
 @media (max-width: 768px) {
 
   .menu-toggle {
@@ -404,10 +272,10 @@ a {
     position: fixed;
     inset: 0;
     background: #f5f1e6;
-    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: none;
     gap: 28px;
     z-index: 1000;
   }
@@ -416,24 +284,60 @@ a {
     display: flex;
   }
 
-  .top-nav a {
-    font-family: system-ui, sans-serif;
-    font-size: 28px;
-    margin: 0;
-  }
-
   .mobile-socials {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
     margin-top: 40px;
   }
 
   .social-icons {
     display: none;
   }
+
+  .hero-arch {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 32px;
+  }
+
+  .hero-right {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .arch-wrapper {
+    max-width: 260px;
+    height: 360px;
+  }
 }
 
+/* ======================================================
+   LIGHTBOX
+====================================================== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  animation: zoomFade 0.35s ease;
+}
+
+@keyframes zoomFade {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
 
 </style>
 </head>
@@ -449,7 +353,7 @@ a {
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
-  <button class="menu-toggle" aria-label="Open menu">☰</button>
+  <button class="menu-toggle">☰</button>
 
   <nav class="top-nav">
     <a href="about.html">About</a>
@@ -457,42 +361,24 @@ a {
     <a href="project.html">Projects</a>
 
     <div class="mobile-socials">
-      <a href="https://www.instagram.com/conte.ntbys" 
-   class="social-circle instagram" 
-   target="_blank">
-  <img src="instagram.png" alt="Instagram">
-</a>
+      <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+        <img src="linkedIn.png" alt="LinkedIn">
+      </a>
+    </div>
+  </nav>
 
+  <div class="social-icons">
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
-   class="social-circle linkedin"
-   target="_blank">
-  <img src="linkedIn.png" alt="LinkedIn">
-</a>
-
-  </div>
-</header>
-
-<section class="hero-arch">
-  <div class="arch-wrapper">
-    <img src="me - Copy/IMG_6789-min.JPEG" alt="Profile Image">
-  </div>
-
-
-    <div class="social-icons">
-    <a href="https://www.instagram.com/conte.ntbys" 
-   class="social-circle instagram" 
-   target="_blank">
-  <img src="instagram.png" alt="Instagram">
-</a>
-
-    <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
-   class="social-circle linkedin"
-   target="_blank">
-  <img src="linkedIn.png" alt="LinkedIn">
-</a>
-
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+      <img src="linkedIn.png" alt="LinkedIn">
+    </a>
   </div>
 </header>
 
@@ -502,98 +388,73 @@ a {
   </div>
 
   <div class="hero-right">
-  <h1 class="hero-title animate__animated animate__fadeInDown">
-Hi I'm Subathie  </h1>
-
-  <p class="hero-sub animate__animated animate__fadeInDown animate__delay-1s">
-   This my portfolio that visualises the  warm, expressive visuals I have crafted, inspired by emotion, colour and meaningful storytelling.
-  </p>
-</div>
-
+    <h1 class="hero-title animate__animated animate__fadeInDown">Hi I’m Subathie</h1>
+    <p class="hero-sub animate__animated animate__fadeInDown animate__delay-1s">
+      This is my portfolio showcasing warm, expressive visuals inspired by emotion,
+      colour, and meaningful storytelling.
+    </p>
+  </div>
 </section>
 
-<section class="photo-snippets-section animate-on-scroll"
-         data-animate="slideInUp"
-         id="snippets">
-
-  <h2 class="snippet-title animate-on-scroll"
-      data-animate="slideInUp">
+<section class="photo-snippets-section animate-on-scroll" data-animate="fadeInUp">
+  <h2 class="snippet-title animate-on-scroll" data-animate="fadeInUp">
     Photography Snippets
   </h2>
 
-  
-  
-
   <div class="photo-grid">
-    <div class="photo-card">
-      <img src="images/IMG_6238-min.jpg" onclick="openLightbox(this)">
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/IMG_6238-min.jpg">
       <p>Urban energy & live moments</p>
     </div>
-
-    <div class="photo-card">
-      <img src="images/1-DSC02325.jpg" onclick="openLightbox(this)">
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/1-DSC02325.jpg">
       <p>Candid stories in real spaces</p>
     </div>
-
-    <div class="photo-card">
-      <img src="images/7-IMG_4045.jpg" onclick="openLightbox(this)">
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/7-IMG_4045.jpg">
       <p>Street-style portraits with mood</p>
     </div>
-
-    <div class="photo-card">
-      <img src="images/4-DSC01910.jpg" onclick="openLightbox(this)">
+    <div class="photo-card animate-on-scroll" data-animate="fadeInUp" onclick="openLightbox(this.querySelector('img'))">
+      <img src="images/4-DSC01910.jpg">
       <p>Minimal scenes with cinematic colour</p>
     </div>
   </div>
 </section>
 
- 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
-  
-  <!-- FOOTER --> 
-  <section class="footer-hero"> <h2>Explore my world</h2> <p>Visual stories, identity design, and moments captured with intention.</p> </section>
-  
+
+<section class="footer-hero">
+  <h2>Explore my world</h2>
+  <p>Visual stories, identity design, and moments captured with intention.</p>
+</section>
+
 <script>
+/* SCROLL ANIMATIONS */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const anim = entry.target.dataset.animate || "fadeInUp";
+      entry.target.classList.add("animate__animated", `animate__${anim}`);
+      entry.target.style.opacity = "1";
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".animate-on-scroll").forEach(el => observer.observe(el));
+
+/* LIGHTBOX */
 function openLightbox(img) {
   document.getElementById("lightbox-img").src = img.src;
-  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox").classList.add("open");
 }
 function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
+  document.getElementById("lightbox").classList.remove("open");
 }
-</script>
-<script>
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const animation = entry.target.dataset.animate || "slideInUp";
 
-        entry.target.classList.add(
-          "animate__animated",
-          `animate__${animation}`
-        );
-
-        entry.target.style.opacity = "1";
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.15,
-    rootMargin: "0px 0px -120px 0px"
-  }
-);
-
-document.querySelectorAll(".animate-on-scroll").forEach(el => {
-  observer.observe(el);
-});
-</script>
-
-
-<script>
+/* MOBILE NAV */
 const toggleBtn = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".top-nav");
 
@@ -603,18 +464,6 @@ toggleBtn.addEventListener("click", () => {
   document.body.style.overflow = isOpen ? "hidden" : "";
 });
 </script>
-
-
-<script>
-document.querySelectorAll(".top-nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    toggleBtn.textContent = "☰";
-    document.body.style.overflow = "";
-  });
-});
-</script>
-
 
 </body>
 </html>

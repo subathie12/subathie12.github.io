@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subathie's Portfolio | Gallery</title>
 <link
   rel="stylesheet"
@@ -340,6 +341,7 @@ a {
     display: none;
     gap: 28px;
     z-index: 1000;
+     padding: 16px 20px;
   }
 
   .top-nav.open {
@@ -356,12 +358,31 @@ a {
   }
   
  .photo-grid {
-    columns: 2;
-    column-gap: 12px;
+    columns: unset;              /* turn OFF masonry */
+    display: grid;
+    grid-template-columns: 1fr;  /* true mobile */
+    gap: 12px;
   }
 
   .photo-card {
     margin-bottom: 12px;
+  }
+#photos, #videos {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+ .section-buttons {
+    top: 64px;
+    gap: 12px;
+  }
+
+  .section-buttons button {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -521,103 +542,6 @@ toggleBtn.addEventListener("click", () => {
     isOpen ? "none" : "flex";
 });
 
-</script>
-
-</body>
-</html>
-
-</div>
-
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
-
-<script>
-/* ---------- FADE-IN OBSERVER ---------- */
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("animate__animated", "animate__fadeInUp");
-      entry.target.style.opacity = "1";
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll(".animate-on-scroll").forEach(el => fadeObserver.observe(el));
-
-/* ---------- ZOOM-IN OBSERVER ---------- */
-const zoomObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      zoomObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-
-function observeZoom() {
-  document.querySelectorAll(".zoom-on-scroll:not(.show)")
-    .forEach(el => zoomObserver.observe(el));
-}
-
-/* ---------- LOAD PHOTOS ---------- */
-fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/images")
-  .then(res => res.json())
-  .then(files => {
-    files.forEach(f => {
-      if (/\.(jpg|jpeg|png|webp)$/i.test(f.name)) {
-        const card = document.createElement("div");
-        card.className = "photo-card zoom-on-scroll";
-        const img = document.createElement("img");
-        img.src = `images/${f.name}`;
-        img.onclick = () => openLightbox(img);
-        card.appendChild(img);
-        photoGrid.appendChild(card);
-      }
-    });
-    observeZoom();
-  });
-
-/* ---------- LOAD VIDEOS ---------- */
-fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/videos")
-  .then(res => res.json())
-  .then(files => {
-    files.forEach(f => {
-      if (/\.(mp4|webm|mov)$/i.test(f.name)) {
-        const card = document.createElement("div");
-        card.className = "video-card zoom-on-scroll";
-        const video = document.createElement("video");
-        video.controls = true;
-        video.loop = true;
-        video.muted = true;
-        video.src = `videos/${f.name}`;
-        card.appendChild(video);
-        videoGrid.appendChild(card);
-      }
-    });
-    observeZoom();
-  });
-
-function openLightbox(img) {
-  document.getElementById("lightbox-img").src = img.src;
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-</script>
-
-  <script>
-const toggleBtn = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".top-nav");
-
-toggleBtn.addEventListener("click", () => {
-  const isOpen = nav.classList.toggle("open");
-  toggleBtn.textContent = isOpen ? "✕" : "☰";
-  document.body.style.overflow = isOpen ? "hidden" : "";
-});
 </script>
 
 </body>

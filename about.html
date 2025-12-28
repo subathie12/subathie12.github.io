@@ -398,8 +398,6 @@ a {
   max-width: 1100px;
   margin: 24px auto 90px;
   padding: 0 16px;
-
-  .pinterest-gallery {
   display: none;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -408,8 +406,6 @@ a {
 .pinterest-gallery.open {
   display: block;
   opacity: 1;
-}
-
 }
 
 /* when open */
@@ -440,13 +436,6 @@ a {
   cursor: pointer;
 }
 
-/* responsive */
-@media (max-width: 900px) {
-  .pinterest-gallery { column-count: 2; }
-}
-@media (max-width: 600px) {
-  .pinterest-gallery { column-count: 1; }
-}
 
   /* ---------- HAMBURGER ---------- */
 .menu-toggle {
@@ -498,13 +487,35 @@ a {
   .social-icons {
     display: none;
   }
-  
-  .top-nav.open { display: flex; }
 
-  .mobile-socials { display: flex; margin-top: 40px; }
+  /* skills stack */
+  .skills-wrapper {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+      
+.education-item {
+    padding: 14px 16px;
+  }
 
-  .social-icons { display: none; }
-}
+  .education-item strong {
+    font-size: 15px;
+  }
+
+  .education-item span {
+    font-size: 13px;
+  }
+      .pinterest-gallery {
+    column-count: unset;      /* disable columns */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .pin {
+    margin-bottom: 0;         /* grid handles spacing */
+  }
+
 }
 
 </style>

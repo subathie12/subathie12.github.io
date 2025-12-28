@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Subathie's Portfolio | Home</title>
+<title>Subathie's Portfolio | Gallery</title>
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -88,7 +88,7 @@ a {
       font-family: 'TanWhistling';
       font-size: 45px;
       color: #fff;
-      line-height: 1;
+      line-height: 0.5;
       position: absolute;
       top: 11px;
       z-index: 3;
@@ -113,14 +113,14 @@ a {
   transition: color 0.2s ease;
 }
 
-/* hover = lighter */
-.logo-name:hover {
+.logo-box:hover .logo-name {
   color: #660033;
 }
 
+
 /* click / press = even lighter */
 .logo-name:active {
-  color: #9a4d6f;
+  color: #660033;
 }
 
 
@@ -212,6 +212,22 @@ a {
   
 }
 
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #660033;
+}
+
+/* MOBILE SOCIALS (INSIDE MENU) */
+.mobile-socials {
+  display: none;
+  gap: 18px;
+}
 /* ---------- SECTION BUTTONS ---------- */
 .section-buttons {
   position: sticky;
@@ -302,6 +318,51 @@ a {
   max-height: 90%;
   border-radius: 12px;
 }
+  
+  /* ======================================================
+   MOBILE OVERRIDES
+====================================================== */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .top-nav {
+    position: fixed;
+    inset: 0;
+    background: #f5f1e6;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    gap: 28px;
+    z-index: 1000;
+  }
+
+  .top-nav.open {
+    display: flex;
+  }
+
+  .mobile-socials {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  .social-icons {
+    display: none;
+  }
+  
+  .photo-grid {
+    columns: unset;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+
 </style>
 </head>
 
@@ -318,26 +379,32 @@ a {
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
+  <button class="menu-toggle">☰</button>
+
   <nav class="top-nav">
     <a href="about.html">About</a>
     <a href="gallery.html">Gallery</a>
-    <a href="projects.html">Projects</a>
+    <a href="project.html">Projects</a>
+
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+        <img src="linkedIn.png" alt="LinkedIn">
+      </a>
+    </div>
   </nav>
 
-   <div class="social-icons">
-    <a <a href="https://www.instagram.com/conte.ntbys" 
-   class="social-circle instagram" 
-   target="_blank">
-  <img src="instagram.png" alt="Instagram">
-</a>
-
+  <div class="social-icons">
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
-   class="social-circle linkedin"
-   target="_blank">
-  <img src="linkedIn.png" alt="LinkedIn">
-</a>
-
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+      <img src="linkedIn.png" alt="LinkedIn">
+    </a>
   </div>
 </header>
 
@@ -437,6 +504,17 @@ function openLightbox(img) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+</script>
+
+  <script>
+const toggleBtn = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".top-nav");
+
+toggleBtn.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  toggleBtn.textContent = isOpen ? "✕" : "☰";
+  document.body.style.overflow = isOpen ? "hidden" : "";
+});
 </script>
 
 </body>

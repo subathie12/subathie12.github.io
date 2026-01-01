@@ -50,7 +50,9 @@ a {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
-/* ---------- NAV ---------- */
+/* ======================================================
+   NAVBAR (DESKTOP FIRST)
+====================================================== */
 .topbar {
       width: 100%;
       padding: 24px 40px;
@@ -86,9 +88,9 @@ a {
       font-family: 'TanWhistling';
       font-size: 45px;
       color: #fff;
-      line-height: 1;
+      line-height: 0.5;
       position: absolute;
-      top: 11px;
+      top: 18px;
       z-index: 3;
     }
 
@@ -111,14 +113,14 @@ a {
   transition: color 0.2s ease;
 }
 
-/* hover = lighter */
-.logo-name:hover {
+.logo-box:hover .logo-name {
   color: #660033;
 }
 
+
 /* click / press = even lighter */
 .logo-name:active {
-  color: #9a4d6f;
+  color: #660033;
 }
 
 
@@ -211,6 +213,22 @@ a {
 }
 
 
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #660033;
+}
+
+/* MOBILE SOCIALS (INSIDE MENU) */
+.mobile-socials {
+  display: none;
+  gap: 18px;
+}
+
 /* ---------- PAGE ---------- */
 .page {
   max-width: 1400px;
@@ -232,20 +250,20 @@ a {
 
 /* ---------- PROCESS SECTION ---------- */
 .process {
-  margin: 90px 0;
+  margin: 60px 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;
 
   border: 1px solid rgba(0,0,0,0.18);
   border-radius: 26px;
-padding: 24px 56px 56px;
+  padding: 24px 56px 56px;
   background: rgba(255,255,255,0.35);
 
-  /* 👇 move content toward top */
   align-items: start;
-  justify-items: center;
+  justify-items: stretch; /* ✅ allow full width */
 }
+
 
 .process-trigger {
   display: flex;
@@ -267,9 +285,24 @@ padding: 24px 56px 56px;
 .process-trigger p {
   font-size: 16px;
   color: #666;
-  line-height: ;
+  line-height: 1.6;
 }
 
+.process-content {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: left;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.4s ease;
+}
+
+.process-content.open {
+  max-height: 600px;
+  opacity: 1;
+}
 
 
 /* ---------- PANELS ---------- */
@@ -280,41 +313,17 @@ padding: 24px 56px 56px;
   to { opacity: 1; transform: translateY(0); }
 }
 
+
+
 /* ---------- MOBILE ---------- */
 @media (max-width: 900px) {
-  .page { padding: 0 28px; }
+  .page {
+    padding: 0 28px;
+  }
 
   .process {
-    grid-template-columns: 1fr;
     padding: 36px;
-  }
-
-  .process-content {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ---------- ANIMATION ---------- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- MOBILE ---------- */
-@media (max-width: 900px) {
-  .page { padding: 0 32px; }
-
-  .process {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  
- 
-
-  .process-content {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
   }
 }
 
@@ -432,6 +441,64 @@ padding: 24px 56px 56px;
     grid-template-columns: 1fr;
   }
 }
+  
+ /* ======================================================
+   MOBILE OVERRIDES
+====================================================== */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .top-nav {
+    position: fixed;
+    inset: 0;
+    background: #f5f1e6;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    gap: 28px;
+    z-index: 1000;
+  }
+
+  .top-nav.open {
+    display: flex;
+  }
+
+  .mobile-socials {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  .social-icons {
+    display: none;
+  }
+  .page { padding: 0 28px; }
+
+  .process {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+
+  .process-content {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: left;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.6s ease, opacity 0.4s ease;
+  }
+
+  .process-content.open {
+    max-height: 600px;
+    opacity: 1;
+  }
+  }
 </style>
 </head>
 
@@ -440,39 +507,49 @@ padding: 24px 56px 56px;
 <header class="topbar">
   <div class="logo-box">
     <div class="logo-icon">
-      <span class="s">S</span><span class="n">N</span>
+      <span class="s">S</span>
+      <span class="n">N</span>
     </div>
     <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
   </div>
 
+  <button class="menu-toggle">☰</button>
+
   <nav class="top-nav">
     <a href="about.html">About</a>
     <a href="gallery.html">Gallery</a>
-    <a href="projects.html">Projects</a>
+    <a href="project.html">Projects</a>
+
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+        <img src="instagram.png" alt="Instagram">
+      </a>
+      <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+        <img src="linkedIn.png" alt="LinkedIn">
+      </a>
+    </div>
   </nav>
 
   <div class="social-icons">
- <a href="https://www.instagram.com/conte.ntbys" 
-   class="social-circle instagram" 
-   target="_blank">
-  <img src="instagram.png" alt="Instagram">
-</a>
-
-
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
     <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
-    <a href="https://www.linkedin.com/in/subathie-n-46a388279"
-   class="social-circle linkedin"
-   target="_blank">
-  <img src="linkedIn.png" alt="LinkedIn">
-</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+      <img src="linkedIn.png" alt="LinkedIn">
+    </a>
+  </div>
 </header>
-
 <div class="page">
 
   <!-- PROCESS SECTION -->
-<section class="process slide-in-up">
+  <section class="process slide-in-up">
   <div class="process-trigger" id="toggleProcess">
     <h1>Portfolio Creation</h1>
+  </div>
+
+  <div class="process-content" id="processContent">
     <p>
       This portfolio was brought to life through two main steps; 
       <strong>Design</strong> and <strong>Build</strong>.<br></br>
@@ -483,8 +560,6 @@ padding: 24px 56px 56px;
   </div>
 </section>
 
-
-</div>
 
 <section class="mockup-hero slide-in-up">
   <h2>Mock-ups</h2>
@@ -508,24 +583,6 @@ padding: 24px 56px 56px;
     </div>
   </div>
 </div>
-
-<script>
-const toggle = document.getElementById("toggleProcess");
-const content = document.getElementById("processContent");
-
-toggle.addEventListener("click", () => {
-  content.classList.toggle("open");
-});
-
-document.querySelectorAll(".step").forEach(step => {
-  step.addEventListener("click", () => {
-    document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
-    document.querySelectorAll(".step-panel").forEach(p => p.classList.remove("active"));
-    step.classList.add("active");
-    document.getElementById(step.dataset.step).classList.add("active");
-  });
-});
-</script>
 
 <script>
   const mockupMeta = {
@@ -594,6 +651,47 @@ fetch("https://api.github.com/repos/subathie12/subathie12.github.io/contents/wor
 
 </script>
 <script>
+/* ===============================
+   PORTFOLIO CREATION TOGGLE
+================================ */
+const processToggle = document.getElementById("toggleProcess");
+const processContent = document.getElementById("processContent");
+
+processToggle.addEventListener("click", () => {
+  processContent.classList.toggle("open");
+});
+
+/* ===============================
+   MOBILE NAV
+================================ */
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".top-nav");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+  document.body.style.overflow = isOpen ? "hidden" : "";
+});
+
+/* ===============================
+   SLIDE-IN ANIMATIONS
+================================ */
+const slideObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      slideObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".slide-in-up").forEach(el =>
+  slideObserver.observe(el)
+);
+
+/* ===============================
+   LIGHTBOX
+================================ */
 function openLightbox(src, title, desc) {
   document.getElementById("lightbox-img").src = src;
   document.getElementById("lightbox-title").textContent = title;
@@ -608,26 +706,6 @@ function closeLightbox(e) {
 }
 </script>
 
-<script>
-const slideObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        slideObserver.unobserve(entry.target); // animate once
-      }
-    });
-  },
-  {
-    threshold: 0.15,
-    rootMargin: "0px 0px -60px 0px"
-  }
-);
-
-document.querySelectorAll(".slide-in-up").forEach(el =>
-  slideObserver.observe(el)
-);
-</script>
 
 </body>
 </html>

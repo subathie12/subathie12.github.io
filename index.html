@@ -42,6 +42,29 @@ a {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
+/* ===== TYPOGRAPHY SCALE ===== */
+h1 {
+  font-family: 'BrownSugar';
+  font-size: clamp(36px, 6vw, 52px);
+}
+
+h2 {
+  font-family: 'BrownSugar';
+  font-size: clamp(30px, 4.5vw, 40px);
+}
+
+h3 {
+  font-family: 'BrownSugar';
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+
 /* ======================================================
    NAVBAR (DESKTOP FIRST)
 ====================================================== */
@@ -254,12 +277,10 @@ a {
 
 .hero-title {
   font-family: 'BrownSugar';
-  font-size: clamp(32px, 6vw, 58px);
 }
 
 .hero-sub {
   margin-top: 20px;
-  font-size: clamp(15px, 2.5vw, 18px);
   color: #4a4a4a;
   line-height: 1.5;
 }
@@ -275,7 +296,6 @@ a {
 
 .snippet-title {
   font-family: 'BrownSugar';
-  font-size: 38px;
   margin-bottom: 30px;
 }
 
@@ -302,7 +322,6 @@ a {
 
 .photo-card p {
   padding: 12px 16px;
-  font-size: 15px;
 }
 
 /* ======================================================
@@ -317,7 +336,6 @@ a {
 
 .footer-hero h2 {
   font-family: 'BrownSugar';
-  font-size: 42px;
 }
 
 /* ======================================================
@@ -369,6 +387,18 @@ a {
   .arch-wrapper {
     max-width: 260px;
     height: 360px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 26px; }
+  h3 { font-size: 20px; }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
   }
 }
 

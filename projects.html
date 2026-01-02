@@ -51,6 +51,28 @@ a {
   src: url('Brown-Sugar-Regular.otf') format('opentype');
 }
 
+  /* ===== TYPOGRAPHY SCALE ===== */
+h1 {
+  font-family: 'BrownSugar';
+  font-size: clamp(36px, 6vw, 52px);
+}
+
+h2 {
+  font-family: 'BrownSugar';
+  font-size: clamp(30px, 4.5vw, 40px);
+}
+
+h3 {
+  font-family: 'BrownSugar';
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
 /* ======================================================
    NAVBAR (DESKTOP FIRST)
 ====================================================== */
@@ -279,12 +301,10 @@ a {
 
 
 .process-trigger h3 {
-  font-size: 42px;
   margin-bottom: 10px;
 }
 
 .process-trigger p {
-  font-size: 16px;
   color: #666;
   line-height: 1.6;
   margin-top: 0;
@@ -327,12 +347,10 @@ a {
 
 .mockup-hero h2 {
   font-family: 'BrownSugar';
-  font-size: 48px;
   margin-bottom: 16px;
 }
 
 .mockup-hero p {
-  font-size: 18px;
   color: #555;
   line-height: 1.6;
 }
@@ -376,12 +394,10 @@ a {
 }
 
 .bento-card h3 {
-  font-size: 18px;
   margin-bottom: 4px;
 }
 
 .bento-card p {
-  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -500,15 +516,23 @@ a {
 }
 
 .bento-card h3 {
-  font-size: 16px; 
 }
 
 .bento-card p {
-  font-size: 13px; 
   line-height: 1.4; 
 }
-
   }
+
+  @media (max-width: 768px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 26px; }
+  h3 { font-size: 20px; }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
 </style>
 </head>
 

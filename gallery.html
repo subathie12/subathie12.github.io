@@ -38,6 +38,10 @@ a {
   color: inherit;
 }
 
+  :root {
+  --email-shadow: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.3));
+}
+
 /* -----------------------------------------
    CUSTOM FONTS
 ----------------------------------------- */
@@ -422,7 +426,7 @@ p {
   height: auto;
   border-radius: 0;
   padding: 0;
-  font-size: 30px; /* adjust if needed */
+  font-size: 50px; /* adjust if needed */
 }
 
 
@@ -480,18 +484,19 @@ p {
   }
 
   .social-circle.email {
-    font-size: 18px;
+    font-size: 30px;
   }
 }
   .social-circle img {
-    padding: 2px;
+    padding: 0px;
   }
 }
 
 @media (max-width: 768px) {
   .social-circle.email {
     font-size: 18px;
-    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.22));
+    transform: translateY(-5px) scale(1.2);
+    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.3));
   }
 }
 

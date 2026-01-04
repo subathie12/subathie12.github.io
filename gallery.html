@@ -198,10 +198,12 @@ p {
   align-items: center;
   justify-content: center;
 
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  background: #7b011e;
 
+  overflow: hidden; /* 🔑 THIS is what makes them look like Instagram */
   background: #7b011e;
   color: #fff;
 
@@ -218,14 +220,14 @@ p {
 }
 
  .social-circle img {
-  width: 100%;
+ width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;   /* 🔑 crops LinkedIn like Instagram */
   border-radius: 50%;
-  padding: 0;
   display: block;
+  padding: 0;
 }
-
+  
 /* optional: subtle hover polish */
 .social-circle.instagram:hover {
   transform: scale(1.05);
@@ -274,14 +276,11 @@ p {
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
 }
 
-
-
 /* Prevent hover effects on email */
 .social-circle.email:hover {
   transform: none !important;
   box-shadow: none !important;
 }
-
 
 /* HAMBURGER */
 .menu-toggle {
@@ -298,6 +297,7 @@ p {
   display: none;
   gap: 18px;
 }
+  
 /* ---------- SECTION BUTTONS ---------- */
 .section-buttons {
   position: sticky;

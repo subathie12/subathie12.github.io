@@ -76,9 +76,6 @@ p {
 /* ======================================================
    NAVBAR (DESKTOP FIRST)
 ====================================================== */
-/* ======================================================
-   NAVBAR (DESKTOP FIRST)
-====================================================== */
 .topbar {
       width: 100%;
       padding: 24px 40px;
@@ -88,8 +85,9 @@ p {
       background: #f5f1e6;
       border-bottom: 1px solid #660033;
       position: sticky;
-      top: 0;
-      z-index: 20;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     }
 
     .logo-box {
@@ -192,39 +190,50 @@ p {
     }
 
     .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #7b011e;
-      color: #111;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  background: #7b011e;
+  color: #fff;
+
+  position: relative;
+  transform: translateY(-4px); /* 👈 makes it pop out */
+
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
  .social-circle img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* 🔑 change this */
-  padding: 4px;          /* optional fine-tuning */
-  background: none;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 0;
+  display: block;
 }
-
 
 /* optional: subtle hover polish */
 .social-circle.instagram:hover {
   transform: scale(1.05);
 }
 
+.social-circle:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
 
-    .social-circle:hover {
-      background: #fb;
-      color: #fff;
-    }
-  
 
 
 /* subtle hover polish */
@@ -232,15 +241,42 @@ p {
   transform: scale(1.05);
   
 }
-  .social-circle.email {
-  background: none;
+  /* EMAIL ICON — SHADOW ONLY, NO SHAPE */
+.social-circle.email {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
   width: auto;
   height: auto;
-  border-radius: 0;
   padding: 0;
-  font-size: 30px; /* adjust if needed */
+
+  font-size: 30px;
+  line-height: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-4px);
+
+  /* 🔑 shadow follows the emoji itself */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
 }
 
+/* No hover lift for email */
+.social-circle.email:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+
+
+/* Prevent hover effects on email */
+.social-circle.email:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
 
 
 /* HAMBURGER */
@@ -433,23 +469,32 @@ p {
     gap: 10px;
   }
 
-  .social-circle {
+.social-circle {
     width: 36px;
     height: 36px;
+    transform: translateY(-3px);
   }
 
-  .social-circle img {
-    padding: 2px;
+  .social-circle:hover {
+    transform: translateY(-6px);
   }
 
   .social-circle.email {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-    background: none;
+    font-size: 18px;
   }
 }
-  
+  .social-circle img {
+    padding: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-circle.email {
+    font-size: 18px;
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.22));
+  }
+}
+
 
 @media (max-width: 768px) {
   h1 { font-size: 32px; }
@@ -487,11 +532,11 @@ p {
 
     <div class="mobile-socials">
       <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
-        <img src="instagram.png" alt="Instagram">
+        <img src="Instagram-icon-illustration-on-transparent-background-PNG.png" alt="Instagram">
       </a>
 <a href="mailto:subathienudara3@gmail.com" class="social-circle email">📧</a>
       <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
-        <img src="linkedIn.png" alt="LinkedIn">
+        <img src="linkedin-logo-linkedin-icon-transparent-free-png.webp" alt="LinkedIn">
       </a>
     </div>
   </nav>

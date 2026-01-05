@@ -198,8 +198,8 @@ p {
   align-items: center;
   justify-content: center;
 
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #7b011e;
 
@@ -388,7 +388,16 @@ p {
   max-height: 90%;
   border-radius: 12px;
 }
-  
+
+  .social-circle.email {
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
   /* ======================================================
    MOBILE OVERRIDES
 ====================================================== */
@@ -500,6 +509,12 @@ p {
   }
 }
 
+@media (max-width: 768px) {
+  .social-circle.email {
+    box-shadow: none !important;
+    filter: drop-shadow(0 5px 8px rgba(0,0,0,0.3)); /* emoji-only shadow */
+  }
+}
 
 @media (max-width: 768px) {
   h1 { font-size: 32px; }

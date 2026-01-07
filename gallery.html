@@ -403,7 +403,7 @@ p {
 ====================================================== */
 @media (max-width: 768px) {
 
-  .menu-toggle {
+ .menu-toggle {
     display: block;
     z-index: 1001;
   }
@@ -418,30 +418,19 @@ p {
     display: none;
     gap: 28px;
     z-index: 1000;
-     padding: 16px 20px;
   }
 
   .top-nav.open {
     display: flex;
   }
 
-  .social-icons {
-    display: none;
-  }
-
-  .social-circle.email {
-  background: none;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  padding: 0;
-  font-size: 50px; /* adjust if needed */
-}
-
-
   .mobile-socials {
     display: flex;
     margin-top: 40px;
+  }
+
+  .social-icons {
+    display: none;
   }
   
  .photo-grid {
@@ -482,11 +471,7 @@ p {
     gap: 10px;
   }
 
-.social-circle {
-    width: 36px;
-    height: 36px;
-    transform: translateY(-3px);
-  }
+
 
   .social-circle:hover {
     transform: translateY(-6px);
@@ -495,21 +480,22 @@ p {
   .social-circle.email {
     font-size: 37px;
   }
-}
   .social-circle img {
     padding: 0px;
   }
-}
 
-@media (max-width: 768px) {
-  .social-circle.email {
-    font-size: 18px;
-    transform: translateY(-5px) scale(1.2);
-    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.3));
+ .social-circle {
+    width: 30px;
+    height: 30px;
+    transform: translateY(-4px);
   }
-}
 
-@media (max-width: 768px) {
+  .social-circle.email {
+    font-size: 30px;
+    transform: translateY(-4px);
+  }
+
+}
   .social-circle.email {
     box-shadow: none !important;
     filter: drop-shadow(0 5px 8px rgba(0,0,0,0.3)); /* emoji-only shadow */

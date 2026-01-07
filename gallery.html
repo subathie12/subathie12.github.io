@@ -527,6 +527,45 @@ p {
   }
 }
 
+  /* ===== KILL ALL HOVER / FOCUS / TAP INDICATORS ON EMAIL ICON ===== */
+
+.social-circle.email,
+.social-circle.email:focus,
+.social-circle.email:active,
+.social-circle.email:hover {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.social-circle.email::after,
+.social-circle.email::before {
+  display: none !important;
+  content: none !important;
+}
+
+.email-icon,
+.email-icon:focus,
+.email-icon:active,
+.email-icon:hover {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* iOS / Android tap highlight kill */
+.social-circle.email {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Safari injected focus ring */
+a:focus-visible {
+  outline: none !important;
+}
+
+
 </style>
 </head>
 
@@ -555,6 +594,7 @@ p {
         <img src="Instagram-icon-illustration-on-transparent-background-PNG.png" alt="Instagram">
       </a>
 <a href="mailto:subathienudara3@gmail.com" class="social-circle email">📧</a>
+        <span class="email-icon">📧</span>
       <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
         <img src="linkedin-icon-logo-png_seeklogo-249364.png" alt="LinkedIn">
       </a>

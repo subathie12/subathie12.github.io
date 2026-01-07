@@ -4,15 +4,26 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subathie's Portfolio | Home</title>
-
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 
 <style>
+ .animate-on-scroll { opacity: 0; }
+/* ---------- ZOOM-IN ON SCROLL ---------- */
+.zoom-on-scroll {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-/* ======================================================
-   GLOBAL
-====================================================== */
+.zoom-on-scroll.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- GLOBAL ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -21,18 +32,19 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+/* REMOVE UNDERLINES EVERYWHERE */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-.animate-on-scroll {
-  opacity: 0;
+  :root {
+  --email-shadow: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* ======================================================
-   FONTS
-====================================================== */
+/* -----------------------------------------
+   CUSTOM FONTS
+----------------------------------------- */
 @font-face {
   font-family: 'TanWhistling';
   src: url('TAN WHISTLING Regular.otf') format('opentype');
@@ -68,9 +80,6 @@ p {
 /* ======================================================
    NAVBAR (DESKTOP FIRST)
 ====================================================== */
-/* ======================================================
-   NAVBAR (DESKTOP FIRST)
-====================================================== */
 .topbar {
       width: 100%;
       padding: 24px 40px;
@@ -80,8 +89,9 @@ p {
       background: #f5f1e6;
       border-bottom: 1px solid #660033;
       position: sticky;
-      top: 0;
-      z-index: 20;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     }
 
     .logo-box {
@@ -184,52 +194,93 @@ p {
     }
 
     .social-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #7b011e;
-      color: #111;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-  /* Instagram image inside circle */
-.social-circle.instagram img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+  background: #7b011e;
+
+  overflow: hidden; /* 🔑 THIS is what makes them look like Instagram */
+  background: #7b011e;
+  color: #fff;
+
+  position: relative;
+  transform: translateY(-4px); /* 👈 makes it pop out */
+
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+ .social-circle img {
+ width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 🔑 crops LinkedIn like Instagram */
+  border-radius: 50%;
+  display: block;
+  padding: 0;
+}
+  
 /* optional: subtle hover polish */
 .social-circle.instagram:hover {
   transform: scale(1.05);
 }
 
-
-    .social-circle:hover {
-      background: #fb;
-      color: #fff;
-    }
-  
-  /* Social image icons */
-.social-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.social-circle:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
+
+
 
 /* subtle hover polish */
 .social-circle:hover {
   transform: scale(1.05);
   
 }
+  /* EMAIL ICON — SHADOW ONLY, NO SHAPE */
+.social-circle.email {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 
+  width: auto;
+  height: auto;
+  padding: 0;
+
+  font-size: 30px;
+  line-height: 1;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-4px);
+
+  /* 🔑 shadow follows the emoji itself */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* No hover lift for email */
+.social-circle.email:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* Prevent hover effects on email */
+.social-circle.email:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
 
 /* HAMBURGER */
 .menu-toggle {
@@ -341,6 +392,14 @@ p {
   font-family: 'BrownSugar';
 }
 
+.social-circle.email {
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
 /* ======================================================
    MOBILE OVERRIDES
 ====================================================== */
@@ -361,19 +420,21 @@ p {
     display: none;
     gap: 28px;
     z-index: 1000;
+    padding: 16px 20px;
   }
 
   .top-nav.open {
     display: flex;
   }
 
-  .mobile-socials {
-    display: flex;
-    margin-top: 40px;
-  }
-
   .social-icons {
     display: none;
+  }
+
+  .mobile-socials {
+    display: flex;
+    margin-top: 32px;
+    gap: 10px;
   }
 
   .hero-arch {
@@ -391,10 +452,25 @@ p {
     max-width: 260px;
     height: 360px;
   }
-}
 
+  .social-circle {
+    width: 36px;
+    height: 36px;
+    transform: translateY(-3px);
+  }
 
-@media (max-width: 768px) {
+  .social-circle:hover {
+    transform: translateY(-6px);
+  }
+
+  .social-circle.email {
+    font-size: 30px;
+    transform: translateY(-5px) scale(1.2);
+    filter: drop-shadow(0 5px 8px rgba(0,0,0,0.3));
+    background: none;
+    box-shadow: none;
+  }
+
   h1 { font-size: 32px; }
   h2 { font-size: 26px; }
   h3 { font-size: 20px; }
@@ -455,24 +531,24 @@ p {
     <a href="gallery.html">Gallery</a>
     <a href="projects.html">Projects</a>
 
-    <div class="mobile-socials">
+   <div class="mobile-socials">
       <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
-        <img src="instagram.png" alt="Instagram">
+        <img src="Instagram-icon-illustration-on-transparent-background-PNG.png" alt="Instagram">
       </a>
-      <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+<a href="mailto:subathienudara3@gmail.com" class="social-circle email">📧</a>
       <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
-        <img src="linkedIn.png" alt="LinkedIn">
+        <img src="linkedin-icon-logo-png_seeklogo-249364.png" alt="LinkedIn">
       </a>
     </div>
   </nav>
 
   <div class="social-icons">
     <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
-      <img src="instagram.png" alt="Instagram">
+      <img src="Instagram-icon-illustration-on-transparent-background-PNG.png" alt="Instagram">
     </a>
-    <a href="mailto:subathienudara3@gmail.com" class="social-circle">📧</a>
+<a href="mailto:subathienudara3@gmail.com" class="social-circle email">📧</a>
     <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
-      <img src="linkedIn.png" alt="LinkedIn">
+      <img src="linkedin-icon-logo-png_seeklogo-249364.png" alt="LinkedIn">
     </a>
   </div>
 </header>

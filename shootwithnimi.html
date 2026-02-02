@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subathie's Portfolio | Shoot with nimi </title>
+<title>Subathie's Portfolio | Home</title>
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -298,225 +298,46 @@ p {
   gap: 18px;
 }
 
-/* ---------- PAGE ---------- */
-.page {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 60px;
-}
 
-/* ---------- SLIDE-UP ANIMATION ---------- */
-.slide-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
+  /* ======================================================
+     HORIZONTAL SCROLL LOOKBOOK
+     (Matches the "first image" vibe)
+  ====================================================== */
+  .hscroll{
+    display:flex;
+    gap: 22px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px 6px 18px;
 
-.slide-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 
-/* ---------- PROCESS SECTION ---------- */
-.process {
-  margin: 50px 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
 
-  border: 1px solid rgba(0,0,0,0.18);
-  border-radius: 22px;
-  padding: 24px 40px 32px;
-  background: rgba(255,255,255,0.35);
-
-  align-items: start;
-}
-
-
-.process-trigger {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
- .process-trigger h1 {
-  font-family: 'BrownSugar';
-  font-size: clamp(24px, 3.5vw, 52px);
-  margin-bottom: 6px;
-}
-
-
-.process-trigger h3 {
-  margin-bottom: 10px;
-}
-
-.process-trigger p {
-  color: #666;
-  line-height: 1.6;
-  margin-top: 0;
-}
-
-.process-content {
- width: 100%;
-  text-align: center;
-}
-
-.process-content p {
-  font-size: 15px;
-  line-height: 1.65;
-  margin-bottom: 10px;
-}
-
-
-
-
-/* ---------- PANELS ---------- */
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-
-
-/* ---------- HERO ---------- */
-.mockup-hero {
-  max-width: 900px;
-  margin: 40px auto 70px;
-  text-align: center;
-}
-
-.mockup-hero h2 {
-  font-family: 'BrownSugar';
-  font-size: clamp(32px, 5vw, 48px);
-  margin-bottom: 12px;
-}
-
-.mockup-hero p {
-  max-width: 520px;
-  margin: 0 auto;
-  font-size: 15px;
-}
-
-/* ---------- BENTO GRID ---------- */
-.bento-section {
-  max-width: 1400px;
-  margin: auto;
-  padding: 0 60px 120px;
-}
-
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ✅ always 3 */
-  gap: 28px; /* slightly tighter */
-}
-
-
-.bento-card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: transform .10s ease, box-shadow .10s ease;
-}
-
-.bento-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.14);
-}
-
-.bento-card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-}
-
-.bento-card .content {
-  padding: 18px 16px 20px;
-}
-
-
-.bento-card h3 {
-  font-size: 17px;
-  line-height: 1.3;
-  margin-bottom: 6px;
-}
-
-
-.bento-card p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #555;
-}
-
-
-/* ---------- LIGHTBOX ---------- */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.lightbox-inner {
-  background: #FBF7F2;
-  border-radius: 20px;
-  max-width: 1100px;
-  width: 90%;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 24px;
-  padding: 24px;
-}
-
-.lightbox img {
-  width: 100%;
-  max-height: 80vh;
-  border-radius: 16px;
-  object-fit: contain;
-}
-
-.lightbox-text h3 {
-  font-family: 'BrownSugar';
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.lightbox-text p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-}
-
-@media(max-width: 800px) {
-  .lightbox-inner {
-    grid-template-columns: 1fr;
+    /* makes it feel like the reference */
+    border-radius: 18px;
   }
-}
- 
-/* MOBILE SOCIALS (INSIDE MENU) */
-.mobile-socials {
-  display: none;
-  gap: 18px;
-}
- .social-circle.email {
-  width: auto !important;
-  height: auto !important;
-  background: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  overflow: visible !important;
-}
+  .hscroll:active{ cursor: grabbing; }
 
-  
- /* ======================================================
+  .hscroll img{
+    flex: 0 0 auto;
+    width: clamp(200px, 20vw, 400px);
+    height: clamp(0px, 40vw, 220px);
+    object-fit: cover;
+    border-radius: 18px;
+    scroll-snap-align: start;
+    box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+    background:#eee;
+  }
+
+  /* scrollbar nice */
+  .hscroll::-webkit-scrollbar{ height: 10px; }
+  .hscroll::-webkit-scrollbar-track{ background: rgba(0,0,0,0.06); border-radius: 999px; }
+
+  /* ======================================================
    MOBILE OVERRIDES
 ====================================================== */
 @media (max-width: 768px) {
@@ -536,70 +357,39 @@ p {
     display: none;
     gap: 28px;
     z-index: 1000;
+    padding: 16px 20px;
   }
 
   .top-nav.open {
     display: flex;
   }
 
-  .mobile-socials {
-    display: flex;
-    margin-top: 40px;
-  }
-
   .social-icons {
     display: none;
   }
-  .page { padding: 0 28px; }
 
-   @media (max-width: 768px) {
-
-  .process {
-    margin: 36px 0;
-    padding: 20px 22px;
-    border-radius: 18px;
+  .mobile-socials {
+    display: flex;
+    margin-top: 32px;
+    gap: 10px;
   }
 
-  .process-trigger h1 {
-    font-size: 35px;
+  .social-circle:hover {
+    transform: translateY(-6px);
   }
 
-  .process-content p {
-    font-size: 14.5px;
-    line-height: 1.6;
+  .social-circle {
+    width: 30px;
+    height: 30px;
+    transform: translateY(-4px);
   }
 
-  /* ---------- MOBILE BENTO REFINEMENT ---------- */
-  .bento-section {
-    padding: 0 20px 80px;
+  .social-circle.email {
+    font-size: 30px;
+    transform: translateY(-4px);
   }
 
-  .bento-grid {
-    grid-template-columns: 1fr; 
-    gap: 24px;
-  }
 
-  .bento-card .content {
-    padding: 16px;
-  }
-
-  .mockup-hero {
-    margin-bottom: 48px;
-  }
-
-  .bento-card img {
-    height: 180px;
-  }
-
-  .bento-card h3 {
-    font-size: 24px;
-  }
-
-  .bento-card p {
-    font-size: 15px;
-  }
-
-  @media (max-width: 768px) {
   h1 { font-size: 32px; }
   h2 { font-size: 26px; }
   h3 { font-size: 20px; }
@@ -610,7 +400,36 @@ p {
   }
 }
 
-/* ===== KILL ALL HOVER / FOCUS / TAP INDICATORS ON EMAIL ICON ===== */
+/* ======================================================
+   LIGHTBOX
+====================================================== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  animation: zoomFade 0.35s ease;
+}
+
+@keyframes zoomFade {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+  /* ===== KILL ALL HOVER / FOCUS / TAP INDICATORS ON EMAIL ICON ===== */
 
 .social-circle.email,
 .social-circle.email:focus,
@@ -647,4 +466,114 @@ p {
 a:focus-visible {
   outline: none !important;
 }
+
+
 </style>
+</head>
+
+<body>
+
+<body>
+
+<header class="topbar">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <span class="s">S</span>
+      <span class="n">N</span>
+    </div>
+    <a href="index.html" class="logo-name">SUBATHIE<br>NAVANIETHAN</a>
+  </div>
+
+  <button class="menu-toggle">☰</button>
+
+  <nav class="top-nav">
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="projects.html">Projects</a>
+
+   <div class="mobile-socials">
+      <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+        <img src="Instagram-icon-illustration-on-transparent-background-PNG.png" alt="Instagram">
+      </a>
+<a href="mailto:subathienudara3@gmail.com" class="social-circle email">📧</a>
+      <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+        <img src="linkedin-icon-logo-png_seeklogo-249364.png" alt="LinkedIn">
+      </a>
+    </div>
+  </nav>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/conte.ntbys" class="social-circle" target="_blank">
+      <img src="Instagram-icon-illustration-on-transparent-background-PNG.png" alt="Instagram">
+    </a>
+<a href="mailto:subathienudara3@gmail.com" class="social-circle email">📧</a>
+    <a href="https://www.linkedin.com/in/subathie-n-46a388279" class="social-circle" target="_blank">
+      <img src="linkedin-icon-logo-png_seeklogo-249364.png" alt="LinkedIn">
+    </a>
+  </div>
+</header>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+
+<main class="page">
+  <h1>Gallery</h1>
+  <p class="hint">Scroll sideways or click + drag.</p>
+
+  <h2>Lookbook</h2>
+
+  <!-- ✅ THIS goes in the BODY, not inside <style> -->
+  <div class="hscroll" id="hscroll">
+    <img src="1-DSC02950.jpg" alt="Image 1">
+    <img src="1-DSC03455.jpg" alt="Image 2">
+    <img src="10-DSC03572.jpg" alt="Image 3">
+    <img src="2-DSC02951.jpg" alt="Image 4">
+    <img src="2-DSC03354.jpg" alt="Image 5">
+    <img src="3-DSC02957.jpg" alt="Image 6">
+    <img src="3-DSC03326.jpg" alt="Image 7">
+    <img src="4-DSC02983.jpg" alt="Image 8">
+    <img src="4-DSC03323.jpg" alt="Image 9">
+    <img src="5-DSC03099.jpg" alt="Image 10">
+    <img src="5-DSC03311.jpg" alt="Image 11">
+    <img src="6-DSC03122.jpg" alt="Image 12">
+    <img src="6-DSC03308.jpg" alt="Image 13">
+    <img src="7-DSC03272.jpg" alt="Image 14">
+    <img src="7-DSC03305.jpg" alt="Image 15">
+    <img src="8-DSC03308.jpg" alt="Image 16">
+    <img src="9-DSC03411.jpg" alt="Image 17">
+
+  </div>
+</main>
+
+<script>
+  // mobile nav toggle
+  const menuBtn = document.getElementById("menuBtn");
+  const navMenu = document.getElementById("navMenu");
+  menuBtn?.addEventListener("click", () => navMenu.classList.toggle("open"));
+
+  // drag-to-scroll (desktop)
+  const scroller = document.getElementById("hscroll");
+  let dragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+
+  scroller.addEventListener("mousedown", (e) => {
+    dragging = true;
+    startX = e.pageX;
+    startScrollLeft = scroller.scrollLeft;
+  });
+
+  window.addEventListener("mouseup", () => dragging = false);
+
+  scroller.addEventListener("mousemove", (e) => {
+    if (!dragging) return;
+    e.preventDefault();
+    const walk = (e.pageX - startX) * 1.2;
+    scroller.scrollLeft = startScrollLeft - walk;
+  });
+</script>
+
+</body>
+</html>
